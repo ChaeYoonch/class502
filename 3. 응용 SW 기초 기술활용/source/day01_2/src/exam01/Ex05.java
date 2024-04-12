@@ -10,7 +10,7 @@ public class Ex05 {
         // num2 = 40;
 
         final int num3;
-        num3 = 30; // 최초 1번만 상수는 대입 가능
+        num3 = 30; // 최초 1 번만 상수는 대입 가능
 
         // num3 = 40;
 
