@@ -5,10 +5,10 @@ public class Q01 { // 변수 두 개 선언해서 20과 3.0을 대입 + 두 변�
         int num1 = 20;
         double num2 = 3.0; // 형 변환 필요!
 
-        int result = (int)(num1 * num2);  // int num1 -> double
-        System.out.println(result);
+        /* int result = (int)(num1 * num2);  // int num1 -> double
+        System.out.println(result); */
 
-        /* int result1 = (int)(num1 * num2); // int num1 -> double 로 자동 형변환
+         int result1 = (int)(num1 * num2); // int num1 -> double 로 자동 형변환
         System.out.println(result1);
 
          int result2 = (int)(num1 + num2);
@@ -18,6 +18,6 @@ public class Q01 { // 변수 두 개 선언해서 20과 3.0을 대입 + 두 변�
         System.out.println(result3);
 
         int result4 = (int)(num1 / num2);
-        System.out.println(result4); */
+        System.out.println(result4);
     }
 }
