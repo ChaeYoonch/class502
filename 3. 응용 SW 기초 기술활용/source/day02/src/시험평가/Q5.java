@@ -2,7 +2,7 @@ package 시험평가;
 
 import java.util.Arrays;
 
-public class Q5 { // int[] nums = { 21, 22, 30, 11, 99, 31 };
+public class Q5 {
     public static void main(String[] args) {
         int[] nums = {21, 22, 30, 11, 99, 31};
 
@@ -15,4 +15,3 @@ public class Q5 { // int[] nums = { 21, 22, 30, 11, 99, 31 };
         System.out.println(Arrays.toString(answer));
     }
 }
-
