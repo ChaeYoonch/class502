@@ -10,7 +10,7 @@ public class Ex04 {
 
         if (ad instanceof C) {
             C c = (C) ad;
-        } // ad 의 출처가 D 이므로 오류 발생
+        }// ad 의 출처가 D 이므로 오류 발생
 
         // C cc = (C)ac; 같은 출처라도 명시적 형변환해야지만 안전하게 하위 클래스로 이동 가능
 
