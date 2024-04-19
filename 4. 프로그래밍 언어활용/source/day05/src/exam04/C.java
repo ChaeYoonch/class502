@@ -1,7 +1,5 @@
 package exam04;
 
-import exam02.B;
-
 public class C extends B {
     int numC = 30;
 
