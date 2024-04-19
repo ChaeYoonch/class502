@@ -1,0 +1,39 @@
+const {
+    states: { userInfo, isLogin },
+    actions: { setUserInfo, setIsLogin },
+  } = useContext(UserInfoContext);
+
+  const loginProcess = () => {
+    setIsLogin(true);
+    setUserInfo({ email: 'user01@test.org', name: '사용자01' });
+  };
+
+  return (
+    <>
+      {isLogin && (
+        <div>
+          {userInfo.email} / {userInfo.name}
+        </div>
+      )}
+      <button type="button" onClick={loginProcess}>
+        로그인
+      </button>
+    </>
+  );
+  /*
+  return (
+    <UserInfoConsumer>
+      {({ states: { userInfo, isLogin }, actions }) => (
+        <>
+          {isLogin && (
+            <div>
+              {userInfo.email} / {userInfo.name}
+            </div>
+          )}
+          <button type="button" onClick={() => loginProcess(actions)}>
+            로그인
+          </button>
+        </>
+      )}
+    </UserInfoConsumer>
+  ); */
