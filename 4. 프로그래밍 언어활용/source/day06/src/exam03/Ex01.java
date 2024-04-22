@@ -1,0 +1,9 @@
+package exam03;
+
+public class Ex01 {
+    public static void main(String[] args) {
+        Calculator cal = new SimpleCalculator(); // SimpleCalculator cal -> Calculator cal 변경 O | 다형성
+        int result = cal.add(10, 20);
+        System.out.println(result);
+    }
+}
