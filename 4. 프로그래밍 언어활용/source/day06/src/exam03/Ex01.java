@@ -5,5 +5,7 @@ public class Ex01 {
         Calculator cal = new SimpleCalculator(); // SimpleCalculator cal -> Calculator cal 변경 O | 다형성
         int result = cal.add(10, 20);
         System.out.println(result);
+
+        System.out.println(Calculator.NUM); // 정적 상수
     }
 }
