@@ -1,5 +1,7 @@
 package exam01;
 
+import java.util.Objects;
+
 public class Book extends java.lang.Object { // import java.lang.*; | import 구문 자동으로 추가
     private int isbn;
     private String title;
@@ -21,6 +23,11 @@ public class Book extends java.lang.Object { // import java.lang.*; | import 구
         }
 
         return false;
+    }
+
+    @Override
+    public int hashCode() { // generate -> hashCode() 로 생성
+        return Objects.hash(isbn, title, author); // 중복 제거 O
     }
 
     @Override
