@@ -9,12 +9,12 @@ public class Ex02 {
             case BUS :
                 System.out.println("버스");
                 break;
-            case SUBWAY :
-                System.out.println("지하철");
-                break;
-            case TAXI :
-                System.out.println("택시");
-                break;
+            //case SUBWAY :
+                //System.out.println("지하철");
+                // break;
+            // case TAXI :
+                // System.out.println("택시");
+                // break;
         }
     }
 }
