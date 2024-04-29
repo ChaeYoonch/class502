@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Ex01 {
     public static void main(String[] args) {
-        LinkedList<String> names = new LinkedList<>(); // 순서에 특화 = for 문
+        List<String> names = new LinkedList<>(); // LinkedList<String> names = new LinkedList<>();
         names.add("이름1");
         names.add("이름2");
         names.add("이름3");
@@ -17,7 +17,7 @@ public class Ex01 {
             names.remove(i);
         } */
 
-        for (int i = names.size() - 1; i > 0; i--) {
+        for (int i = names.size() - 1; i > 0; i--) { // 순서에 특화 = for 문
             names.remove(i);
         }
 
