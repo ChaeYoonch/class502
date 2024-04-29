@@ -1,10 +1,12 @@
 package exam04;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Ex01 {
     public static void main(String[] args) {
-        ArrayList<String> names = new ArrayList<>(); // 순서에 특화 = for 문
+        LinkedList<String> names = new LinkedList<>(); // 순서에 특화 = for 문
         names.add("이름1");
         names.add("이름2");
         names.add("이름3");
