@@ -2,7 +2,8 @@ package exam01;
 
 public class Ex01 {
     public static void main(String[] args) {
-        Box<Apple> appleBox = new Box<>(); // Box<Apple>() 이지만 Apple 없어도 컴파일러가 뒤의 내용 판단 가능하므로 생략O
+        Box<Apple> appleBox = new Box<>(); // Box<Apple>() 이지만 Apple 없어도 컴파일러가 뒤의 내용 판단 가능하므로 생략 O
+        // 객체를 생성될 때, 자료형 결정됨
         appleBox.setItem(new Apple());
         // appleBox.setItem(new Grape()); Apple 로 명확하게 한정하였기에 다른 형태 허용하지 않음으로서 타입 안정성 확보
 
