@@ -4,8 +4,8 @@ public enum Transportation { // 상수처럼 대문자로 작성하는 것이 �
     BUS(1350) {
         public int getTotal(int person) {
         return getFare() * person;
-        }
-    }, // 추상클래스
+        } // 추상클래스
+    },
     SUBWAY(1450) {
         public int getTotal(int person) {
             return getFare() * person;
