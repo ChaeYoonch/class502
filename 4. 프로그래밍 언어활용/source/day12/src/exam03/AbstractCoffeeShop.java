@@ -14,7 +14,7 @@ public abstract class AbstractCoffeeShop implements CoffeeShop { // 미구현된
     }
 
     @Override
-    public CoffeeShop enter(Person person) {
+    public CoffeeShop enter(Person person) { // 매장 입장 | CoffeeShop -> 메서드 체인
         this.person = person; // enter 시 사람 입장 -> private Person person; 에 값 할당됨
         System.out.printf("%s님이 %s에 입장하였습니다.%n", person.getName(), name); // person.getName() 사람 이름, 커피숍명
 
@@ -22,7 +22,7 @@ public abstract class AbstractCoffeeShop implements CoffeeShop { // 미구현된
     }
 
     @Override
-    public CoffeeShop order() {
+    public CoffeeShop order() { // 메뉴 주문
         String menu = person.getMenu();
         if (menu == null) {
             throw new RuntimeException("메뉴를 선택하세요.");
@@ -34,7 +34,7 @@ public abstract class AbstractCoffeeShop implements CoffeeShop { // 미구현된
         }
 
         int money = person.getMoney();
-        if (money < price) {
+        if (money < price) { // 구매하려는 메뉴보다 현재 가진 금액이 적음
             throw new RuntimeException(menu + "%를 구입하기에 부족한 금액입니다.");
         }
 
@@ -47,7 +47,7 @@ public abstract class AbstractCoffeeShop implements CoffeeShop { // 미구현된
         return this;
     }
 
-    public void exit() {
+    public void exit() { // 퇴장
         System.out.printf("%s님이 %s에서 퇴장하였습니다.%n", person.getName(), name); // 주문자명, 커피숍명
         person = null;
     }
