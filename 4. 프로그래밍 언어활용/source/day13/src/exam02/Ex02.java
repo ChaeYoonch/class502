@@ -2,7 +2,23 @@ package exam02; // 람다 -> 함수형 프로그래밍이 꼭 나와야 함!!! |
 
 public class Ex02 {
     public static void main(String[] args) {
-        Calculator cal = (a, b) -> a + b;
+        int c = 10;
+        /* Calculator cal = (a, b) -> a + b + c; */
+        Calculator cal = (a, b) -> {
+            // c = 20; -> 상수화
+            return a + b + c;
+        };
+
+        int result = cal.add(10, 20);
+        System.out.println(result);
+
+        int num3 = 10;
+        Calculator cal2 = new Calculator() {
+            @Override
+            public int add(int num1, int num2) {
+                return num1 + num2 + num3;
+            }
+        };
         // 특수한 목적으로 생략시에는 -> 로 표시를 해주어야 함! | 한 줄인 경우 { 중괄호 } 생략 가능 | return 예약어 생략 가능!
         // 인터페이스의 정의를 보면 알 수 있기에 int 자료형 생략 가능 | num1,2 -> 변수명 => a,b 로 변경 | 최종으로 줄이면 위의 것
 
