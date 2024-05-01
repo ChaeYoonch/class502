@@ -9,5 +9,6 @@ public class Ex09 {
         List<String> chars = Arrays.asList("AA", "BB", "AA", "CC", "AA");
         int cnt = Collections.frequency(chars, "AA"); // 빈도수 체크
         System.out.println(cnt);
+
     }
 }
