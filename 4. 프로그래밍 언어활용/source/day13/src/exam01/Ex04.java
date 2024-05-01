@@ -19,7 +19,6 @@ public class Ex04 {
         boolean isSame3 = Arrays.deepEquals(nums3, nums4); // 다차원 배열 비교
         System.out.println(isSame3);
 
-        *
         /* boolean isSame = true;
         for (int i =0; i < nums1.length; i++) {
             if (nums1[i] != nums2[i]) {
