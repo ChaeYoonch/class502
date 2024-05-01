@@ -1,0 +1,8 @@
+package exam02;
+
+public class Ex03 {
+    public static void main(String[] args) {
+        MyLamda print = () -> System.out.println("출력"); // MyLamda print = (s) -> System.out.println(s);
+        // 매개변수 없으면 (소괄호) 생략 불가!!
+    }
+}
