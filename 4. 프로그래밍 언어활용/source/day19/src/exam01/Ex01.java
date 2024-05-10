@@ -17,7 +17,7 @@ public class Ex01 {
         System.out.println("----");
 
         System.out.print("----");
-        System.out.printf("%05d", 100); // 5자리 내에서 100 표시
+        System.out.printf("%05d", 100); // 5자리 내에서 100 표시 | ----00100---- 으로 나타남
         System.out.println("----");
     }
 }
