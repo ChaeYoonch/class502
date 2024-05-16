@@ -27,7 +27,7 @@ public class Ex10 {
             data.put("book3", books);
             data.put("str", "안녕하세요."); // data.obj 에 다른 자료형 1개의 형태로 저장 가능
 
-            oos.writeObject(data);
+            oos.writeObject(data); // data 는 15줄의 HashMap 으로 저장한 변수이므로 현재 Map 만 저장한 것!!
 
         } catch (IOException e) {
             e.printStackTrace();
