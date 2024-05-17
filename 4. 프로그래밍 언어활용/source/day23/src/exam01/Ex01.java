@@ -24,10 +24,14 @@ public class Ex01 {
 }
 
 class Ex01_1 extends Thread {
+    public Ex01_1() {
+        super("변경된 이름1"); // Thread-0 -> 변경된 이름 으로 변경됨
+    }
+
     public void run() { // run 이 작업대
         for (int i = 0; i < 5; i++) {
-            System.out.println("쓰레드1-" + i);
-
+            // System.out.println("쓰레드1-" + i);
+            System.out.println(getName() + "-" + i); // Thread-0 + - + (1,2,3,4)
             for(long j = 0; j < 10000000000L; j++);
         }
     }
