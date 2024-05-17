@@ -19,6 +19,7 @@ public class Ex01 {
         th2.start(); // 호출 스택 생성 + run() 메서드 실행 -> 독립적인 작업공간 생성
 
         System.out.println("작업 종료!"); // (1) - (2) - (3) 순서대로 수행됨
+
     }
 }
 
