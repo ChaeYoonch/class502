@@ -4,7 +4,8 @@ public class Ex02 {
 
     public static void main(String[] args) {
         Ex02_1 th1 = new Ex02_1();
-        th1.start();
+        th1.run();
+        // th1.start();
     }
 }
 class Ex02_1 extends Thread {
