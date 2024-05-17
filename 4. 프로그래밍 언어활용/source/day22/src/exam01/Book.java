@@ -12,6 +12,10 @@ public class Book implements Serializable { // Serializable -> 직렬화
 
     private int price;
 
+    public int getPrice() {
+        return price;
+    }
+
     public Book(int isbn, String title, String author) {
         this.isbn = isbn;
         this.title = title;
