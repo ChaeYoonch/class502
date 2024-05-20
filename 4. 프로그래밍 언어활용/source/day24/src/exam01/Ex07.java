@@ -10,11 +10,12 @@ public class Ex07 {
                     // for (int j = 0; j < 1000000000L; j++);
                    Thread.sleep(10000); // WAITING 일시 정지
                     // interrupted() -> InterruptedException 발생, isInterrupted 가 다시 false 로 변경됨
-                    // 결과 = dhksisInterrupted : false -> InterruptedException 발생! -> isInterrupted : false
+                    // 결과 = isInterrupted : false -> InterruptedException 발생! -> isInterrupted : false
 
                 } catch (InterruptedException e) { // RUNNABLE 실행 대기
                     System.out.println("InterruptedException 발생!"); // 요기로 유입되어 실행됨
-                    th2.interrupt(); // InterruptedException 발생 -> isInterrupted 를 true 로 또다시 변경
+                    System.out.println(th2.isInterrupted()); // 여기까지는 false
+                    th2.interrupt(); // 여기서 InterruptedException 발생 -> isInterrupted 를 true 로 또다시 변경 (! 와 같음)
                 }
             }
         });
