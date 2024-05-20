@@ -25,7 +25,13 @@ public class Ex04 {
         th2.setPriority(Thread.MIN_PRIORITY); // 1 | th1 이 th2 보다 많이 실행될 것!
 
         System.out.printf("th1 : %d, th2 : %d%n", th1.getPriority(), th2.getPriority());
-        th1.start();
-        th2.start();
+        th1.start(); // th1 쓰레드
+        th2.start(); // th2 쓰레드
+        try {
+            th1.join();
+            th2.join();
+        } catch (InterruptedException e) {};
+
+        System.out.println("작업 종료!"); // 메인 쓰레드에서 실행됨
     }
 }
