@@ -11,7 +11,7 @@ public class Ex02 {
     }
 }
 
-class Ex02_1 implements Runnable {
+class Ex02_1 implements Runnable { // 쓰레드 정의 X | Runnable 인터페이스만 정의한 것
 
     @Override
     public void run() {
