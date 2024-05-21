@@ -42,18 +42,23 @@ class Ex08_1 implements Runnable {
             if(!suspended) { // 일시정지 상태 통제 = true 가 되면 잠시 멈추다가 다시 실행
                 System.out.println(th.getName());
                 try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {}
+                    Thread.sleep(1000); // 0.2초 되었을 때 일시 정지 0.8초 동안 대기하다가 1초 되면 완전 정지
+                } catch (InterruptedException e) { // 사용자의 반응성을 증대시키기 위해 interrupted 사용
+                    System.out.println("interrupted");
+                }
+            } else { // 일시 정지 상태 -> 다른 쓰레드로 바로 작업 양보
+                th.yield();
             }
         }
     }
-
     public void start() {
         th.start();
     }
 
     public void suspend() {
-        suspended = true;
+        suspended = true; // 일시정지
+        th.interrupt();
+        System.out.println("suspend - interrupted");
     }
 
     public void resume() {
@@ -62,5 +67,6 @@ class Ex08_1 implements Runnable {
 
     public void stop() {
         stopped = true;
+        System.out.println("stop - interrupted");
     }
 } // dead lock 가능성이 있으므로 start() {}, suspend() {}, resume() {}, stop() {} 직접 구현
