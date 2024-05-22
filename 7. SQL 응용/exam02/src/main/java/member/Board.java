@@ -15,5 +15,3 @@ public class Board { // 상수는 반드시 값이 필요 -> 없으면 오류 �
         this.content = content;
     } */
 }
-
-
