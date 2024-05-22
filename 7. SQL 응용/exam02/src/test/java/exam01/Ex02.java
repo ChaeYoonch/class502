@@ -1,5 +1,6 @@
 package exam01;
 
+import member.Board;
 import member.Member;
 import org.junit.jupiter.api.Test;
 

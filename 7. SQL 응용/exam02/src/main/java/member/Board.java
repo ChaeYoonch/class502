@@ -1,4 +1,4 @@
-package exam01;
+package member;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
