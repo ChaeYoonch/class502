@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Ex02 {
     private String url = "jdbc:oracle:thi:@localhost:1521:XE";
@@ -30,7 +32,7 @@ public class Ex02 {
             pstmt.setString(1, "%" + keyword + "%");
 
             ResultSet rs = pstmt.executeQuery();
-
+            List<Member> members = new ArrayList<>();
             while(rs.next()) {
                 long userNo = rs.getLong("USER_NO");
                 String userId = rs.getString("USER_ID");
@@ -38,8 +40,18 @@ public class Ex02 {
                 String userNm = rs.getString("USER_NM");
                 String mobile = rs.getString("MOBILE");
                 LocalDateTime regDt = rs.getTimestamp("REG_DT").toLocalDateTime();
+                Member member = new Member();
 
-                System.out.printf("USER_NO:%d, USER_ID:%s, USER_PW:%s, USER_NM:%s, MOBILE:%s, REG_DT:%s%n", userNo, userId, userPw, userNm, mobile, regDt);
+                member.setUserNo(userNo);
+                member.setUserId(userId);
+                member.setUserPw(userPw);
+                member.setUserNm(userNm);
+                member.setMobile(mobile);
+                member.setRegDt(regDt);
+
+                members.add(member);
+
+                /* System.out.printf("USER_NO:%d, USER_ID:%s, USER_PW:%s, USER_NM:%s, MOBILE:%s, REG_DT:%s%n", userNo, userId, userPw, userNm, mobile, regDt); */
             }
 
             rs.close();
