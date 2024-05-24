@@ -1,10 +1,12 @@
 package member;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
+@Builder
 public class Member {
     private long userNo;  // USER_NO | 변수명 = MemberMapper.xml 의 #에 들어가는 내용
     private String userId; // USER_ID | 변수명 = MemberMapper.xml 의 #에 들어가는 내용
