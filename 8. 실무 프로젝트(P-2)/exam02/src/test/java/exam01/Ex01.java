@@ -24,4 +24,12 @@ public class Ex01 {
         List<Member> members = mapper.getList(); // 메서드 정의 -> 구현체 생성
         members.forEach(System.out::println);
     }
+
+    @Test
+    void test3() {
+        SqlSession session = DBConn.getSession();
+        MemberMapper mapper = session.getMapper(MemberMapper.class); // 인터페이스의 구현체를 내부에서 프록시 형태로 변경
+        List<Member> members = mapper.getList2(); // 인터페이스에 애노테이션으로 바로 정의함
+        members.forEach(System.out::println);
+    }
 }
