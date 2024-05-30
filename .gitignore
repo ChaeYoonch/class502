@@ -1,4 +1,6 @@
 /docs
 .idea/
 *.iml
-out/
+/dbeaver
+/apache-maven-*
+/gradle-*

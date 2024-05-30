@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<mapper namespace="mappers.BoardMapper">
+    <resultMap id="boardMap" type="borad.Board">
+        <result column="SEQ" property="seq" />
+        <result column="POSTER" property="poster" />
+        <result column="SUBJECT" property="subject" />
+        <result column="CONTENT" property="content" />
+        <result column="REG_DT" property="regDt" />
+        <result column="MOD_DT" property="modDt" />
+    </resultMap>
+
+    <select id = "getList" resultMap="BoardMap">
+        SELECT * FROM BOARD
+    </select>
+
+    <insert id="register">
+        INSERT INTO BOARD (SEQ, POSTER, SUBJECT, CONTENT, REG_DT, MOD_DT)
+        VALUES (SEQ_BOARD.NEXTVAL, #{seq}, #{poster}, #{subject}, #{content}, #{regDt}, #{modDt})
+    </insert>
+
+    <!--
+    <update>
+
+    </update>
+
+    <delete>
+
+    </delete>
+    -->
