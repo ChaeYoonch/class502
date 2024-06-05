@@ -2,12 +2,14 @@ package exam01;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName(" 테스트 ")
+@Tag("exercise")
+@DisplayName(" 테스트 1 ")
 public class Ex01Test {
 
     @Test

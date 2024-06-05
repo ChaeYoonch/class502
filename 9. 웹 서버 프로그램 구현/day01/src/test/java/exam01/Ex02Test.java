@@ -2,6 +2,8 @@ package exam01;
 
 import org.junit.jupiter.api.*;
 
+@Tag("exercise")
+@DisplayName(" 테스트 2 ")
 public class Ex02Test {
 
     @BeforeAll
