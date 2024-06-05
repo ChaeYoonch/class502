@@ -6,4 +6,10 @@ public interface RequiredValidator {
             throw e;
         }
     }
+
+    default void checkTrue(boolean result, RuntimeException e) {
+        if (!result) {
+            throw e;
+        }
+    } // 거짓이면 예외 발생 O
 }
