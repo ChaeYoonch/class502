@@ -6,6 +6,11 @@ public class Student {
     String name; // 학생명
     String subject; // 전공 과목
 
+    // 기본 생성자 함수 (없으면 안되므로 컴파일러가 기본으로 추가함)
+    public Student() {
+
+    }
+
     // 행위에 대한 정의
     void study() {
         System.out.printf("id=%d, name=%s, subject=%s%n", id, name, subject); // 변수 -> 기능에 대한 부분 정의
