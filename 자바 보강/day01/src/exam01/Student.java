@@ -9,5 +9,12 @@ public class Student {
     // 행위에 대한 정의
     void study() {
         System.out.printf("id=%d, name=%s, subject=%s%n", id, name, subject); // 변수 -> 기능에 대한 부분 정의
+
+        boolean result = true;
+        if (result) {
+            return;
+        }
+
+        System.out.println("실행2"); // return 뒤에 있으므로 배제됨
     } // 객체 X -> 객체가 되기 위한 설계도
 } // 클래스에 대한 정의에서 가장 중요한 것 => 다른 객체에 대한 협력 -> 서로 영향을 주고 받음 = " 함수 = 메서드 "
