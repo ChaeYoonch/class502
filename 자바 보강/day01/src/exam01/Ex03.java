@@ -2,9 +2,11 @@ package exam01;
 
 public class Ex03 {
     public static void main(String[] args) {
-        int r = add(10, 20); // 함수 이름 부르고 매개변수 설정 -> 함수 O | 실행될 때, 여기서 공간 할당 받음
+        int num1 = 10;
+        int num2 = 20;
+        int r = add(num1, num2); // 함수 이름 부르고 매개변수 설정 -> 함수 O | 실행될 때, 여기서 공간 할당 받음
         System.out.println(r);
-    }
+    } // 위의 num1, num2 와 아래의 num1, num2 는 서로 다름
 
     public static int add(int num1, int num2) { // int num1, int num2 -> 변수 X | 변수 정의에 불과함 => 메모리 X
         int result = num1 + num2; // int result -> 변수 X | 변수 정의에 불과함 => 메모리 X
