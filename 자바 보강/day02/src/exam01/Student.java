@@ -2,7 +2,7 @@ package exam01;
 
 public class Student { // 변수 & 함수 정의 -> 객체 구성요소
     // 변수 정의 | 메모리(공간)이 할당되지 않았기에 변수라고 할 수 없음 -> 단순 코드!!
-    int id; // 학번
+    static int id; // 학번
     String name; // 학생명
     String subject; // 과목
 
