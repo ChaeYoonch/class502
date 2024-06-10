@@ -1,10 +1,14 @@
 package tests;
 
+import com.github.javafaker.Faker;
+import global.exceptions.ValidationException;
 import jakarta.servlet.http.HttpServletRequest;
 import member.services.LoginService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
@@ -15,6 +19,7 @@ public class LoginServiceTest {
 
     private LoginService loginService;
     private HttpServletRequest request;
+    private Faker faker;
 
     @BeforeEach
     void init() {
@@ -22,6 +27,7 @@ public class LoginServiceTest {
 
         // HttpServletRequest 모의 객체 생성 mock(...) -> 모의 객체 (일반클래스, 인터페이스 가능)
         request = mock(HttpServletRequest.class);
+        faker = new Faker(Locale.KOREAN);
     }
 
     void setParamData(String  name, String value) {
@@ -29,8 +35,9 @@ public class LoginServiceTest {
     } // 많이 쓸 수 있는 데이터 -> 메서드로 만들어 줌
 
     void setSuccessData() {
-        setParamData("email", "test01@test.org");
-        setParamData("password", "12345678");
+        String password = faker.regexify("\\w{8}").toLowerCase();
+        setParamData("email", faker.internet().emailAddress());
+        setParamData("password", password);
     }
 
     @Test
@@ -45,6 +52,9 @@ public class LoginServiceTest {
     @Test
     @DisplayName("필수 항목 (아이디, 비밀번호) 검증, 검증 실패시 ValidationException 발생")
     void requiredFieldTest() {
-
+        // 아이디 필수 항목 검증
+        assertThrows(ValidationException.class, () -> {
+            loginService.process(request);
+        });
     }
 }
