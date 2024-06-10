@@ -4,7 +4,6 @@ import global.validators.Validator;
 import jakarta.servlet.http.HttpServletRequest;
 
 public class LoginService {
-    // private LoginValidator validator = new LoginValidator();
     private Validator<HttpServletRequest> validator;
 
     public LoginService(Validator<HttpServletRequest> validator) {
