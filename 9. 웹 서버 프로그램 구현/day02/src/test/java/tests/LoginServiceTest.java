@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import global.exceptions.ValidationException;
 import jakarta.servlet.http.HttpServletRequest;
 import member.services.LoginService;
+import member.validators.LoginValidator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,7 +24,7 @@ public class LoginServiceTest {
 
     @BeforeEach
     void init() {
-        loginService = new LoginService();
+        loginService = new LoginService(new LoginValidator());
 
         // HttpServletRequest 모의 객체 생성 mock(...) -> 모의 객체 (일반클래스, 인터페이스 가능)
         request = mock(HttpServletRequest.class);
