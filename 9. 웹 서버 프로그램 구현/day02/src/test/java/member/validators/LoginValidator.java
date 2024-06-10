@@ -1,12 +1,16 @@
 package member.validators;
 
+import global.exceptions.ValidationException;
 import global.validators.Validator;
 import jakarta.servlet.http.HttpServletRequest;
 
 public class LoginValidator implements Validator<HttpServletRequest> {
-
+    // 단일 책임 원칙 사용 -> 검증 역할만 부여!
     @Override
     public void check(HttpServletRequest form) {
-
+        String email = form.getParameter("email");
+        if (email == null || email.isBlank()) {
+            throw new ValidationException("이메일을 입력하세요.");
+        }
     }
 }
