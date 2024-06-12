@@ -5,10 +5,11 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.annotation.WebInitParam;
 
 import java.io.IOException;
-
+/*
 @WebFilter(value="/board", initParams = {
         @WebInitParam(name="k1", value ="value1"), @WebInitParam(name="k2", value ="value2")
 })
+*/
 public class BoardFilter implements Filter {
 
     @Override
