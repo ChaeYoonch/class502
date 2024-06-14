@@ -13,15 +13,16 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/board/list/*")
-public class BoardListController extends HttpServlet { // MVC model 중 V 담당
+public class BoardListController extends HttpServlet { // 애는 Controller
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        BoardInfoService service = new BoardInfoService();
+
+        BoardInfoService service = new BoardInfoService(); // 뷰가 직접 jsp 파일 접근하지 못하도록
         List<BoardData> items = service.getList();
 
-        req.setAttribute("items", items); // View 로 넘어감
+        req.setAttribute("items", items);
 
-        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/templates/board/list.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/templates/board/list.jsp"); // 얘가 View
         rd.forward(req, resp);
     }
 }
