@@ -1,3 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="util" tagdir="/WEB-INF/tags/utils" %>
-<util:line />
+<util:line color="blue" size="30" /> <%-- color -> util:line 으로 값 추가 --%>
+<util:line color="orange" size="100" />
