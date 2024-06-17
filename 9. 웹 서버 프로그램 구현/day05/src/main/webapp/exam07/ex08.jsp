@@ -11,18 +11,18 @@
 <a href="?lang=en">영어</a>
 
     <form>
-        <fmt:message key="EMAIL" /> <%-- 메세지 코드로 관리 가능 --%>
+        <fmt:message key="이메일" /> <%-- 메세지 코드로 관리 가능 --%>
         <input type="text" name="email"> <br>
 
-        <fmt:message key="PASSWORD" />
+        <fmt:message key="비밀번호" />
         <input type="text" name="password"> <br>
         <button type="submit">
-            <fmt:message key="LOGIN" />
+            <fmt:message key="로그인" />
         </button>
     </form>
 
 <h1>
-    <fmt:message key="LOGIN_MSG">
+    <fmt:message key="로그인_메세지">
         <fmt:param>이이름</fmt:param>
         <fmt:param>test@test.org</fmt:param>
     </fmt:message>
