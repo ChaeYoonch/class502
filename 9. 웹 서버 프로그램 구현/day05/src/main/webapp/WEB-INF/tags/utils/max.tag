@@ -6,7 +6,7 @@
 <%@ variable name-given="maximum" variable-class="java.lang.Integer" scope="AT_END" %>
 
 <%
-    int max = num1 > num2 ? num1 : num2; <%-- num1 이 num2 보다 크면 num1, 작으면 num2 --%>
-%>
+int max = num1 > num2 ? num1 : num2;
+%> <%-- num1 이 num2 보다 크면 num1, 작으면 num2 --%>
 
 <c:set var="maximum" value="<%=max%>" />
