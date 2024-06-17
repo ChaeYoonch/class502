@@ -13,3 +13,10 @@
             <fmt:message key="LOGIN" />
         </button>
     </form>
+
+<h1>
+    <fmt:message key="LOGIN_MSG">
+        <fmt:param>이이름</fmt:param>
+        <fmt:param>test@test.org</fmt:param>
+    </fmt:message>
+</h1>
