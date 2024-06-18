@@ -21,7 +21,12 @@ public class BoardListController extends HttpServlet { // 애는 Controller
         List<BoardData> items = service.getList();
 
         req.setAttribute("items", items);
+        // css & javascript 동적으로 추가
+        req.setAttribute("addCss",new String[] { "board/style", "board/list" }); // .css 제거 (확장자는 어차피 알고 있어서)
+        req.setAttribute("addScript", List.of("board/common", "board/list")); // .js 제거 (확장자는 어차피 알고 있어서)
 
+        // 속성 설정은 RequestDispatcher 상단에 정의
+        // 출력 완료되면 속성은 반영 X
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/templates/board/list.jsp"); // 얘가 View
         rd.forward(req, resp);
     }
