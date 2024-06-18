@@ -2,10 +2,11 @@
 <%@ tag pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
+<%@ attribute name="title" %>
 <c:url var="cssUrl" value="/static/css/" />
 <c:url var="jsUrl" value="/static/js/" />
 
-<layout:common>
+<layout:common title="${title}">
     <jsp:attribute name="header">
         <h1>메인 레이아웃 상단 영역!</h1>
     </jsp:attribute>
