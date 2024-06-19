@@ -6,4 +6,11 @@ public interface RequiredValidator { // 인터페이스 왜 추가? 필수 항�
             throw e;
         }
     }
+
+    // 참 ture 인지 체크
+    default void checkTrue(boolean checked, RuntimeException e) {
+        if (!checked) {
+            throw e;
+        }
+    }
 }
