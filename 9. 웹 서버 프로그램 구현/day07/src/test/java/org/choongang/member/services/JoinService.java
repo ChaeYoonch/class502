@@ -35,9 +35,5 @@ public class JoinService {
         if (result < 1) {
             throw new BadRequestException("회원가입에 실패하였습니다.");
         }
-        /* String email = form.getEmail();
-        if (email == null || email.isBlank()) {
-            throw new BadRequestException("이메일을 입력하세요.");
-        } */
     }
 }
