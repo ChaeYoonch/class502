@@ -15,7 +15,7 @@ public class JoinController extends HttpServlet { // 회원가입
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Buffer 버퍼 치환 -> forward 사용
-        RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/templates/member/join,jsp"); // 웹 경로 기준
+        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/templates/member/join.jsp"); // 웹 경로 기준
         rd.forward(req, resp);
     }
 
