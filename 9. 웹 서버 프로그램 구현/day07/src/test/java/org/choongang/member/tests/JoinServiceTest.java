@@ -42,8 +42,8 @@ public class JoinServiceTest {
     @DisplayName("회원가입 성공 시 예외가 발생하지 않음")
     void successTest() {
         assertDoesNotThrow(() -> {
-            JoinService service = new JoinService();
-            service.process(); // process 는 JoinService 의 public void process() { } 를 의미함
+            // JoinService service = new JoinService();
+            service.process(getData()); // process 는 JoinService 의 public void process() { } 를 의미함
         });
     }
 
