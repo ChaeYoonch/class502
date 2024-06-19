@@ -1,6 +1,7 @@
 package org.choongang.member.tests;
 
 import com.github.javafaker.Faker;
+import org.choongang.global.exceptions.BadRequestException;
 import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.services.JoinService;
 import org.junit.jupiter.api.BeforeEach;
@@ -50,6 +51,10 @@ public class JoinServiceTest {
     @Test
     @DisplayName("필수 입력항목(이메일, 비밀번호, 비밀번호 확인, 회원명, 약관 동의) 검증, 검증 실패 시 BadRequestException 발생")
     void requiredFieldTest() {
-
+        assertThrows(BadRequestException.class, () -> {
+            RequestJoin form = getData();
+            form.setEmail(null);
+            service.process(form);
+        });
     }
 }
