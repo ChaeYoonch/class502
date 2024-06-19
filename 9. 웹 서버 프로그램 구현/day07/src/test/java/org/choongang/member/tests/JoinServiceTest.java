@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import org.choongang.global.exceptions.BadRequestException;
 import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.services.JoinService;
+import org.choongang.member.validators.JoinValidator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,7 +23,7 @@ public class JoinServiceTest {
 
     @BeforeEach
     void init() { // @BeforeEach 로 초기화 작업 실행
-        service = new JoinService();
+        service = new JoinService(new JoinValidator());
     }
 
     RequestJoin getData() {
