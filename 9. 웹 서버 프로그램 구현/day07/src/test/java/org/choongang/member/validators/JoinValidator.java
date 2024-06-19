@@ -1,11 +1,11 @@
 package org.choongang.member.validators;
 
-import net.bytebuddy.matcher.ElementMatcher;
 import org.choongang.global.exceptions.BadRequestException;
 import org.choongang.global.validators.EmailValidator;
 import org.choongang.global.validators.RequiredValidator;
 import org.choongang.global.validators.Validator;
 import org.choongang.member.controllers.RequestJoin;
+import org.choongang.member.exceptions.DuplicatedMemberException;
 import org.choongang.member.mapper.MemberMapper;
 
 public class JoinValidator implements Validator<RequestJoin>, RequiredValidator, EmailValidator {
@@ -42,5 +42,8 @@ public class JoinValidator implements Validator<RequestJoin>, RequiredValidator,
 
         // 비밀번호 자리수 체크
         checkTrue(password.length() >= 8, new BadRequestException("비밀번호는 8자리 이상 입력하세요."));
+
+        // 이미 가입된 회원인지 체크
+        checkTrue(mapper.exist(email) > 0L, new DuplicatedMemberException());
     }
 }
