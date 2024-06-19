@@ -8,7 +8,7 @@
         <result column="EMAIL" property="email" />
         <result column="PASSWORD" property="password" />
         <result column="USER_NAME" property="userName" />
-        <result column="REG_DT" property="redDt" />
+        <result column="REG_DT" property="regDt" />
         <result column="MOD_DT" property="modDt" />
     </resultMap>
 
@@ -17,7 +17,7 @@
     </select>
 
     <select id="get" resultMap="memberMap"> <!-- 회원 정보 이메일로 조회-->
-        SELECT COUNT(*) FROM MEMBER WHERE EMAIL=#{email}
+        SELECT * FROM MEMBER WHERE EMAIL=#{email}
     </select>
 
     <insert id="register"> <!-- 회원 정보 등록 -->
