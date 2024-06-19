@@ -110,6 +110,19 @@ public class JoinServiceTest {
     }
 
     @Test
+    @DisplayName("이메일이 형식에 맞는지 체크, 형식이 맞지 않으면 BadRequestException 발생")
+    void emailPatternTest() {
+        BadRequestException thrown = assertThrows(BadRequestException.class, ()-> {
+            RequestJoin form = getData();
+            form.setEmail("******");
+            service.process(form);
+        });
+
+        String message = thrown.getMessage();
+        assertTrue(message.contains("이메일 형식이"));
+    }
+
+    @Test
     @DisplayName("이미 가입된 메일인 경우, DuplicatedException 발생")
     void duplicateEmailTest() {
 
