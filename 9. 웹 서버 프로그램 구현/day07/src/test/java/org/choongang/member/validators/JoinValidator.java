@@ -25,5 +25,7 @@ public class JoinValidator implements Validator<RequestJoin>, RequiredValidator 
 
         // 비밀번호 & 비밀번호 확인 일치 여부
         checkTrue(password.equals(confirmPassword), new BadRequestException("비밀번호가 일치하지 않습니다.")); // false 인 경우
+
+        // 이메일 형식 체크
     }
 }
