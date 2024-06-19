@@ -74,11 +74,6 @@ public class JoinServiceTest {
                 () -> requiredEachFieldTest("userName", false, "회원명"), // 회원명
                 () -> requiredEachFieldTest("termsAgree", false, "약관") // 약관 동의
         );
-        /* assertThrows(BadRequestException.class, () -> {
-            RequestJoin form = getData();
-            form.setEmail(null);
-            service.process(form);
-        }); */
     }
 
     void requiredEachFieldTest(String field, boolean isNull, String keyword) {
