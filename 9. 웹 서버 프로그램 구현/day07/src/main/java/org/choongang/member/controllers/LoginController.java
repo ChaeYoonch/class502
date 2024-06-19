@@ -15,7 +15,7 @@ public class LoginController extends HttpServlet { // 로그인
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Buffer 버퍼 치환 -> forward
-        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/templates/member/join.jsp"); // 웹 경로 기준
+        RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/templates/member/login.jsp"); // 웹 경로 기준
         rd.forward(req, resp);
     }
 
