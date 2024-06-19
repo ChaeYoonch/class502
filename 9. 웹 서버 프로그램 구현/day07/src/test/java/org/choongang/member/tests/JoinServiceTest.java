@@ -92,6 +92,7 @@ public class JoinServiceTest {
         }, field + "테스트");
 
         String message = thrown.getMessage();
+        // System.out.println(message);
         assertTrue(message.contains(keyword), field + "키워드 테스트");
     }
 }
