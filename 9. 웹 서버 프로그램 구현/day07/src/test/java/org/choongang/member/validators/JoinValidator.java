@@ -10,7 +10,7 @@ import org.choongang.member.controllers.RequestJoin;
 public class JoinValidator implements Validator<RequestJoin>, RequiredValidator, EmailValidator {
 
     @Override
-    public void check(RequestJoin form) { // JoinServiceTest 에서 통과시키기 위해 필요한 코드 작성하는 곳!
+    public void check(RequestJoin form) { // JoinServiceTest 에서 통과시키기 위해 필요한 코드 작성하는 곳! = 기능 구현
         // 필요한 데이터
         String email = form.getEmail();
         String password = form.getPassword();
@@ -32,5 +32,8 @@ public class JoinValidator implements Validator<RequestJoin>, RequiredValidator,
         if (!checkEmail(email)) {
             throw new BadRequestException("이메일 형식이 아닙니다.");
         }
+
+        // 비밀번호 자리수 체크
+        checkTrue(password.length() >= 8, new BadRequestException("비밀번호는 8자리 이상 입력하세요."));
     }
 }
