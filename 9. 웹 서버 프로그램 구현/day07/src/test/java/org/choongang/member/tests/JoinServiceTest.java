@@ -1,12 +1,14 @@
 package org.choongang.member.tests;
 
 import com.github.javafaker.Faker;
+import org.choongang.global.configs.DBConn;
 import org.choongang.global.exceptions.BadRequestException;
 import org.choongang.member.controllers.RequestJoin;
+import org.choongang.member.entities.Member;
 import org.choongang.member.exceptions.DuplicatedMemberException;
+import org.choongang.member.mapper.MemberMapper;
 import org.choongang.member.services.JoinService;
 import org.choongang.member.services.MemberServiceProvider;
-import org.choongang.member.validators.JoinValidator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,11 +24,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class JoinServiceTest {
 
     private JoinService service;
+    private MemberMapper mapper;
 
     @BeforeEach
     void init() { // @BeforeEach 로 초기화 작업 실행
         // service = new JoinService(new JoinValidator());
         service = MemberServiceProvider.getInstance().joinService(); // 완성된 객체로 바로 가져옴
+        mapper = DBConn.getSession().getMapper(MemberMapper.class);
     }
 
     RequestJoin getData() {
@@ -46,10 +50,14 @@ public class JoinServiceTest {
     @Test
     @DisplayName("회원가입 성공 시 예외가 발생하지 않음")
     void successTest() {
+        RequestJoin form = getData();
         assertDoesNotThrow(() -> {
-            // JoinService service = new JoinService();
-            service.process(getData()); // process 는 JoinService 의 public void process() { } 를 의미함
+            service.process(form); // process 는 JoinService 의 public void process() { } 를 의미함
         });
+
+        // 가입된 이메일로 회원이 조회되는지 체크
+        Member member = mapper.get(form.getEmail());
+        assertEquals(form.getEmail(), member.getEmail()); // form 의 getEmail 과 member 의 getEmail 이 같은지 확인
     }
 
     @Test
@@ -93,7 +101,6 @@ public class JoinServiceTest {
         }, field + "테스트");
 
         String message = thrown.getMessage();
-        // System.out.println(message);
         assertTrue(message.contains(keyword), field + "키워드 테스트");
     }
 
