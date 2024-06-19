@@ -31,6 +31,8 @@
         </dl>
         <div>
             <input type="checkbox" name="termsAgree" value="true" id="termsAgree">
+            <label for="termsAgree">회원가입 약관에 동의합니다.</label>
         </div>
+        <button type="submit">가입하기</button>
     </form>
 </layout:main>
