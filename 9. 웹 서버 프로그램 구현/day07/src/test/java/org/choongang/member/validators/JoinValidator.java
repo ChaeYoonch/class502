@@ -10,7 +10,7 @@ import org.choongang.member.controllers.RequestJoin;
 public class JoinValidator implements Validator<RequestJoin>, RequiredValidator, EmailValidator {
 
     @Override
-    public void check(RequestJoin form) {
+    public void check(RequestJoin form) { // JoinServiceTest 에서 통과시키기 위해 필요한 코드 작성하는 곳!
         // 필요한 데이터
         String email = form.getEmail();
         String password = form.getPassword();
