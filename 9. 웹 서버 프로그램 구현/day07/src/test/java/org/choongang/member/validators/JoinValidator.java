@@ -6,8 +6,15 @@ import org.choongang.global.validators.EmailValidator;
 import org.choongang.global.validators.RequiredValidator;
 import org.choongang.global.validators.Validator;
 import org.choongang.member.controllers.RequestJoin;
+import org.choongang.member.mapper.MemberMapper;
 
 public class JoinValidator implements Validator<RequestJoin>, RequiredValidator, EmailValidator {
+
+    private MemberMapper mapper;
+
+    public JoinValidator(MemberMapper mapper) {
+        this.mapper = mapper;
+    }
 
     @Override
     public void check(RequestJoin form) { // JoinServiceTest 에서 통과시키기 위해 필요한 코드 작성하는 곳! = 기능 구현
