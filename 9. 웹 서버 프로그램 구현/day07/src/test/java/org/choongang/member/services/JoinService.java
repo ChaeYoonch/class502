@@ -2,23 +2,27 @@ package org.choongang.member.services;
 
 import org.choongang.global.validators.Validator;
 import org.choongang.member.controllers.RequestJoin;
+import org.choongang.member.mapper.MemberMapper;
 
 // 회원 가입 기능
 public class JoinService {
 
     private Validator<RequestJoin> validator;
+    private MemberMapper mapper;
 
-    public JoinService(Validator<RequestJoin> validator) {
+    public JoinService(Validator<RequestJoin> validator, MemberMapper mapper) {
         this.validator = validator;
+        this.mapper = mapper;
     }
 
-    public void process(RequestJoin form) { // 실패 시 BadRequestException 의 경우 나타날 메세지 설정
-        // 유효성 검사 담당
-        validator.check(form);
+    public void process(RequestJoin form) {
 
+        // 유효성 검사
+        validator.check(form);
         /* String email = form.getEmail();
         if (email == null || email.isBlank()) {
             throw new BadRequestException("이메일을 입력하세요.");
         } */
+
     }
 }
