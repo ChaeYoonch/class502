@@ -60,4 +60,24 @@ public class JoinServiceTest {
             service.process(form);
         });
     }
+
+    void requiredEachFieldTest(String field, boolean isNull, String keyword) {
+        BadRequestException thrown = assertThrows(BadRequestException.class, () -> {
+            RequestJoin form = getData();
+            if (field.equals("email")) {
+                form.setEmail(isNull?null:"    "); // null 이면 null 을 null 이 아니면 빈 값을
+            } else if (field.equals("password")) {
+                form.setPassword(isNull?null:"    ");
+            } else if (field.equals("confirmPassword")) {
+                form.setConfirmPassword(isNull?null:"    ");
+            } else if (field.equals("userName")) {
+                form.setUserName(isNull?null:"    ");
+            } else if (field.equals("termsAgree")) {
+                form.setTermsAgree(false);
+            }
+
+            service.process(form);
+
+        }, field + "테스트");
+    }
 }
