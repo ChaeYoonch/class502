@@ -105,6 +105,21 @@ public class LoginServiceTest {
         BadRequestException thrown = assertThrows(BadRequestException.class, () -> {
             loginService.process(request); // 호출 = 테스트 검증 process = LoginService 파일 public void process() {} 의미
         });
+
+        String message = thrown.getMessage();
+        assertTrue(message.contains("이메일 또는 비밀번호"));
+    }
+
+    @Test
+    @DisplayName("비밀번호 검증, 검증 실패 시 BadRequestException 발생")
+    void passwordCheckTest() {
+        setParam("password", "***" + form.getPassword()); // 이메일은 맞지만, 비밀번호가 다른 경우
+        BadRequestException thrown = assertThrows(BadRequestException.class, () -> {
+            loginService.process(request); // 호출 = 테스트 검증 process = LoginService 파일 public void process() {} 의미
+        });
+
+        String message = thrown.getMessage();
+        assertTrue(message.equals("이메일 또는 비밀번호"));
     }
 
     @AfterEach
