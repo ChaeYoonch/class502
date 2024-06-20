@@ -25,7 +25,7 @@ public class JoinService {
 
         // 비밀번호 해시화 - BCrypt 사용
         String hash = BCrypt.hashpw(form.getPassword(), BCrypt.gensalt(12));
-
+        // set 함수로 정의 -> 캡슐화 : 변화에 닫혀 있음
         Member member = new Member();
         member.setEmail(form.getEmail());
         member.setPassword(hash);
