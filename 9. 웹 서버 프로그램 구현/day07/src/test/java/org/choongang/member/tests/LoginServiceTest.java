@@ -57,6 +57,8 @@ public class LoginServiceTest {
         joinService.process(form);
 
         setData(); // 데이터 호출
+
+        given(request.getSession()).willReturn(session);
     }
 
     void setData() { // 데이터 초기화 - 비밀번호 검증에는 이메일이 필요하므로 void init() 에서 분리함
