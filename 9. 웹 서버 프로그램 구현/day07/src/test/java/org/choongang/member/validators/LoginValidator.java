@@ -6,6 +6,7 @@ import org.choongang.global.validators.RequiredValidator;
 import org.choongang.global.validators.Validator;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mapper.MemberMapper;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class LoginValidator implements Validator<HttpServletRequest>, RequiredValidator { // 로그인 서비스 구성
 
@@ -28,5 +29,9 @@ public class LoginValidator implements Validator<HttpServletRequest>, RequiredVa
         String message = "이메일 또는 비밀번호가 일치하지 않습니다.";
         Member member = mapper.get(email);
         checkTrue(member != null, new BadRequestException(message));
-    } // 이메일 또는 비밀번호 각각이 틀렸다고 문구가 뜨면 해커에게 유리하므로 두루뭉술하게 문구 작성 => 예측 불가능성
+        // 이메일 또는 비밀번호 각각이 틀렸다고 문구가 뜨면 해커에게 유리하므로 두루뭉술하게 문구 작성 => 예측 불가능성
+        // 비밀번호 일치 여부 체크 | BCrypt - 해시 사용
+        boolean isMatched = BCrypt.checkpw(password, member.getPassword());
+        checkTrue(isMatched, new BadRequestException(message));
+    }
 }
