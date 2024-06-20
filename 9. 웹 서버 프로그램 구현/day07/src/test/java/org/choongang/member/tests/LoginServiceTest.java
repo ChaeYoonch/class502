@@ -24,7 +24,7 @@ public class LoginServiceTest {
     private Faker faker; // 객체 만들고 사용해야 함
 
     @Mock
-    private HttpServletRequest request; // 모의 객체 - Mock
+    private HttpServletRequest request; // 모의 객체 - Mockito
 
     @BeforeEach
     void init() { // 여기서 객체 만들어짐
