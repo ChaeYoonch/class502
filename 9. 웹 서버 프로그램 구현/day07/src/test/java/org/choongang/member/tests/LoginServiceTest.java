@@ -56,7 +56,12 @@ public class LoginServiceTest {
     @Test
     @DisplayName("필수 입력 항목(이메일, 비밀번호) 검증, 검증 실패시 BadRequestException 발생")
     void requiredFieldTest() {
-
+        assertAll(
+                () -> requiredEachFieldTest("email", false, "이메일"),
+                () -> requiredEachFieldTest("email", true, "이메일"),
+                () -> requiredEachFieldTest("password", false, "비밀번호"),
+                () -> requiredEachFieldTest("password", true, "비밀번호")
+        );
     }
 
     void requiredEachFieldTest(String name, boolean isNull, String message) {
