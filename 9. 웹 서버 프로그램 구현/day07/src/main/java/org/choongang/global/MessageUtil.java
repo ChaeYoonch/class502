@@ -22,7 +22,12 @@ public class MessageUtil { // 정적 메서드 정의
 
         resp.setContentType("text/html; charset=UTF-8");
         PrintWriter out = resp.getWriter();
-        out.printf("<script>%s.location.href='%s';</script>", target, url); // url 은 '%s' 에 target 은 <script> 태그 안에
+        /**
+         * location.href : 주소 이동 시 이동 기록이 남는다. 뒤로 가기 버튼을 누른 경우, POST 처리가 중복된다.
+         * POST 처리시 이동할 때는 기록을 남기지 않는 이동 방식 location.replace(...)
+         */
+        // out.printf("<script>%s.location.href='%s';</script>", target, url); url 은 '%s' 에 target 은 <script> 태그 안에
+        out.printf("<script>%s.location.replace('%s');</script>", target, url);
     }
 
     public static void go(String url, HttpServletResponse resp) throws IOException {
