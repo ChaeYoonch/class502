@@ -40,6 +40,6 @@ public class MemberServiceProvider { // 싱글톤 패턴 사용
     }
 
     public LoginService loginService() {
-        return new LoginService(loginValidator()); // 의존성, 구성 부품이 추가되면 () 안에 작성
+        return new LoginService(loginValidator(), memberMapper()); // 의존성, 구성 부품이 추가되면 () 안에 작성 = 매개변수
     }
 }
