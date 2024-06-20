@@ -3,7 +3,7 @@ package org.choongang.member.services;
 import org.apache.ibatis.session.SqlSession;
 import org.choongang.global.configs.DBConn;
 import org.choongang.member.mapper.MemberMapper;
-import org.choongang.member.tests.LoginServiceTest;
+// import org.choongang.member.tests.LoginServiceTest;
 import org.choongang.member.validators.JoinValidator;
 import org.choongang.member.validators.LoginValidator;
 
