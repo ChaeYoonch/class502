@@ -42,15 +42,18 @@ public class LoginServiceTest {
                         .email(System.currentTimeMillis() + faker.internet().emailAddress())
                         .password(faker.regexify("\\w{8,16}").toLowerCase())
                         .userName(faker.name().fullName())
+                        .termsAgree(true)
                         .build();
+        form.setConfirmPassword(form.getPassword());
+
         joinService.process(form);
 
         setData(); // 데이터 호출
     }
 
     void setData() { // 데이터 초기화 - 비밀번호 검증에는 이메일이 필요하므로 void init() 에서 분리함
-        setParam("email", faker.internet().emailAddress()); // 임시
-        setParam("password", faker.regexify("\\w{8}").toLowerCase());
+        setParam("email", form.getEmail());
+        setParam("password", form.getPassword());
     }
 
     void setParam(String name, String value) {// 가짜 데이터를 만들 수 있는 메서드 | 가짜 데이터 - Stub
