@@ -2,11 +2,13 @@ package org.choongang.member.tests;
 
 import com.github.javafaker.Faker;
 import jakarta.servlet.http.HttpServletRequest;
+import org.apache.ibatis.session.SqlSession;
 import org.choongang.global.exceptions.BadRequestException;
 import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.services.JoinService;
 import org.choongang.member.services.LoginService;
 import org.choongang.member.services.MemberServiceProvider;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,6 +28,7 @@ public class LoginServiceTest {
     private LoginService loginService; // 객체 조립기 사용 위한 부품 설정
     private Faker faker; // 객체 만들고 사용해야 함
     private RequestJoin form; // 성공 시의 데이터 넣어줌
+    private SqlSession dbSession;
 
     @Mock
     private HttpServletRequest request; // 모의 객체 - Mockito
@@ -36,6 +39,7 @@ public class LoginServiceTest {
         JoinService joinService = MemberServiceProvider.getInstance().joinService();
 
         faker = new Faker(Locale.ENGLISH);
+        dbSession = MemberServiceProvider.getInstance().getSession(); // 환경변수에 따라 변경
 
         // 회원 가입 -> 가입한 회원 정보로 email, password 'stub = 가짜 데이터' 생성
         form = RequestJoin.builder()
@@ -101,5 +105,10 @@ public class LoginServiceTest {
         BadRequestException thrown = assertThrows(BadRequestException.class, () -> {
             loginService.process(request); // 호출 = 테스트 검증 process = LoginService 파일 public void process() {} 의미
         });
+    }
+
+    @AfterEach
+    void destroy() {
+        dbSession.rollback();
     }
 }
