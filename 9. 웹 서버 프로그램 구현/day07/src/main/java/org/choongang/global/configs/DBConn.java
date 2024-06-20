@@ -29,6 +29,6 @@ public class DBConn {
     }
 
     public static SqlSession getSession() {
-        return getSession(true); // 회원가입 기능에서 사용
+        return getSession(true); // 회원가입 기능 & 로그인 기능 에서 사용
     }
 }
