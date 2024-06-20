@@ -3,14 +3,15 @@ package org.choongang.member.services;
 import org.apache.ibatis.session.SqlSession;
 import org.choongang.global.configs.DBConn;
 import org.choongang.member.mapper.MemberMapper;
+import org.choongang.member.tests.LoginServiceTest;
 import org.choongang.member.validators.JoinValidator;
 
-// 객체 조립기 (회원쪽 기능)
+// 객체 조립기
 public class MemberServiceProvider { // 싱글톤 패턴 사용
     private static MemberServiceProvider instance;
 
     private MemberServiceProvider() {} // 기본 생성자 private 로 차단
-
+    // (회원쪽 기능)
     public static MemberServiceProvider getInstance() {
         if (instance == null) { // 싱글톤 - 필요할 때 1번만 만들어 공유
             instance = new MemberServiceProvider();
@@ -30,5 +31,10 @@ public class MemberServiceProvider { // 싱글톤 패턴 사용
 
     public JoinService joinService() {
         return new JoinService(joinValidator(), memberMapper());
+    }
+
+    // (로그인 기능)
+    public LoginService loginService() {
+        return new LoginService();
     }
 }
