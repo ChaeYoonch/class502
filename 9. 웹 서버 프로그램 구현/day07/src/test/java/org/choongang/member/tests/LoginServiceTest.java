@@ -87,7 +87,7 @@ public class LoginServiceTest {
             } else { // 이메일 검증
                 setParam("email", isNull?null:"     "); // Null 일 때는 null 값을 , 아닐 때는 빈 값을 넣어줌
             }
-            loginService.process(request); // 호출
+            loginService.process(request); // 호출 = 테스트 검증 process = LoginService 파일 public void process() {} 의미
         }, name + "테스트");
 
         String msg = thrown.getMessage();
@@ -97,6 +97,9 @@ public class LoginServiceTest {
     @Test
     @DisplayName("이메일로 회원이 조회되는지 검증, 검증 실패시 BadRequestException 발생")
     void memberExistTest() {
-
+        setParam("email", "*****" + form.getEmail());
+        BadRequestException thrown = assertThrows(BadRequestException.class, () -> {
+            loginService.process(request); // 호출 = 테스트 검증 process = LoginService 파일 public void process() {} 의미
+        });
     }
 }
