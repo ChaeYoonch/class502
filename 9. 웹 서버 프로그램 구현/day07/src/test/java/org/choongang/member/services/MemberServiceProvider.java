@@ -5,6 +5,7 @@ import org.choongang.global.configs.DBConn;
 import org.choongang.member.mapper.MemberMapper;
 import org.choongang.member.tests.LoginServiceTest;
 import org.choongang.member.validators.JoinValidator;
+import org.choongang.member.validators.LoginValidator;
 
 // 객체 조립기
 public class MemberServiceProvider { // 싱글톤 패턴 사용
@@ -34,7 +35,11 @@ public class MemberServiceProvider { // 싱글톤 패턴 사용
     }
 
     // (로그인 기능)
+    public LoginValidator loginValidator() {
+        return new LoginValidator(); // 구성 부품이 return new LoginService(); 에 있으므로 아래 () 안에 넣어줌 -> 통제를 위해
+    }
+
     public LoginService loginService() {
-        return new LoginService(); // 의존성, 구성 부품이 추가되면 () 안에 작성
+        return new LoginService(loginValidator()); // 의존성, 구성 부품이 추가되면 () 안에 작성
     }
 }
