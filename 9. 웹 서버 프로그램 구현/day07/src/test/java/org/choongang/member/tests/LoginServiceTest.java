@@ -25,7 +25,7 @@ public class LoginServiceTest {
     @DisplayName("로그인 성공 시 예외가 발생하지 않음")
     void successTest() { // 예외가 발생 x = assertDoesNotThrow() 사용
         assertDoesNotThrow(() -> {
-            LoginService loginService = new LoginService();
+            // LoginService loginService = new LoginService();
             loginService.process(); // process = LoginService 파일의 public void process() {} 의미함
         });
     }
