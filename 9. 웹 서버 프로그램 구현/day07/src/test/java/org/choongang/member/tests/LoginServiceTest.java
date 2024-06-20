@@ -2,6 +2,7 @@ package org.choongang.member.tests;
 
 import com.github.javafaker.Faker;
 import jakarta.servlet.http.HttpServletRequest;
+import org.choongang.global.exceptions.BadRequestException;
 import org.choongang.member.services.LoginService;
 import org.choongang.member.services.MemberServiceProvider;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,6 +33,10 @@ public class LoginServiceTest {
 
         faker = new Faker(Locale.ENGLISH);
 
+        setData(); // 데이터 호출
+    }
+
+    void setData() { // 데이터 초기화
         setParam("email", faker.internet().emailAddress()); // 임시
         setParam("password", faker.regexify("\\w{8}").toLowerCase());
     }
@@ -44,7 +49,7 @@ public class LoginServiceTest {
     @DisplayName("로그인 성공 시 예외가 발생하지 않음")
     void successTest() { // 예외가 발생 x = assertDoesNotThrow() 사용
         assertDoesNotThrow(() -> {
-            loginService.process(); // process = LoginService 파일의 public void process() {} 의미함
+            loginService.process(request); // process = LoginService 파일의 public void process() {} 의미함
         });
     }
 
@@ -52,5 +57,11 @@ public class LoginServiceTest {
     @DisplayName("필수 입력 항목(이메일, 비밀번호) 검증, 검증 실패시 BadRequestException 발생")
     void requiredFieldTest() {
 
+    }
+
+    void requiredEachFieldTest(String name, String message) {
+        BadRequestException thrown = assertThrows(BadRequestException.class, () -> {
+
+        });
     }
 }
