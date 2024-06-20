@@ -31,7 +31,7 @@ public class LoginController extends HttpServlet { // 로그인
             LoginService service = MemberServiceProvider.getInstance().loginService();
             service.process(req);
 
-            go(req.getContextPath(), "parent", resp);
+            go(req.getContextPath() + "/", "parent", resp);
         } catch (CommonException e) {
             alertError(e, resp);
         }
