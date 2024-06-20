@@ -23,10 +23,12 @@ public class DBConn {
     }
     // SqlSession 설정
     public static SqlSession getSession(boolean autoCommit) {
-        return factory.openSession(autoCommit);
+        String mode = System.getenv("mode"); // 환경변수 설정
+        if (mode != null && mode.equals("test")) autoCommit = false; // mode 가 null 이 아니고 "test" 에서는 autoCommit 안함
+        return factory.openSession(autoCommit); // 회원가입 기능에서 사용
     }
 
     public static SqlSession getSession() {
-        return getSession(true);
+        return getSession(true); // 회원가입 기능에서 사용
     }
 }
