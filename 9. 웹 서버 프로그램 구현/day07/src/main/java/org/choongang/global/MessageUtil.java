@@ -26,6 +26,6 @@ public class MessageUtil { // 정적 메서드 정의
     }
 
     public static void go(String url, HttpServletResponse resp) throws IOException {
-        go(url, "self", resp); // "self" 가 기본값
+        go(url, "self", resp); // "self" 가 기본값 | self 대신 null 넣어도 위의 조건에서는 self 값이 나옴
     }
 }
