@@ -32,7 +32,7 @@ public class JoinController extends HttpServlet { // 회원가입
             resp.setContentType("text/html; charset=UTF-8"); // script = html 일 때만 읽을 수 있음
             resp.setStatus(e.getStatus()); // 응답 코드 400으로 변경 (원래 200) HttpServletResponse.SC_BAD_REQUEST 와 동일
             PrintWriter out = resp.getWriter();
-            out.printf("<script>alert('%s');history.back();</script>", e.getMessage());
+            out.printf("<script>alert('%s');</script>", e.getMessage());
         }
     }
 }
