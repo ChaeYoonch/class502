@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import static org.choongang.global.MessageUtil.alertError;
+import static org.choongang.global.MessageUtil.go;
 
 @WebServlet("/member/join")
 public class JoinController extends HttpServlet { // 회원가입
@@ -31,7 +32,8 @@ public class JoinController extends HttpServlet { // 회원가입
             JoinService service = MemberServiceProvider.getInstance().joinService();
             service.process(req);
 
-            resp.sendRedirect(req.getContextPath() + "/member/login");
+            go(req.getContextPath() + "/member/login", "parent", resp); // 자바 스크립트 형태로 이동
+            // resp.sendRedirect(req.getContextPath() + "/member/login");
         } catch (CommonException e) {
             alertError(e, resp);
         }
