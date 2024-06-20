@@ -24,7 +24,7 @@ public class LoginService {
         String email = request.getParameter("email"); //  validator.check(request); 로 이메일이 있음을 알 수 있음
         Member member = mapper.get(email);
 
-        HttpSession session = request.getSession();
-        session.setAttribute("member", member);
+        HttpSession session = request.getSession(); // 얘가
+        session.setAttribute("member", member); // 여기 setAttribute 에 연결되는지가 중요
     } // 세션 객체는 HttpServletRequest request 여기서 조회 가능 - request 객체 가져올 수 있음
 }
