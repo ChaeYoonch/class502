@@ -21,9 +21,12 @@ public class MemberServiceProvider { // 싱글톤 패턴 사용
         return instance;
     }
 
+    public SqlSession getSession() {
+        return DBConn.getSession();
+    }
+
     public MemberMapper memberMapper() {
-        SqlSession session = DBConn.getSession();
-        return session.getMapper(MemberMapper.class);
+        return getSession().getMapper(MemberMapper.class);
     }
 
     public JoinValidator joinValidator() { // 회원가입 검증 Validator
