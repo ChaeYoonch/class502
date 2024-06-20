@@ -30,7 +30,7 @@ public class LoginValidator implements Validator<HttpServletRequest>, RequiredVa
         Member member = mapper.get(email);
         checkTrue(member != null, new BadRequestException(message));
         // 이메일 또는 비밀번호 각각이 틀렸다고 문구가 뜨면 해커에게 유리하므로 두루뭉술하게 문구 작성 => 예측 불가능성
-        // 비밀번호 일치 여부 체크 | BCrypt - 해시 사용
+        // 비밀번호 일치 여부 체크
         boolean isMatched = BCrypt.checkpw(password, member.getPassword());
         checkTrue(isMatched, new BadRequestException(message));
     }
