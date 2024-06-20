@@ -2,6 +2,7 @@ package org.choongang.member.tests;
 
 import com.github.javafaker.Faker;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.choongang.global.exceptions.BadRequestException;
 import org.choongang.member.controllers.RequestJoin;
@@ -32,6 +33,9 @@ public class LoginServiceTest {
 
     @Mock
     private HttpServletRequest request; // 모의 객체 - Mockito
+
+    @Mock
+    private HttpSession session; // 모의 객체 - Mockito
 
     @BeforeEach
     void init() { // 여기서 객체 만들어짐
