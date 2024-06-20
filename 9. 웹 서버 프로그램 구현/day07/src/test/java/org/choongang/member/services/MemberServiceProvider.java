@@ -35,6 +35,6 @@ public class MemberServiceProvider { // 싱글톤 패턴 사용
 
     // (로그인 기능)
     public LoginService loginService() {
-        return new LoginService();
+        return new LoginService(); // 의존성, 구성 부품이 추가되면 () 안에 작성
     }
 }
