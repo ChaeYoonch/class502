@@ -1,6 +1,7 @@
 package org.choongang.member.tests;
 
 import org.choongang.member.services.LoginService;
+import org.choongang.member.services.MemberServiceProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,7 +18,7 @@ public class LoginServiceTest {
 
     @BeforeEach
     void init() {
-
+        loginService = MemberServiceProvider.getInstance().loginService();
     }
 
     @Test
