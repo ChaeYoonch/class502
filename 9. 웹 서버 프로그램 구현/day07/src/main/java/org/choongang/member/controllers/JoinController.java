@@ -13,6 +13,8 @@ import org.choongang.member.services.MemberServiceProvider;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import static org.choongang.global.MessageUtil.alertError;
+
 @WebServlet("/member/join")
 public class JoinController extends HttpServlet { // 회원가입
     // 메서드 재정의
@@ -28,11 +30,10 @@ public class JoinController extends HttpServlet { // 회원가입
         try {
             JoinService service = MemberServiceProvider.getInstance().joinService();
             service.process(req);
+
+            resp.sendRedirect(req.getContextPath() + "/member/login");
         } catch (CommonException e) {
-            resp.setContentType("text/html; charset=UTF-8"); // script = html 일 때만 읽을 수 있음
-            resp.setStatus(e.getStatus()); // 응답 코드 400으로 변경 (원래 200) HttpServletResponse.SC_BAD_REQUEST 와 동일
-            PrintWriter out = resp.getWriter();
-            out.printf("<script>alert('%s');</script>", e.getMessage());
+            alertError(e, resp);
         }
     }
 }
