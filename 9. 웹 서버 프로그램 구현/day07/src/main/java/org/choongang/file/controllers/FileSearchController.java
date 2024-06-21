@@ -27,7 +27,9 @@ public class FileSearchController extends HttpServlet {
             File file = new File("D:/uploads/" + fileName);
             if (file.exists()) { // 파일이 있는 경우
                 Path source = file.toPath();
-                String contentType = Files.probeContentType(source); // 파일의 형식을 알아보 수 있음
+                String contentType = Files.probeContentType(source); // 파일의 형식을 알아볼 수 있음
+                resp.setContentType(contentType); // contentType 을 정확히 알려줘야 body 에 출력함
+
                 try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file))) {
                     // ServletOutputStream
                     OutputStream out = resp.getOutputStream();
