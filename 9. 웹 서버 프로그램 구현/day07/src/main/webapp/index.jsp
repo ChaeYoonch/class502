@@ -4,8 +4,8 @@
 <c:url var="joinUrl" value="/member/join" />
 <c:url var="logoutUrl" value="/member/logout" />
 
-<c:if test="${sessionScope.member == null}">
-    <!-- 미로그인 -->
+<c:if test="${sessionScope.member == null}"> <!-- member 가 로그인한 회원 정보로 보기 위해 설정함 -->
+    <!-- 비로그인 -->
     <a href="${loginUrl}">로그인</a>
     <a href="${joinUrl}">회원가입</a>
 </c:if>
