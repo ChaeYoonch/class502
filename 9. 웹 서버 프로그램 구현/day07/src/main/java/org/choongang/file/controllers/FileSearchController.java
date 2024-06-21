@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,7 +26,8 @@ public class FileSearchController extends HttpServlet {
 
             File file = new File("D:/uploads/" + fileName);
             if (file.exists()) { // 파일이 있는 경우
-
+                Path source = file.toPath();
+                String contentType = Files.probeContentType(source); // 파일의 형식을 알아보 수 있음
                 try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file))) {
                     // ServletOutputStream
                     OutputStream out = resp.getOutputStream();
