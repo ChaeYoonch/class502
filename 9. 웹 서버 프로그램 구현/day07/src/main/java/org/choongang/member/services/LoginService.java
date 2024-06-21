@@ -18,7 +18,7 @@ public class LoginService {
 
     public void process(HttpServletRequest request) {
         // 로그인 유효성 검사
-        validator.check(request);
+        validator.check(request); // 실패하면 무조건 던짐 -> 아래 코드들 실행되지 않음
 
         // 로그인 처리 - 회원 정보 조회, 세션에 유지
         String email = request.getParameter("email"); //  validator.check(request); 로 이메일이 있음을 알 수 있음
