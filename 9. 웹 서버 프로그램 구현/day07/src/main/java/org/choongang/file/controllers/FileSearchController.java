@@ -26,6 +26,7 @@ public class FileSearchController extends HttpServlet {
             if (file.exists()) { // 파일이 있는 경우
 
                 try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file))) {
+                    // ServletOutputStream
                     OutputStream out = resp.getOutputStream();
                     out.write(bis.readAllBytes());
                 }
