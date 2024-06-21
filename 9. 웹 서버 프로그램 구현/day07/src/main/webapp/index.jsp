@@ -5,14 +5,16 @@
 <c:url var="joinUrl" value="/member/join" />
 <c:url var="logoutUrl" value="/member/logout" />
 
+로그인 상태 : ${isLogin} <br>
+
 <%-- 비로그인 상태 --%>
-<util:GuestOnly> <!-- member 가 로그인한 회원 정보로 보기 위해 설정함 -->
+<util:GuestOnly>
     <a href="${loginUrl}">로그인</a>
     <a href="${joinUrl}">회원가입</a>
 </util:GuestOnly>
 
 <%-- 로그인 상태 --%>
 <util:MemberOnly>
-    ${sessionScope.member.userName}(${sessionScope.member.email})님 로그인...
+    ${loggedMember.userName}(${loggedMember.email})님 로그인...
     <a href="${logoutUrl}">로그아웃</a>
 </util:MemberOnly>
