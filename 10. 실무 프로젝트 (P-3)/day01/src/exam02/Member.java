@@ -39,6 +39,7 @@ public class Member {
                 "userId='" + userId + '\'' +
                 ", email='" + email + '\'' +
                 ", regDt='" + regDt + '\'' +
+                ", str='" + str + '\'' +
                 '}';
     }
 }
