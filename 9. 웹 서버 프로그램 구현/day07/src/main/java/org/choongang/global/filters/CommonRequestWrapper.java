@@ -1,13 +1,13 @@
 package org.choongang.global.filters;
 
-import jakarta.servlet.ServletRequestWrapper;
+import jakarta.servlet.ServletRequest;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletRequestWrapper;
 import org.choongang.member.MemberUtil;
 import org.choongang.member.entities.Member;
 
 public class CommonRequestWrapper extends HttpServletRequestWrapper {
-    public CommonRequestWrapper(ServletRequestWrapper req) {
+    public CommonRequestWrapper(ServletRequest req) {
         super((HttpServletRequest) req); // (HttpServletRequest) 로 형변환
 
         HttpServletRequest request = (HttpServletRequest) req;
