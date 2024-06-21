@@ -14,6 +14,7 @@ public class Ex02 {
 
         field.set(obj, "DEF");
 
-        System.out.println(obj);
+        Member member = (Member) obj;
+        System.out.println(member.str);
     }
 }
