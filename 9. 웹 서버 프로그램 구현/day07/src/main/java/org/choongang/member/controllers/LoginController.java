@@ -30,7 +30,7 @@ public class LoginController extends HttpServlet { // 로그인
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             LoginService service = MemberServiceProvider.getInstance().loginService();
-            service.process(req);
+            service.process(req); // 예외가 발생하면 던짐
 
             /* 이메일 기억하기 처리 S */
             String email = req.getParameter("email");
@@ -45,7 +45,7 @@ public class LoginController extends HttpServlet { // 로그인
             /* 이메일 기억하기 처리 E */
 
             go(req.getContextPath() + "/", "parent", resp);
-        } catch (CommonException e) {
+        } catch (CommonException e) { // 던지면 여기 CommonException 에 들어옴
             alertError(e, resp);
         }
     }
