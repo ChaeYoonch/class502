@@ -2,4 +2,4 @@
 <%@ tag import="org.choongang.member.MemberUtil" %>
 <% if (!MemberUtil.isLogin(request)) { %>
 <jsp:doBody />
-<% } %> <%-- 로그인 상태일 때만 나옴 --%>
+<% } %> <%-- 비로그인 상태일 때만 나옴 --%>
