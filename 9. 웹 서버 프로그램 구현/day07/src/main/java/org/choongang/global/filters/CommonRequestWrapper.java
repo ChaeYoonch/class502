@@ -9,7 +9,7 @@ import org.choongang.member.entities.Member;
 public class CommonRequestWrapper extends HttpServletRequestWrapper {
     public CommonRequestWrapper(ServletRequest req) {
         super((HttpServletRequest) req); // (HttpServletRequest) 로 형변환
-
+        // HttpServletRequestWrapper 의 생성자 매개변수가 (HttpServletRequest request) 이므로 형변환 하는 것!
         HttpServletRequest request = (HttpServletRequest) req;
 
         /* 로그인 상태, 로그인 회원 정보 전역 유지 */
