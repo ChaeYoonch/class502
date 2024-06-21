@@ -7,6 +7,8 @@ public class Member {
     private String email;
     private LocalDateTime regDt;
 
+    private final String str = "ABC";
+
     public String getUserId() {
         return userId;
     }
