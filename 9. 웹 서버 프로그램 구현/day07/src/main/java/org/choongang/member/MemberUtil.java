@@ -6,7 +6,7 @@ import org.choongang.member.entities.Member;
 
 public class MemberUtil {
 
-    public static boolean isLogin(HttpServletRequest request) {
+    public static boolean isLogin(HttpServletRequest request) { // 로그인 여부 확인 - isLogin
         return getMember(request) != null; /*  안의 내용과 동일한 역할 */
         /* Member member = getMember(request);
         return member != null; */
