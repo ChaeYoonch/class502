@@ -14,5 +14,6 @@ public class InfoService { // 의존성 주입 = 1) setter 2) 생성자 사용
 
     public void printList() {
         List<Member> members = memberDao.getList();
+        members.forEach(System.out::println);
     }
 }
