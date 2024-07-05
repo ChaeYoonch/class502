@@ -25,7 +25,8 @@ public class AppCtx2 {
 
     @Bean
     public JoinService joinService() {
-        return new JoinService(joinValidator(), memberDao()); // 의존성 주입
+        // return new JoinService(joinValidator(), memberDao()); // 의존성 주입
+        return new JoinService();
     }
 
     @Bean
