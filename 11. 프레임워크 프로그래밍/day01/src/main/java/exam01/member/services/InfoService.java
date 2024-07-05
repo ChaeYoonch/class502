@@ -12,7 +12,7 @@ public class InfoService { // 의존성 주입 = 1) setter 2) 생성자 사용
     private MemberDao memberDao;
 
     @Autowired
-    @Qualifier("memberDao")
+    @Qualifier("mDao") // 빈의 이름 직접 지정
     public void setMemberDao(Optional<MemberDao> opt) { // public void setMemberDao(MemberDao memberDao) | this.memberDao = memberDao
         this.memberDao = opt.get();
     }

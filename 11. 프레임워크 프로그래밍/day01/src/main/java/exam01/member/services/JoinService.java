@@ -15,7 +15,7 @@ public class JoinService { // 회원가입 서비스
     private JoinValidator validator;
 
     @Autowired
-    @Qualifier("memberDao")
+    @Qualifier("mDao") // 빈의 이름 직접 지정
     private MemberDao memberDao; // 기능을 수행하기 위해 필요한 객체
 
     // 의존 관계 - 없으면 객체 생성 X | 생성자를 통한 주입 (필수!)

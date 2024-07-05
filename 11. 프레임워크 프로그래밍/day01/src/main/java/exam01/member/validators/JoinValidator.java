@@ -11,7 +11,7 @@ public class JoinValidator implements Validator<RequestJoin> {
     private MemberDao memberDao;
 
     @Autowired
-    @Qualifier("memberDao")
+    @Qualifier("mDao") // 빈의 이름 직접 지정
     public void setMemberDao(MemberDao memberDao) { // setter 로 의존성 주입
         this.memberDao = memberDao;
     }

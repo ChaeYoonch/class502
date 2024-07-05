@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 public class AppCtx2 {
 
     @Bean
+    @Qualifier("mDao") // 빈의 이름 직접 지정
     public MemberDao memberDao() {
         return new MemberDao();
     }
