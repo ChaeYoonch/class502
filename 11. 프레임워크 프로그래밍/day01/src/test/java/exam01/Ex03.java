@@ -24,6 +24,8 @@ public class Ex03 {
                             .build();
         joinService.process(form);
 
+        memberDao.getList().forEach(System.out::println);
+
         ctx.close(); // 객체 조립기로 완성된 객체
     }
 }
