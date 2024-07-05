@@ -21,8 +21,9 @@ public class InfoService { // 의존성 주입 = 1) setter 2) 생성자 사용
         this.memberDao = opt.get();
     }
 
-    @Autowired
+    @Autowired(required = false) // DateTimeFormatter @Bean 빈이 없으면 호출 X
     public void setFormatter(DateTimeFormatter formatter) {
+        System.out.println("호출!");
         this.formatter = formatter;
     }
 
