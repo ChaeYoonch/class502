@@ -32,7 +32,7 @@ public class AppCtx2 {
     @Bean
     public InfoService infoService() {
         InfoService infoService = new InfoService();
-        infoService.setMemberDao(memberDao());
+        // infoService.setMemberDao(memberDao());
 
         return infoService;
     }
