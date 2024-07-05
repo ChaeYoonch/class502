@@ -42,7 +42,9 @@ public class InfoService { // 의존성 주입 = 1) setter 2) 생성자 사용
         members.forEach(m -> {
             System.out.println(m);
             LocalDateTime regDt = m.getRegDt();
-            System.out.println(formatter.format(regDt));
+            if (formatter != null) {
+                System.out.println(formatter.format(regDt));
+            }
         });
     }
 }
