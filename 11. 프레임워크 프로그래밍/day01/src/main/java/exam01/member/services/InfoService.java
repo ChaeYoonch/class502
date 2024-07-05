@@ -4,6 +4,7 @@ import exam01.member.dao.MemberDao;
 import exam01.member.entities.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,6 @@ public class InfoService { // 의존성 주입 = 1) setter 2) 생성자 사용
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy.MM.dd");
 
     @Autowired
-    @Qualifier("mDao") // 빈의 이름 직접 지정
     public void setMemberDao(Optional<MemberDao> opt) { // public void setMemberDao(MemberDao memberDao) | this.memberDao = memberDao
         this.memberDao = opt.get();
     }
