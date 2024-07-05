@@ -5,12 +5,14 @@ import exam01.member.entities.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class InfoService { // 의존성 주입 = 1) setter 2) 생성자 사용
     private MemberDao memberDao;
 
@@ -21,19 +23,20 @@ public class InfoService { // 의존성 주입 = 1) setter 2) 생성자 사용
     public void setMemberDao(Optional<MemberDao> opt) { // public void setMemberDao(MemberDao memberDao) | this.memberDao = memberDao
         this.memberDao = opt.get();
     }
-
+    /*
     @Autowired(required = false) // DateTimeFormatter @Bean 빈이 없으면 호출 X
     public void setFormatter(DateTimeFormatter formatter) {
         System.out.println("호출!");
         this.formatter = formatter;
     }
+    */
 
-    /*
     @Autowired
     public void setFormatter(@Nullable DateTimeFormatter formatter) {
         System.out.println("호출!");
         this.formatter = formatter;
-    }*/
+    }
+
     public void printList() {
         List<Member> members = memberDao.getList();
         members.forEach(m -> {
