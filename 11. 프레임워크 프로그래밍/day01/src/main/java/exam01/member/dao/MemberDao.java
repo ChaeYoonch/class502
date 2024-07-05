@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public class MemberDao {
+public class MemberDao { // memberDao -> 빈 이름
 
     private static Map<String, Member> members = new HashMap<>();
 
