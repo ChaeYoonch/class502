@@ -4,6 +4,7 @@ import exam01.member.dao.MemberDao;
 import exam01.member.entities.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.lang.Nullable;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -13,7 +14,7 @@ import java.util.Optional;
 public class InfoService { // 의존성 주입 = 1) setter 2) 생성자 사용
     private MemberDao memberDao;
 
-    private DateTimeFormatter formatter;
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy.MM.dd");
 
     @Autowired
     @Qualifier("mDao") // 빈의 이름 직접 지정
@@ -27,6 +28,12 @@ public class InfoService { // 의존성 주입 = 1) setter 2) 생성자 사용
         this.formatter = formatter;
     }
 
+    /*
+    @Autowired
+    public void setFormatter(@Nullable DateTimeFormatter formatter) {
+        System.out.println("호출!");
+        this.formatter = formatter;
+    }*/
     public void printList() {
         List<Member> members = memberDao.getList();
         members.forEach(m -> {
