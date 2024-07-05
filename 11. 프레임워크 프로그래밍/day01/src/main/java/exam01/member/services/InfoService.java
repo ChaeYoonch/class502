@@ -1,0 +1,5 @@
+package exam01.member.services;
+
+public class InfoService {
+
+}
