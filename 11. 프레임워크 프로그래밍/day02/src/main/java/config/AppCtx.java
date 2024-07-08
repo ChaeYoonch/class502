@@ -11,9 +11,9 @@ import org.springframework.context.annotation.FilterType;
 /*@ComponentScan(basePackages = "member",
         excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {MemberDao.class, JoinValidator.class})) // 자동으로 검색되지 않도록 배제*/
 /*@ComponentScan(basePackages = "member",
-        excludeFilters = @ComponentScan.Filter(type= FilterType.REGEX, pattern = "member\\.*\\w*Dao"))*/
+        excludeFilters = @ComponentScan.Filter(type= FilterType.REGEX, pattern = "member\\.*\\w*Dao")) // 정규 표현식 사용 */
 @ComponentScan(basePackages = "member",
-        excludeFilters = @ComponentScan.Filter(type = FilterType.ASPECTJ, pattern = "member..*Dao"))
+        excludeFilters = @ComponentScan.Filter(type = FilterType.ASPECTJ, pattern = "member..*Dao")) // Ant 패턴 사용
 public class AppCtx {
 
 }
