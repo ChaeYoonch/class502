@@ -1,7 +1,8 @@
 package exam01;
 
-import exam02.Calculator;
 import exam02.CalculatorHandler;
+import exam02.Calculator;
+import exam02.RecCalculator;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Proxy;
@@ -14,9 +15,12 @@ public class Ex02 {
                 Calculator.class.getClassLoader(),
                 new Class[] { Calculator.class },
                 new CalculatorHandler(new RecCalculator())
-        ); // 매개변수 1 = 클래스 Class, 매개변수 2 = Class[], 매개변수 3 = CalculatorHandler
+        );
 
         Calculator cal = (Calculator) obj;
-        cal.factorial(10L);
+        long result = cal.factorial(10L);
+        System.out.println(result);
+
+        System.out.println(cal);
     }
 }
