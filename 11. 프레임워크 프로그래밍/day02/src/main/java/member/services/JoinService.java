@@ -4,20 +4,21 @@ import member.controllers.RequestJoin;
 import member.dao.MemberDao;
 import member.entities.Member;
 import member.validators.JoinValidator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
 @Service
-public class JoinService { // 회원가입 서비스
+public class JoinService { // 회원 가입 서비스
 
-    @Autowired // 멤버 변수 명 위에 작성
     private JoinValidator validator;
 
-    @Autowired
-    private MemberDao memberDao; // 기능을 수행하기 위해 필요한 객체
+    private MemberDao memberDao; // 기능을 수행 하기 위해 필요한 객체
 
+    public JoinService(JoinValidator validator, MemberDao memberDao) {
+        this.validator = validator;
+        this.memberDao = memberDao;
+    } // @Autowired 사용 X 의존성 강제 주입
 
     public void process(RequestJoin form) {
         validator.check(form); // JoinService 는 validator 와 form 객체 필요 (= 의존) -> 의존성
