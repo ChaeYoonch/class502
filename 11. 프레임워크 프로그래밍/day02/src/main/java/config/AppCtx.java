@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan({"member", "board"})
 public class AppCtx {
 
-    @Bean
+    @Bean(initMethod = "init", destroyMethod = "destroy")
     public BoardService2 boardService2() {
         return new BoardService2();
     }
