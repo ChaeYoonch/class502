@@ -23,10 +23,10 @@ public class JoinService { // 회원가입 서비스
     private MemberDao memberDao; // 기능을 수행하기 위해 필요한 객체
 
     // 의존 관계 - 없으면 객체 생성 X | 생성자를 통한 주입 (필수!)
-    public JoinService(JoinValidator validator, MemberDao memberDao) {
+    /* public JoinService(JoinValidator validator, MemberDao memberDao) {
         this.validator = validator;
         this.memberDao = memberDao;
-    }
+    } */
 
     /* 연관 관계 -> 만들고 난 다음 의존 주입 | setter = 필수 X -> 없어도 객체는 생성됨
     public void setValidator(JoinValidator validator) {
