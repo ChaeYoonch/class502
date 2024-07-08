@@ -11,7 +11,7 @@ public class Ex02 {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx.class); // (1)
 
         BoardService service = ctx.getBean(BoardService.class); // (2)
-        service.write(); // 담겨 있는 객체에서 꺼내와서 사용 (3)
+        service.write(); // 담겨 있는 객체 에서 꺼내 와서 사용 (3)
 
         ctx.close();
     }
