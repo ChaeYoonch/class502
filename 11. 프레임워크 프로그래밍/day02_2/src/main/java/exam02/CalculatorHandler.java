@@ -2,7 +2,6 @@ package exam02;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-import java.util.Arrays;
 
 public class CalculatorHandler implements InvocationHandler {
 
@@ -20,9 +19,8 @@ public class CalculatorHandler implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
-        System.out.println(method);
-        System.out.println(Arrays.toString(args));
+        Object result = method.invoke(obj, args);
 
-        return null;
+        return result;
     }
 }
