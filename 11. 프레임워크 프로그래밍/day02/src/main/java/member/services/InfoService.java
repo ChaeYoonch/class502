@@ -33,7 +33,7 @@ public class InfoService { // 의존성 주입 = 1) setter 2) 생성자 사용
 
     @Autowired
     public void setFormatter(@Nullable DateTimeFormatter formatter) {
-        System.out.println("호출!");
+        // System.out.println("호출!");
         this.formatter = formatter;
     }
 
