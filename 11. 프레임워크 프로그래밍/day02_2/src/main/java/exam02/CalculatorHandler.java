@@ -19,13 +19,13 @@ public class CalculatorHandler implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
-        long stime = System.nanoTime();
+        long stime = System.nanoTime(); // 공통 기능
         try {
             Object result = method.invoke(obj, args); // 핵심 기능 proxy 가 대신 수행
 
             return result;
         } finally {
-            long etime = System.nanoTime();
+            long etime = System.nanoTime(); // 공통 기능
             System.out.printf("걸린 시간 : %d%n", etime - stime);
         }
     }
