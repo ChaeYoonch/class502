@@ -13,13 +13,16 @@ import java.util.Optional;
 
 @Service
 public class InfoService { // 의존성 주입 = 1) setter 2) 생성자 사용
+
     private MemberDao memberDao;
 
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy.MM.dd");
 
+    @Autowired
     public void setMemberDao(Optional<MemberDao> opt) { // public void setMemberDao(MemberDao memberDao) | this.memberDao = memberDao
         this.memberDao = opt.get();
     }
+
     /*
     @Autowired(required = false) // DateTimeFormatter @Bean 빈이 없으면 호출 X
     public void setFormatter(DateTimeFormatter formatter) {
