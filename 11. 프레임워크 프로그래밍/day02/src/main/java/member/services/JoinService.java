@@ -4,9 +4,11 @@ import member.controllers.RequestJoin;
 import member.dao.MemberDao;
 import member.entities.Member;
 import member.validators.JoinValidator;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
+@Service
 public class JoinService { // 회원가입 서비스
 
     private  JoinValidator validator;
