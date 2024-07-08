@@ -1,5 +1,7 @@
 package config;
 
+import board.services.BoardService2;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,4 +18,8 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan({"member", "board"})
 public class AppCtx {
 
+    @Bean
+    public BoardService2 boardService2() {
+        return new BoardService2();
+    }
 }
