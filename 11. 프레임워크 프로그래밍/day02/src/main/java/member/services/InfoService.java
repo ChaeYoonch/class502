@@ -17,7 +17,6 @@ public class InfoService { // 의존성 주입 = 1) setter 2) 생성자 사용
 
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy.MM.dd");
 
-    @Autowired
     public void setMemberDao(Optional<MemberDao> opt) { // public void setMemberDao(MemberDao memberDao) | this.memberDao = memberDao
         this.memberDao = opt.get();
     }
