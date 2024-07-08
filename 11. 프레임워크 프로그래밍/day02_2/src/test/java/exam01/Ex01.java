@@ -28,12 +28,12 @@ public class Ex01 {
 
     @Test
     void test2() {
-        ProxyCalculator cal1 = new ProxyCalculator(new ImplCalculator()); // 데코레이터 패턴 | new ImplCalculator() 기능을 new ProxyCalculator() 얘가 대신 함
+        Calculator cal1 = new ProxyCalculator(new ImplCalculator()); // 데코레이터 패턴 | new ImplCalculator() 기능을 new ProxyCalculator() 얘가 대신 함 | ProxyCalculator cal1 -> Calculator cal1
 
         long result1 = cal1.factorial(10L);
         System.out.printf("cal1 : %d%n", result1);
 
-        ProxyCalculator cal2 = new ProxyCalculator(new RecCalculator());
+        Calculator cal2 = new ProxyCalculator(new RecCalculator());
 
         long result2 = cal2.factorial(10L);
         System.out.printf("cal2 : %d%n", result1);
