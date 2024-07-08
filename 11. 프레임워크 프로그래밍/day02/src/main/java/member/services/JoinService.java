@@ -4,6 +4,7 @@ import member.controllers.RequestJoin;
 import member.dao.MemberDao;
 import member.entities.Member;
 import member.validators.JoinValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -11,8 +12,10 @@ import java.time.LocalDateTime;
 @Service
 public class JoinService { // 회원가입 서비스
 
-    private  JoinValidator validator;
+    @Autowired // 멤버 변수 명 위에 작성
+    private JoinValidator validator;
 
+    @Autowired
     private MemberDao memberDao; // 기능을 수행하기 위해 필요한 객체
 
 
