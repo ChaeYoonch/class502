@@ -1,10 +1,9 @@
 package config;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 
 import java.util.Arrays;
 
@@ -13,6 +12,17 @@ public class ProxyCalculator {
 
     @Pointcut("execution(* exam01..*(..))") // 공통으로 적용될 수 있도록 하기 위해 범위 지정
     public void publicTarget() {}
+
+    // 시점 별로 호출 확인
+    @Before("publicTarget()")
+    public void before(JoinPoint joinPoint) {
+        System.out.println("Before...");
+    }
+
+    @After("publicTarget()")
+    public void after(JoinPoint joinPoint) {
+        System.out.println("After...");
+    }
 
     @Around("publicTarget()")
     public Object process(ProceedingJoinPoint joinPoint) throws Throwable { // 정해진 매개변수 ProceedingJoinPoint joinPoint
