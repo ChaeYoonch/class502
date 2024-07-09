@@ -14,9 +14,14 @@ public class CalculatorHandler implements InvocationHandler { // InvocationHandl
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         // System.out.println("유입!");
+        long stime = System.nanoTime(); // 추가 기능 - 공통 기능, 공통 관심사
+        try {
+            Object result = method.invoke(obj, args); // Calculator factorial 호출 => 핵심 기능을 대신 수행
 
-        Object result = method.invoke(obj, args); // Calculator factorial 호출 => 핵심 기능을 대신 수행
-
-        return result;
+            return result;
+        } finally {
+            long etime = System.nanoTime(); // 추가 기능 - 공통 기능, 공통 관심사
+            System.out.printf("걸린 시간 : %d%n", etime - stime);
+        }
     }
 }
