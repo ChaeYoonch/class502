@@ -13,6 +13,7 @@ public class Ex01 {
         ); // ClassLoader, Class<?>[], InvocationHandler
 
         Calculator cal = (Calculator)obj;
-        cal.factorial(10L); // CalculatorHandler 의 invoke 로 유입되어 호출됨
+        long result = cal.factorial(10L); // CalculatorHandler 의 invoke 로 유입되어 호출됨
+        System.out.println(result);
     }
 }
