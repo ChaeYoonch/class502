@@ -11,8 +11,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 public class AppCtx { // Spring 관리 객체의 설정 파일이닷!
 
     @Bean
-    public ProxyCalculator proxyCalculator() {
-        return new ProxyCalculator();
+    public ProxyCalculator2 proxyCalculator2() {
+        return new ProxyCalculator2();
     }
 
     @Bean
