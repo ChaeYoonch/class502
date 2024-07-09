@@ -10,6 +10,10 @@ public class Ex02 {
     void test1() {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx.class);
 
+        Calculator cal = ctx.getBean(Calculator.class);
+        long result = cal.factorial(10L);
+        System.out.println(result);
+
         ctx.close();
     }
 }
