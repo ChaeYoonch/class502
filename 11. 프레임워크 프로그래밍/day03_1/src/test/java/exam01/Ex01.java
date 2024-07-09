@@ -9,7 +9,7 @@ public class Ex01 {
     @Test
     void test1() {
         Object obj = Proxy.newProxyInstance(
-                Calculator.class.getClassLoader(), new Class[] {Calculator.class}, new CalculatorHandler()
+           Calculator.class.getClassLoader(), new Class[] {Calculator.class}, new CalculatorHandler(new RecCalculator())
         ); // ClassLoader, Class<?>[], InvocationHandler
 
         Calculator cal = (Calculator)obj;
