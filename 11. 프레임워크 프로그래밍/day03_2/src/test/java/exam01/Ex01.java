@@ -22,7 +22,7 @@ public class Ex01 {
     private JdbcTemplate jdbcTemplate;
 
     @Test
-    void test1() {
+    void test1() { // SQL INSERT 문
         String sql = "INSERT INTO MEMBER (SEQ, EMAIL, PASSWORD, USER_NAME) " + " VALUES (SEQ_MEMBER.NEXTVAL, ?, ?, ?)";
         int result = jdbcTemplate.update(sql, "user03@test.org", "123456", "사용자03");
 
@@ -30,12 +30,35 @@ public class Ex01 {
     }
 
     @Test
-    void test2() {
-        List<Member> members = jdbcTemplate.query("SELECT * FROM MEMBER", new RowMapper<Member>() {
-            @Override
-            public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
-                return null;
-            }
-        });
+    void test2() { // SQL SELECT 문
+        List<Member> members = jdbcTemplate.query("SELECT * FROM MEMBER", this::mapper);
+             // jdbcTemplate.query("SELECT * FROM MEMBER", (rs, num) -> mapper(rs, num));
+        members.forEach(System.out::println);
+    }
+
+    @Test
+    void test3() { // 단일 데이터 조회
+        String email = "user50@test.org";
+        try {
+            Member member = jdbcTemplate.queryForObject("SELECT * FROM MEMBER WHERE EMAIL = ?", this::mapper, email);
+        } catch (Exception e) {
+            System.out.println("없음");
+        }
+    }
+
+    @Test
+    void test4() {
+        int total = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM MEMBER", int.class);
+        System.out.println(total);
+    }
+
+    private Member mapper(ResultSet rs, int num) throws SQLException {
+        return Member.builder()
+                .seq(rs.getLong("SEQ"))
+                .email(rs.getString("EMAIL"))
+                .password(rs.getString("PASSWORD"))
+                .userName(rs.getString("USER_NAME"))
+                .regDt(rs.getTimestamp("REG_DT").toLocalDateTime())
+                .build();
     }
 }
