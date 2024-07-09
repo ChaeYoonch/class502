@@ -12,8 +12,12 @@ public class ProxyCalculator {
     public void publicTarget() {}
 
     @Around("publicTarget()")
-    public Object process(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object process(ProceedingJoinPoint joinPoint) throws Throwable { // 정해진 매개변수 ProceedingJoinPoint joinPoint
 
-        return null;
+        System.out.println("유입!");
+
+        Object result = joinPoint.proceed(); // 핵심 기능 대신 실행 - factorial
+
+        return result;
     }
 }
