@@ -23,6 +23,9 @@ public class ProxyCalculator {
         Object[] args = joinPoint.getArgs(); // 인수 정보
         System.out.println(Arrays.toString(args));
 
+        Object obj = joinPoint.getTarget();
+        System.out.println(obj.getClass());
+
         long stime = System.nanoTime(); // 공통 기능
         try {
             // System.out.println("유입!");
