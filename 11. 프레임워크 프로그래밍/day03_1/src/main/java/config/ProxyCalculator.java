@@ -1,9 +1,12 @@
 package config;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+
+import java.util.Arrays;
 
 @Aspect
 public class ProxyCalculator {
@@ -13,6 +16,12 @@ public class ProxyCalculator {
 
     @Around("publicTarget()")
     public Object process(ProceedingJoinPoint joinPoint) throws Throwable { // 정해진 매개변수 ProceedingJoinPoint joinPoint
+
+        Signature sig = joinPoint.getSignature();
+        System.out.println(sig.toLongString());
+
+        Object[] args = joinPoint.getArgs(); // 인수 정보
+        System.out.println(Arrays.toString(args));
 
         long stime = System.nanoTime(); // 공통 기능
         try {
