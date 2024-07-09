@@ -24,6 +24,17 @@ public class ProxyCalculator {
         System.out.println("After...");
     }
 
+    @AfterReturning(value = "publicTarget()", returning = "returnValue")
+    public void afterReturning(JoinPoint joinPoint, Object returnValue) throws Throwable {
+        System.out.println("AfterReturning : " + returnValue);
+    }
+
+    @AfterThrowing(value = "publicTarget()", throwing = "e")
+    public void afterThrowing(JoinPoint joinPoint, Throwable e) {
+        System.out.println("afterThrowing");
+        e.printStackTrace();
+    }
+
     @Around("publicTarget()")
     public Object process(ProceedingJoinPoint joinPoint) throws Throwable { // 정해진 매개변수 ProceedingJoinPoint joinPoint
         /*
@@ -37,6 +48,10 @@ public class ProxyCalculator {
         System.out.println(obj.getClass());
         */
         long stime = System.nanoTime(); // 공통 기능
+        boolean re = false;
+        if (!re) {
+            throw new RuntimeException("예외 테스트...");
+        }
         try {
             // System.out.println("유입!");
             Object result = joinPoint.proceed(); // 핵심 기능 대신 실행 - factorial
