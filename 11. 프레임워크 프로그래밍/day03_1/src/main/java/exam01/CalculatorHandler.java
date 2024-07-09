@@ -13,9 +13,10 @@ public class CalculatorHandler implements InvocationHandler { // InvocationHandl
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        // System.out.println("유입!");
 
-        System.out.println("유입!");
+        Object result = method.invoke(obj, args); // Calculator factorial 호출 => 핵심 기능을 대신 수행
 
-        return null;
+        return result;
     }
 }
