@@ -15,12 +15,13 @@ public class ProxyCalculator2 {
 
     @Around("publicTarget()")
      */
+    @Around("config.CommonPointcut.publicTarget()")
     public Object process(ProceedingJoinPoint joinPoint) throws Throwable {
 
         long stime = System.nanoTime();
 
         try {
-            Object result  =joinPoint.proceed();
+            Object result = joinPoint.proceed();
 
             return result;
         } finally {
