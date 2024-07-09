@@ -16,7 +16,7 @@ public class ProxyCalculator {
 
     @Around("publicTarget()")
     public Object process(ProceedingJoinPoint joinPoint) throws Throwable { // 정해진 매개변수 ProceedingJoinPoint joinPoint
-
+        /*
         Signature sig = joinPoint.getSignature(); // 호출된 메서드 정의 정보
         System.out.println(sig.toLongString());
 
@@ -25,7 +25,7 @@ public class ProxyCalculator {
 
         Object obj = joinPoint.getTarget(); // 호출한 메서드를 가지고 있는 객체
         System.out.println(obj.getClass());
-
+        */
         long stime = System.nanoTime(); // 공통 기능
         try {
             // System.out.println("유입!");
