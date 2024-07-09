@@ -13,6 +13,7 @@ public class CalculatorHandler implements InvocationHandler { // InvocationHandl
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        System.out.println(proxy.getClass());
         // System.out.println("유입!");
         long stime = System.nanoTime(); // 추가 기능 - 공통 기능, 공통 관심사
         try {
