@@ -8,7 +8,7 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class ProxyCalculator {
 
-    @Pointcut("execution(* exam01..*(..))")
+    @Pointcut("execution(* exam01..*(..))") // 공통으로 적용될 수 있도록 하기 위해 범위 지정
     public void publicTarget() {}
 
     @Around("publicTarget()")
