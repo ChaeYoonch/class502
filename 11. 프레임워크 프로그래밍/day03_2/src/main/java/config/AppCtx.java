@@ -18,6 +18,12 @@ public class AppCtx {
 
         /* 커넥션 풀 설정 S */
         ds.setTestWhileIdle(true); // 유휴 객체 유효성 체크
+        ds.setInitialSize(2);
+        ds.setMaxActive(10);
+        ds.setTimeBetweenEvictionRunsMillis(10 * 1000); // 10초에 1번씩 연결 상태 체크
+        ds.setMinEvictableIdleTimeMillis(1000 * 60); // 유휴 객체 생존 시간 1분 -> 이후에는 소멸하고 다시 만들어짐
         /* 커넥션 풀 설정 E */
+
+        return ds;
     }
 }
