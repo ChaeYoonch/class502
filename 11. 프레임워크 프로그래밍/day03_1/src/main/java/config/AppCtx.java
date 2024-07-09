@@ -9,6 +9,11 @@ import org.springframework.context.annotation.Configuration;
 public class AppCtx { // Spring 관리 객체의 설정 파일이닷!
 
     @Bean
+    public ProxyCalculator proxyCalculator() {
+        return new ProxyCalculator();
+    }
+
+    @Bean
     public Calculator calculator() {
         return new RecCalculator();
     }
