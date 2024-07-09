@@ -4,6 +4,13 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 public class CalculatorHandler implements InvocationHandler { // InvocationHandler 구현 예정
+
+    private Object obj;
+
+    public  CalculatorHandler(Object obj) {
+        this.obj = obj; // 매개변수로 실제 obj 즉, 생성자 매개변수로 넘겨줌
+    }
+
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
