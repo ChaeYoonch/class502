@@ -23,6 +23,7 @@ public class JoinValidator implements Validator<RequestJoin>, RequiredValidator 
          * 4. 비밀번호, 비밀번호 확인 일치 여부 (password, confirmPassword)
          */
 
+        /* 1. 필수 항목 검증 (email, password, confirmPassword, userName, agree) */
         String email = form.getEmail(); // (1)
         String password = form.getPassword(); // (2)
         String confirmPassword = form.getConfirmPassword(); // (3)
@@ -35,5 +36,9 @@ public class JoinValidator implements Validator<RequestJoin>, RequiredValidator 
         checkRequired(userName, new BadRequestException("회원명을 입력하세요.")); // (4)
 
         checkTrue(result, new BadRequestException("약관에 동의하세요.")); // (5)
+
+        /* 2. 이메일 중복 여부 (회원이 가입되어 있는지 체크) */
+        checkTrue(mapper.exists(email) > 0L, new BadRequestException("이미 가입된 이메일 입니다."));
+
     }
 }
