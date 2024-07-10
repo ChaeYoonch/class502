@@ -10,4 +10,13 @@
         <result column="USER_NAME" property="userName" />
         <result column="REG_DT" property="regDt" />
     </resultMap>
+
+    <insert id="register"> <!-- 회원 가입 -->
+        INSERT INTO MEMBER (SEQ, EMAIL, PASSWORD, USER_NAME)
+        VALUES (SEQ_MEMBER.NEXTVAL, #{email}, #{password}, #{userName})
+    </insert>
+
+    <select id="get" resultMap="memberMap"> <!-- 이메일로 조회 -->
+        SELECT SEQ, EMAIL, PASSWORD, USER_NAME, REG_DT FROM MEMBER WHERE EMAIL = #{email}
+    </select>
 </mapper>
