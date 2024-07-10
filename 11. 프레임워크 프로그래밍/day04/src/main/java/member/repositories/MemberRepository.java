@@ -1,5 +1,8 @@
 package member.repositories;
 
-public interface MemberRepository {
+import member.entities.Member;
+import org.springframework.data.repository.CrudRepository;
+
+public interface MemberRepository extends CrudRepository<Member, Long> {
 
 }
