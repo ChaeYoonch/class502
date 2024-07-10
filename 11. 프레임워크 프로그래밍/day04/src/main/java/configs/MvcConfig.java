@@ -16,7 +16,7 @@ public class MvcConfig implements WebMvcConfigurer { // 설정 클래스 | MVC �
     }
 
     @Override
-    public void configureViewResolvers(ViewResolverRegistry registry) {
+    public void configureViewResolvers(ViewResolverRegistry registry) { // configureViewResolvers 기본 셋팅 = WEB-INF 의 templates
         WebMvcConfigurer.super.configureViewResolvers(registry);
     }
 }
