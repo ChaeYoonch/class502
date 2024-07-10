@@ -1,5 +1,8 @@
 package mappers.member;
 
-public interface MemberMapper {
+import org.apache.ibatis.annotations.Select;
 
+public interface MemberMapper {
+    @Select("SELECT COUNT(*) FROM MEMBER")
+    long getTotal();
 }
