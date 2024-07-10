@@ -40,5 +40,7 @@ public class JoinValidator implements Validator<RequestJoin>, RequiredValidator 
         /* 2. 이메일 중복 여부 (회원이 가입되어 있는지 체크) */
         checkTrue(mapper.exists(email) > 0L, new BadRequestException("이미 가입된 이메일 입니다."));
 
+        /* 3. 비밀번호 자리 수 체크 (8자리 이상) */
+        checkTrue(password.length() >= 8, new BadRequestException("비밀번호는 8자리 이상 입력하세요."));
     }
 }
