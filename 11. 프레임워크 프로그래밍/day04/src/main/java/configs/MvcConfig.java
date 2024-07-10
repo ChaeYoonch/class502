@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration // 컨테이너가 설정 클래스로 인식하기 위해 필요함
 @EnableWebMvc
 @ComponentScan("member")
-@Import(DBConfig.class)
+@Import(DBConfig.class) // web.xml 의 <param-value> 에 추가하지 않고 사용하는 방법!
 public class MvcConfig implements WebMvcConfigurer { // 설정 클래스 | MVC 관련 모든 설정이 담겨 있음 = WebMvcConfigurer
     // 환경에 따라 바뀔 수 있는 것은 직접 설정해야 함
     @Override
