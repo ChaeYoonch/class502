@@ -1,12 +1,18 @@
 package member.validators;
 
+import global.exceptions.BadRequestException;
 import global.validators.RequiredValidator;
 import global.validators.Validator;
+import lombok.RequiredArgsConstructor;
+import mappers.member.MemberMapper;
 import member.controllers.RequestJoin;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class JoinValidator implements Validator<RequestJoin>, RequiredValidator {
+
+    private final MemberMapper mapper;
 
     @Override
     public void check(RequestJoin form) {
@@ -17,10 +23,17 @@ public class JoinValidator implements Validator<RequestJoin>, RequiredValidator 
          * 4. 비밀번호, 비밀번호 확인 일치 여부 (password, confirmPassword)
          */
 
-        String email = form.getEmail();
-        String password = form.getPassword();
-        String confirmPassword = form.getConfirmPassword();
-        String userName = form.getUserName();
-        boolean result = form.isAgree();
+        String email = form.getEmail(); // (1)
+        String password = form.getPassword(); // (2)
+        String confirmPassword = form.getConfirmPassword(); // (3)
+        String userName = form.getUserName(); // (4)
+        boolean result = form.isAgree(); // (5)
+
+        checkRequired(email, new BadRequestException("이메일을 입력하세요.")); // (1)
+        checkRequired(password, new BadRequestException("비밀번호를 입력하세요.")); // (2)
+        checkRequired(confirmPassword, new BadRequestException("비밀번호를 확인하세요.")); // (3)
+        checkRequired(userName, new BadRequestException("회원명을 입력하세요.")); // (4)
+
+        checkTrue(result, new BadRequestException("약관에 동의하세요.")); // (5)
     }
 }
