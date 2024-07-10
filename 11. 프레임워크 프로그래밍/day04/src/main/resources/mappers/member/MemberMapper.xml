@@ -19,4 +19,8 @@
     <select id="get" resultMap="memberMap"> <!-- 이메일로 조회 -->
         SELECT SEQ, EMAIL, PASSWORD, USER_NAME, REG_DT FROM MEMBER WHERE EMAIL = #{email}
     </select>
+
+    <select id="exists" resultType="int">
+        SELECT COUNT(*) FROM MEMBER WHERE EMAIL = #{email}
+    </select>
 </mapper>
