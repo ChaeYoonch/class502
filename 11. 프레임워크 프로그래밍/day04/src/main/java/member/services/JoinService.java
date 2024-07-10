@@ -1,5 +1,6 @@
 package member.services;
 
+import global.exceptions.BadRequestException;
 import lombok.RequiredArgsConstructor;
 import mappers.member.MemberMapper;
 import member.controllers.RequestJoin;
@@ -29,5 +30,10 @@ public class JoinService { // 회원가입 서비스
                             .password(hash)
                             .userName(form.getUserName())
                             .build();
+
+        int result = mapper.register(member);
+        if (result < 1) {
+            throw new BadRequestException("회원가입 실패");
+        }
     }
 }
