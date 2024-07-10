@@ -22,10 +22,15 @@ public class Ex01 {
 
     @Test
     void test1() {
+        /*
         int result = jdbcTemplate.update(new PreparedStatementCreator() { // 함수형 인터페이스
+
             @Override                                        // Connection 제공
             public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
                 String sql = "INSERT INTO MEMBER (SEQ, EMAIL, PASSWORD, USER_NAME)" + "VALUES (SEQ_MEMBER.NEXTVAL, ?, ?, ?)";
+            */
+        int result = jdbcTemplate.update(con -> {
+            String sql = "INSERT INTO MEMBER (SEQ, EMAIL, PASSWORD, USER_NAME)" + "VALUES (SEQ_MEMBER.NEXTVAL, ?, ?, ?)";
 
                 PreparedStatement pstmt = con.prepareStatement(sql);
                 pstmt.setString(1, "user04@test.org");
@@ -33,7 +38,8 @@ public class Ex01 {
                 pstmt.setString(3, "사용자04");
 
                 return pstmt;
-            }
         });
+
+        System.out.println(result);
     }
 }
