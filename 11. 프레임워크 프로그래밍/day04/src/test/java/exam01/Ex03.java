@@ -13,10 +13,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 public class Ex03 {
 
     @Autowired
-    private MemberMapper memeberMapper;
+    private MemberMapper memberMapper;
 
     @Test
     void test1() {
-        System.out.println(memeberMapper);
+        long total = memberMapper.getTotal();
+        System.out.println(total);
     }
 }
