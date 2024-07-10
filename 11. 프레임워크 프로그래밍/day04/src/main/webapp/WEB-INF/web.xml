@@ -8,7 +8,20 @@
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>
             org.springframework.web.servlet.DispatcherServlet
-        </servlet-class>
+        </servlet-class> <!-- 초기화 시 = init 사용 시 컨테이너 세팅함 -->
+        <init-param>
+            <param-name>contextClass</param-name> <!-- 스프링 컨테이너가 어떤 것인지 찾아줌 -->
+            <param-value>
+                org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+            </param-value> <!-- 위에 얘가 스프링 컨테이너 -->
+        </init-param>
+        <init-param>
+            <param-name>contextConfigLocation</param-name> <!-- 패키지 명을 포함한 클래스에 넣어줌 => 설정 관리 -->
+            <param-value>
+                config.MvcConfig <!-- 설정 클래스 -->
+                config.ControllerConfig <!-- 설정 클래스 -->
+            </param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
