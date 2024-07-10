@@ -20,7 +20,7 @@
         SELECT SEQ, EMAIL, PASSWORD, USER_NAME, REG_DT FROM MEMBER WHERE EMAIL = #{email}
     </select>
 
-    <select id="exists" resultType="int">
+    <select id="exists" resultType="int"> <!-- 회원 존재 여부 확인 -->
         SELECT COUNT(*) FROM MEMBER WHERE EMAIL = #{email}
     </select>
 </mapper>
