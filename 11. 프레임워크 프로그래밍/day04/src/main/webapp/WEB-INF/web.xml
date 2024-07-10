@@ -13,7 +13,7 @@
             <param-name>contextClass</param-name> <!-- 스프링 컨테이너가 어떤 것인지 찾아줌 -->
             <param-value>
                 org.springframework.web.context.support.AnnotationConfigWebApplicationContext
-            </param-value> <!-- 위에 얘가 스프링 컨테이너 / DispatcherServlet 에 설정 값을 넘겨줌 -->
+            </param-value> <!-- 위에 얘가 스프링 컨테이너 -> 객체를 관리함 / DispatcherServlet 에 설정 값을 넘겨줌 -->
         </init-param>
         <init-param>
             <param-name>contextConfigLocation</param-name> <!-- 패키지 명을 포함한 클래스에 넣어줌 => 설정 관리 -->
