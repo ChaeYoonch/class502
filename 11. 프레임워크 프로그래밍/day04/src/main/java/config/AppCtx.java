@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJdbcRepositories
+@EnableJdbcRepositories("member")
 @ComponentScan("member")
 public class AppCtx {
 
