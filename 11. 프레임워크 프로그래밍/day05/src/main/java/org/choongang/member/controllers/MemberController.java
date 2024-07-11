@@ -3,6 +3,7 @@ package org.choongang.member.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MemberController {
@@ -13,4 +14,16 @@ public class MemberController {
 
         return "member/join";
     }
+
+    /*
+    @GetMapping("/member/join")
+
+    public ModelAndView join() {
+
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("message", "안녕하세요.");
+        mv.setViewName("/member/join");
+
+        return mv;
+    } */
 }
