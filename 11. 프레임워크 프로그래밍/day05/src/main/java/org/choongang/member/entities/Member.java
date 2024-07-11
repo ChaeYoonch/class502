@@ -14,10 +14,10 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table("CH_MEMBER")
+// @Table("CH_MEMBER")
 public class Member {
     @Id
-    @Column("ID")
+    // @Column("ID")
     private Long seq; // long -> Long : 지네릭 클래스 때문에
     private String email;
     private String password;
