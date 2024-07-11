@@ -13,7 +13,7 @@ public class MvcConfig implements WebMvcConfigurer { // WebMvcConfigurer -> 설�
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
-    } // // 기본 설정 1
+    } // 기본 설정 1
 
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
