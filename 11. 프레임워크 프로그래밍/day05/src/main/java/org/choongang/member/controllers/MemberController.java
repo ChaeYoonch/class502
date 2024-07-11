@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping
+@RequestMapping("/member")
 public class MemberController {
 
-    @GetMapping("/member/join")
+    @GetMapping("/join")
     public String join() {
 
         return "member/join";
     }
 
-    @PostMapping("/member/join")
+    @PostMapping("/join")
     public String joinPs(RequestJoin form) {
 
         return "redirect:/member/join";
