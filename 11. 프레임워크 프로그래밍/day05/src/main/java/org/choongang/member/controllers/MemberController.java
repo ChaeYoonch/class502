@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,7 +13,18 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping
 public class MemberController {
 
-    // @GetMapping("/member/join")
+    @GetMapping("/member/join")
+    public String join() {
+
+        return "member/join";
+    }
+
+    @PostMapping("/member/join")
+    public String joinPs(RequestJoin form) {
+
+        return "redirect:/member/join";
+    }
+    /*
     @RequestMapping(path="/member/join", method = {RequestMethod.GET, RequestMethod.POST}) // GET, POST 둘 다 받을 수 있는 메서드 | 둘 다 없을 때는 모든 메서드 매칭
     public String join(Model model, HttpServletRequest request) {
 
@@ -20,7 +32,7 @@ public class MemberController {
         System.out.println("method : " + request.getMethod());
 
         return "member/join";
-    }
+    } */
 
     /*
     @GetMapping("/member/join")
