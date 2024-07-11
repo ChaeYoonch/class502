@@ -24,6 +24,21 @@ public class MemberRepositoryTest {
 
     @Test
     void test2() {
+        Member member = Member.builder()
+                            .seq(1L)
+                            .email("user01@test.org")
+                            .password("12345678")
+                            .userName("사용자06(수정)")
+                            .build();
 
+        repository.save(member); // DB table 에 값 추가 | 이미 있으면 수정, 없으면 추가
+    }
+
+    @Test
+    void test3() {
+        Member member = repository.findById(1L).orElse(null);
+        System.out.println(member);
+
+        repository.delete(member);
     }
 }
