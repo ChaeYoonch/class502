@@ -19,7 +19,7 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>
                 org.choongang.config.MvcConfig
-            </param-value>
+            </param-value> <!-- CommopnentScan 범위 고정해놓음 -->
         </init-param>
     </servlet>
     <servlet-mapping>
