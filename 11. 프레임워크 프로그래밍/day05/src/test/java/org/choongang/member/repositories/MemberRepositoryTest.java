@@ -7,10 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 
 import java.util.List;
+
+import static org.springframework.data.domain.Sort.Order.asc;
+import static org.springframework.data.domain.Sort.Order.desc;
 
 @SpringJUnitWebConfig // 웹 설정 O | @ExtendWith 포함 O
 @ContextConfiguration(classes = MvcConfig.class)
@@ -72,8 +76,17 @@ public class MemberRepositoryTest {
 
     @Test
     void test8() {
-        Pageable pageable = PageRequest.of(1, 3); // 1 페이지당 3개씩 나옴 | 0부터 시작이 기본이므로 2부터 시작함
+        // Pageable pageable = PageRequest.of(0, 3); // 1 페이지당 3개씩 나옴 | Order = Sort 의 정적 내부 클래스 - Sort.Order.desc
+        Pageable pageable = PageRequest.of(0, 3, Sort.by(desc("regDt"), asc("email")));
         Page<Member> data = repository.findByUserNameContaining("용자", pageable);
 
+        List<Member> members = data.getContent();
+
+        long total = data.getTotalElements(); // 조회된 전체 레코드 개수
+        int pages = data.getTotalPages(); // 전체 페이지 개수
+
+        members.forEach(System.out::println);
+
+        System.out.printf("총 개수 : %d, 총 페이지 수 : %d%n", total, pages);
     }
 }
