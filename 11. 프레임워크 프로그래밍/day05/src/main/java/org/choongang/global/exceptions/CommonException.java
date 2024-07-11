@@ -8,5 +8,6 @@ public class CommonException extends RuntimeException { // 공통 예외 부분
 
     public CommonException(String message, HttpStatus status) {
         super(message);
+        this.status = status;
     }
 }
