@@ -41,4 +41,10 @@ public class MemberRepositoryTest {
 
         repository.delete(member);
     }
+
+    @Test
+    void test4() {
+        Member member = repository.findByEmail("user02@test.org");
+        System.out.println(member);
+    }
 }
