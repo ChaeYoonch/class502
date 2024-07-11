@@ -12,6 +12,6 @@ public interface MemberRepository extends CrudRepository<Member, Long> { // Memb
     List<Member> findByUserNameContaining(String keyword);
     List<Member> findByUserNameContainingAndEmailContainingOrderByRegDtDesc(String key1, String key2); // (**)
 
-    @Query("SELECT * FROM MEMBER WHERE USER_NAME LIKE '% : param1% AND EMAIL LIKE '%: param2% ORDER BY REG_DT DESC") // (**) 같은 내용
+    @Query("SELECT * FROM MEMBER WHERE USER_NAME LIKE :param1 AND EMAIL LIKE :param2 ORDER BY REG_DT DESC") // (**) 같은 내용
     List<Member> getMembers(@Param("param1") String key1, @Param("param2") String key2);
 }
