@@ -69,4 +69,11 @@ public class MemberRepositoryTest {
         List<Member> members = repository.getMembers("용자", "user");
         members.forEach(System.out::println);
     }
+
+    @Test
+    void test8() {
+        Pageable pageable = PageRequest.of(1, 3); // 1 페이지당 3개씩 나옴 | 0부터 시작이 기본이므로 2부터 시작함
+        Page<Member> data = repository.findByUserNameContaining("용자", pageable);
+
+    }
 }
