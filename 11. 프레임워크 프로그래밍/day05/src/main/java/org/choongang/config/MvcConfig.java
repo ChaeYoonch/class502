@@ -20,7 +20,7 @@ public class MvcConfig implements WebMvcConfigurer { // WebMvcConfigurer -> 설�
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**")
                 .addResourceLocations("classpath:/static/"); // 특정 경로 입력 시 해당 경로로 매칭 | ** : 현재 경로 포함 하위 경로 | /** : 모든 경로
-    } // 정적 경로 관련 추가
+    } // 정적 경로 관련 추가 | 첫 번째는 Controller 빈 두 번째는 정적 경로
 
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
