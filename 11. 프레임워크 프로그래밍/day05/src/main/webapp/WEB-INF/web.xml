@@ -4,5 +4,24 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
                       https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
-
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class> <!-- 스프링 컨테이너 초기화시에 만들어줌-->
+        <init-param>
+            <param-name>contextClass</param-name>
+            <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+        </init-param> <!-- DispatcherServlet 에게 어떤 컨테이너를 쓸 건지 알려주는 역할 / AnnotationConfigWebApplicationContext 웹 전용 컨테이너-->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>
+                config.MvcConfig
+            </param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern></url-pattern>
+    </servlet-mapping>
 </web-app>
