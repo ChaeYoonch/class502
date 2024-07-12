@@ -27,7 +27,8 @@ public class MvcConfig implements WebMvcConfigurer { // WebMvcConfigurer -> 설�
         registry.addViewController("/") // 메인 경로
                 .setViewName("main/index"); // 컨트롤러 연동하지 않고 뷰 바로 연결
 
-        registry.addViewController("/mypage");
+        registry.addViewController("/mypage")
+                .setViewName("mypage/index");
     }
 
     @Override
