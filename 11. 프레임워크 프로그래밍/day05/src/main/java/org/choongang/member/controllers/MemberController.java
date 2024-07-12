@@ -32,7 +32,11 @@ public class MemberController {
     }
 
     @GetMapping("/login")
-    public String login() { // 로그인 페이지
+    public String login(RequestLogin2 form) { // 로그인 페이지
+
+        if (form != null) {
+            log.info("이메일:{}, 비밀번호: {}", form.email(), form.password()); // 조회용도 : 상수 형태 -> 값 변경 불가능
+        }
 
         return "member/login";
     }
