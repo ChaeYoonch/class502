@@ -1,11 +1,9 @@
 package org.choongang.member.controllers;
 
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,17 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberController {
 
     @GetMapping("/join")
-    public String join(Model model) { // 회원가입 페이지
-
-        RequestJoin form = new RequestJoin();
-
-        model.addAttribute("requestJoin", form); // 명칭 유지를 위해 requestJoin 빈 객체 = 요청 데이터가 없는 값을 만들어야 함 | 계속 값이 바뀌므로 @Bean 쓰면 안 됨!!
+    public String join(@ModelAttribute RequestJoin form) {
 
         return "member/join";
     }
 
     @PostMapping("/join")
-    public String join(RequestJoin form) { // RequestJoin form : 커맨드 객체 -> 데이터 전달 역할
+    public String joinPs(RequestJoin form) { // RequestJoin form : 커맨드 객체 -> 데이터 전달 역할
 
         log.info(form.toString());
 
@@ -45,6 +39,16 @@ public class MemberController {
         return "forward:/member/login"; // 버퍼 치환
     } */
     // private final Logger log = LoggerFactory.getLogger(MemberController.class);
+     /*
+    @GetMapping("/join")
+    public String join(Model model) { // 회원가입 페이지
+
+        RequestJoin form = new RequestJoin();
+
+        model.addAttribute("requestJoin", form); // 명칭 유지를 위해 requestJoin 빈 객체 = 요청 데이터가 없는 값을 만들어야 함 | 계속 값이 바뀌므로 @Bean 쓰면 안 됨!!
+
+        return "member/join";
+    }*/
     /*
     @GetMapping("/join")
     public String join1() {
