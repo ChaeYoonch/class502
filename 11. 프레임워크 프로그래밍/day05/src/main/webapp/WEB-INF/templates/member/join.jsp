@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> <%-- 얘를 이용해 커스텀 태그 사용 --%>
 <c:url var="actionUrl" value="/member/join" />
 
 ${requestJoin}
