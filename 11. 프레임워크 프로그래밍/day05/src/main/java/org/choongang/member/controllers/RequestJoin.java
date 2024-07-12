@@ -13,5 +13,6 @@ public class RequestJoin {
     // private String[] hobby; // 취미
     // private Set<String> hobby;
     private List<String> hobby;
+    private String hobbies;
     private boolean agree; // 약관 동의
 }
