@@ -1,16 +1,13 @@
 package org.choongang.member.controllers;
 
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 @Slf4j
 @Controller
@@ -31,7 +28,7 @@ public class MemberController {
         return "member/join";
     }
 
-    @PostMapping(path="/join", headers="appKey=1234", consumes = "application/json") // 요청 헤더 쪽에 한정 : "appKey=1234" 포함되어 있어야만 실행
+    @PostMapping(path="/join", headers="appKey=1234", consumes = MediaType.APPLICATION_JSON_VALUE) // 요청 헤더 쪽에 한정 : "appKey=1234" 포함되어 있어야만 실행 | consumes = "application/json"
     public String joinPs(RequestJoin form) {
 
         log.info("joinPs 실행...");
