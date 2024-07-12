@@ -45,7 +45,7 @@ public class MemberController {
 
         Locale locale = request.getLocale(); // 요청 헤더 Accept-Language
         String message = messageSource.getMessage("EMAIL", null, locale);
-        System.out.println(message);
+        log.info(message);
 
         return "member/join";
     }
