@@ -32,7 +32,10 @@ ${commonValue}
     <dl>
         <dt>취미</dt>
         <dd>
+            <form:select path="hobby" items="${hobbies}" />
+            <%--
             <form:checkboxes path="hobby" items="${hobbies}" />
+            --%>
         </dd>
     </dl>
     <dl>
