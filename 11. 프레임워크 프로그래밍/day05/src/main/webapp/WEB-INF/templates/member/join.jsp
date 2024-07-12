@@ -1,12 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> <%-- 얘를 이용해 커스텀 태그 사용 --%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> <%-- 얘가 커스텀 태그 --%>
 <c:url var="actionUrl" value="/member/join" />
 
 ${requestJoin}
 
 <h1>회원가입</h1>
-<form method="POST" action="${actionUrl}" autocomplete="off">
+<form:form method="POST" action="${actionUrl}" autocomplete="off">
     <dl>
         <dt>이메일</dt>
         <dd>
@@ -39,4 +39,4 @@ ${requestJoin}
         </dd>
     </dl>
     <button type="submit">가입하기</button>
-</form>
+</form:form>
