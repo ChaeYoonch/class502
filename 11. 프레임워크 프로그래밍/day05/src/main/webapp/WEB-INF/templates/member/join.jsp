@@ -4,9 +4,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> <%-- message tag 로 연동--%>
 
 <c:url var="actionUrl" value="/member/join" />
-
+<%--
 <spring:message code="LOGIN_MSG" arguments="사용자01,USER01" />
-
+--%>
+<spring:message code="LOGIN_MSG">
+    <spring:argument value="사용자01" />
+    <spring:argument value="USER01" />
+</spring:message>
 <h1>
     <spring:message code="회원가입" />
 </h1>
