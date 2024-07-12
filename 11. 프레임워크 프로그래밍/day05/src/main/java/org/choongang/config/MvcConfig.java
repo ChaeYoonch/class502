@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.*;
 @Configuration
 @EnableWebMvc
 @ComponentScan("org.choongang")
-@Import(DBConfig.class)
+@Import({DBConfig.class, MessageConfig.class}) // MvcConfig 에 DBConfig, MessageConfig 연동
 public class MvcConfig implements WebMvcConfigurer { // WebMvcConfigurer -> 설정 틀 제공함 | 인터페이스 임!!
 
     @Override
