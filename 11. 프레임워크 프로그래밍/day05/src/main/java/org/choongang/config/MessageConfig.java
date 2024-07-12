@@ -11,7 +11,7 @@ public class MessageConfig { // MvcConfig 에 통합
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource ms = new ResourceBundleMessageSource();
-
+        ms.setBasenames();
         return ms;
     }
 }
