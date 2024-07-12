@@ -2,8 +2,6 @@ package org.choongang.member.controllers;
 
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 public class RequestJoin {
     private String email; // 이메일
@@ -13,7 +11,7 @@ public class RequestJoin {
     // private String[] hobby;
     // private Set<String> hobby;
     // private List<String> hobby; // 취미
-    private String hobbies; // multiple 추가 되도록 위의 것 지움
+    private String hobby; // multiple 추가 되도록 위의 것 지움
     private boolean agree; // 약관 동의
 
     private Address addr; // 주소 | addr.속성명 으로 입력
