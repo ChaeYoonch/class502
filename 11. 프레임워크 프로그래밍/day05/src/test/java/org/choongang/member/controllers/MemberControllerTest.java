@@ -11,7 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 @SpringJUnitWebConfig
@@ -38,7 +38,7 @@ public class MemberControllerTest {
 
     @Test
     void test2() throws Exception {
-        mockMvc.perform(post("/member/join"))
+        mockMvc.perform(get("/member/join"))
                 .andDo(print());
     }
 }
