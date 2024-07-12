@@ -14,8 +14,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/member") // 클래스 명 위에 쓰는 경우가 많음
 public class MemberController {
 
-    // private final Logger log = LoggerFactory.getLogger(MemberController.class);
+    @GetMapping("/join")
+    public String join() {
 
+        return "member/join";
+    }
+
+    @PostMapping("/join")
+    public String joinPs(RequestJoin form) {
+
+        return "member/join";
+    }
+
+    // private final Logger log = LoggerFactory.getLogger(MemberController.class);
+    /*
     @GetMapping("/join")
     public String join1() {
         log.info("{},{} 없음", "mode1", "mode2"); // System.out.println("mode 없음");
@@ -34,7 +46,7 @@ public class MemberController {
         log.info("joinPs 실행...");
 
         return "redirect:/member/join";
-    }
+    } */
     /*
     @RequestMapping(path="/member/join", method = {RequestMethod.GET, RequestMethod.POST}) // GET, POST 둘 다 받을 수 있는 메서드 | 둘 다 없을 때는 모든 메서드 매칭
     public String join(Model model, HttpServletRequest request) {
