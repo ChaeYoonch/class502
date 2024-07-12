@@ -1,6 +1,8 @@
 package org.choongang.member.controllers;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -8,11 +10,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Locale;
 
 @Slf4j
 @Controller
 @RequestMapping("/member") // 클래스명 위에 쓰는 경우가 많음
 public class MemberController {
+
+    private final MessageSource messageSource;
+    private final HttpServletRequest request;
 
     @ModelAttribute("commonValue")
     public String commonValue() {
@@ -36,6 +42,8 @@ public class MemberController {
 
     @GetMapping("/join")
     public String join(@ModelAttribute RequestJoin form) {
+
+        Locale locale = request.getLocale(); // 요청 헤더 Accept-Language
 
         return "member/join";
     }
