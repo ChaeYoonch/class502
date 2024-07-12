@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Slf4j
 @Controller
@@ -21,10 +22,11 @@ public class MemberController {
     }
 
     @PostMapping("/join")
-    public String joinPs(RequestJoin form) {
+    public String join(RequestJoin form) {
 
-        // return "redirect:/member/login"; // Location: /day05/member/login | redirect 있으면, 앞에 / 를 붙여야 절대 경로가 됨, 없으면 상대 경로 | SpringAdaptor 가 실행
-        return "forward:/member/login"; // 버퍼 치환
+        log.info(form.toString());
+
+        return "member/join";
     }
 
     @GetMapping("/login")
@@ -32,7 +34,13 @@ public class MemberController {
 
         return "member/login";
     }
+    /*
+    @PostMapping("/join")
+    public String joinPs(RequestJoin form) {
 
+        // return "redirect:/member/login"; // Location: /day05/member/login | redirect 있으면, 앞에 / 를 붙여야 절대 경로가 됨, 없으면 상대 경로 | SpringAdaptor 가 실행
+        return "forward:/member/login"; // 버퍼 치환
+    } */
     // private final Logger log = LoggerFactory.getLogger(MemberController.class);
     /*
     @GetMapping("/join")
