@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/member")
+@RequestMapping("/member") // 클래스 명 위에 쓰는 경우가 많음
 public class MemberController {
 
-    @GetMapping("/join")
+    @GetMapping("/join") // 원래는 "/member/join" 으로 쓰지만, member 부분이 동일하므로 위에 @RequestMapping 에 적용해놓음
     public String join() {
 
         return "member/join";
