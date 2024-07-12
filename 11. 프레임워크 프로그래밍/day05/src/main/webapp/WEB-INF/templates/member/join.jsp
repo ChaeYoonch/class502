@@ -27,7 +27,7 @@ ${requestJoin}
     <dl>
         <dt>회원명</dt>
         <dd>
-            <input type="text" name="userName">
+            <input type="text" name="userName" value="${requestJoin.userName}">
         </dd>
     </dl>
     <dl>
