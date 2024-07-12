@@ -24,7 +24,7 @@ public class MemberController {
     public String joinPs(RequestJoin form) {
 
         // return "redirect:/member/login"; // Location: /day05/member/login | redirect 있으면, 앞에 / 를 붙여야 절대 경로가 됨, 없으면 상대 경로 | SpringAdaptor 가 실행
-        return "forward:/member/login";
+        return "forward:/member/login"; // 버퍼 치환
     }
 
     @GetMapping("/login")
