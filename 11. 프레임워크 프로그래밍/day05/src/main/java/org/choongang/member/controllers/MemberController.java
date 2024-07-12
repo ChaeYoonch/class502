@@ -1,6 +1,7 @@
 package org.choongang.member.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import java.util.Locale;
 @Slf4j
 @Controller
 @RequestMapping("/member") // 클래스명 위에 쓰는 경우가 많음
+@RequiredArgsConstructor
 public class MemberController {
 
     private final MessageSource messageSource;
