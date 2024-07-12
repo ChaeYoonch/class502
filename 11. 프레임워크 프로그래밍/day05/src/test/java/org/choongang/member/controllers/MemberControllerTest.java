@@ -11,6 +11,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.util.Locale;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
@@ -40,7 +42,7 @@ public class MemberControllerTest {
     void test2() throws Exception {
         mockMvc.perform(
                 get("/member/join")
-                .header("Accept-Language", "ko"))
+                .header("Accept-Language", Locale.KOREAN.getDisplayLanguage()))
                 .andDo(print());
     }
 }
