@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> <%-- 얘가 커스텀 태그 --%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> <%-- message tag 로 연동--%>
 <c:url var="actionUrl" value="/member/join" />
 ${commonValue}
 <h1>회원가입</h1>
@@ -59,7 +60,7 @@ ${commonValue}
         </dd>
     </dl>
     <dl>
-        <dt>약관동의</dt>
+        <dt>약관 동의</dt>
         <dd>
             <form:checkbox path="agree" value="true" label="회원가입 약관에 동의합니다." />
                 <%-- <input type="checkbox" name="agree" value="true" id="agree"> <label for="agree">회원가입 약관에 동의합니다.</label> --%>
