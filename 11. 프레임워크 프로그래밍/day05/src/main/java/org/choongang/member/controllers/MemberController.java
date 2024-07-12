@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/member") // 클래스명 위에 쓰는 경우가 많음
 public class MemberController {
 
-    @ModelAttribute
+    @ModelAttribute("commonValue")
     public String commonValue() {
         return "공통 속성 값 ...";
     }
