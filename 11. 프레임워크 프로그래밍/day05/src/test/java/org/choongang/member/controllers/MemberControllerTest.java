@@ -29,7 +29,8 @@ public class MemberControllerTest {
 
     @Test
     void test1() throws Exception {
-        mockMvc.perform(post("/member/join"))
+        mockMvc.perform(post("/member/join")
+                        .header("appKey", "1234")) // 요청 헤더
                 .andDo(print());
     }
 }
