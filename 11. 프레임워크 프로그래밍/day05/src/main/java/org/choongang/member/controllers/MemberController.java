@@ -13,9 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/member") // 클래스 명 위에 쓰는 경우가 많음
 public class MemberController {
 
-    @GetMapping("/join") // 원래는 "/member/join" 으로 쓰지만, member 부분이 동일하므로 위에 @RequestMapping 에 적용해놓음
+    @GetMapping(path="/join", params={"mode=join"}) // 원래는 "/member/join" 으로 쓰지만, member 부분이 동일하므로 위에 @RequestMapping 에 적용해놓음
     public String join() {
-
+        System.out.println("mode=join");
         return "member/join";
     }
 
