@@ -1,5 +1,9 @@
 package org.choongang.member.controllers;
 
-public class CodeValue {
+import lombok.Data;
 
+@Data
+public class CodeValue {
+    private String code;
+    private String value;
 }
