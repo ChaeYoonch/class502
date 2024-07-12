@@ -9,8 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Slf4j
 @Controller
-@RequestMapping("/member") // 클래스 명 위에 쓰는 경우가 많음
+@RequestMapping("/member") // 클래스명 위에 쓰는 경우가 많음
 public class MemberController {
+
+    @ModelAttribute
+    public String commonValue() {
+        return "공통 속성 값 ...";
+    }
 
     @GetMapping("/join")
     public String join(@ModelAttribute RequestJoin form) {
