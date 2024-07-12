@@ -35,4 +35,9 @@ public class MemberControllerTest {
                         .contentType(MediaType.APPLICATION_JSON_VALUE)) // 요청쪽 Content-Type | ("application/json") 보다 안전함
                 .andDo(print());
     }
+
+    @Test
+    void test2() throws Exception {
+
+    }
 }
