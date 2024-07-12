@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberController {
 
     @GetMapping("/join")
-    public String join() {
+    public String join() { // 회원가입
 
         return "member/join";
     }
@@ -23,7 +23,7 @@ public class MemberController {
     @PostMapping("/join")
     public String joinPs(RequestJoin form) {
 
-        return "member/join";
+        return "redirect:/member/login"; // Location: /day05/member/login | redirect 있으면, 앞에 / 를 붙여야 절대 경로가 됨, 없으면 상대 경로 | SpringAdaptor 가 실행
     }
 
     // private final Logger log = LoggerFactory.getLogger(MemberController.class);
