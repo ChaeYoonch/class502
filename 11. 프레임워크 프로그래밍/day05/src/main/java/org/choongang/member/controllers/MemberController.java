@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Slf4j
 @Controller
 @RequestMapping("/member") // 클래스명 위에 쓰는 경우가 많음
@@ -15,6 +18,11 @@ public class MemberController {
     @ModelAttribute("commonValue")
     public String commonValue() {
         return "공통 속성 값 ...";
+    }
+
+    @ModelAttribute("hobbies")
+    public List<String> hobbies() {
+        return List.of("취미1", "취미2", "취미3", "취미4");
     }
 
     @GetMapping("/join")
