@@ -42,7 +42,7 @@ public class MemberControllerTest {
     void test2() throws Exception {
         mockMvc.perform(
                 get("/member/join")
-                .header("Accept-Language", Locale.KOREAN.getDisplayLanguage()))
+                .header("Accept-Language", Locale.KOREAN.getLanguage()))
                 .andDo(print());
     }
 }
