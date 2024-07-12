@@ -11,7 +11,8 @@ public class MessageConfig { // MvcConfig 에 통합
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource ms = new ResourceBundleMessageSource();
-        ms.setBasenames();
+        ms.setBasenames("messages.commons"); // classpath 기준으로 작성
+        ms.setDefaultEncoding("UTF-8");
         return ms;
     }
 }
