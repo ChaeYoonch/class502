@@ -44,6 +44,7 @@ public class MemberController {
     public String join(@ModelAttribute RequestJoin form) {
 
         Locale locale = request.getLocale(); // 요청 헤더 Accept-Language
+        String message = messageSource.getMessage("EMAIL", null, locale);
 
         return "member/join";
     }
