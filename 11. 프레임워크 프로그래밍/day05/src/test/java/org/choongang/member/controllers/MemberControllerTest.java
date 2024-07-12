@@ -38,6 +38,7 @@ public class MemberControllerTest {
 
     @Test
     void test2() throws Exception {
-
+        mockMvc.perform(post("/member/join"))
+                .andDo(print());
     }
 }
