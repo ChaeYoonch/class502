@@ -31,7 +31,7 @@ public class MemberController {
         return "member/join";
     }
 
-    @PostMapping(path="/join", headers="appKey=1234") // 요청 헤더 쪽에 한정 : 포함되어 있어야만 실행
+    @PostMapping(path="/join", headers="appKey=1234", consumes = "application/json") // 요청 헤더 쪽에 한정 : "appKey=1234" 포함되어 있어야만 실행
     public String joinPs(RequestJoin form) {
 
         log.info("joinPs 실행...");
