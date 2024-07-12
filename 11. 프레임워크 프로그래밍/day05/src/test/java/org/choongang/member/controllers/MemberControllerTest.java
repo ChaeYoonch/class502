@@ -38,7 +38,9 @@ public class MemberControllerTest {
 
     @Test
     void test2() throws Exception {
-        mockMvc.perform(get("/member/join"))
+        mockMvc.perform(
+                get("/member/join")
+                .header("Accept-Language", "ko"))
                 .andDo(print());
     }
 }
