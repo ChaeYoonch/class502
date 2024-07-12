@@ -22,11 +22,11 @@ public class MemberController {
     }
 
     @PostMapping("/join")
-    public String join(RequestJoin form) {
+    public String join(RequestJoin form) { // 커맨드 객체
 
         log.info(form.toString());
 
-        return "member/join";
+        return "member/join"; // 뷰 출력하는 템플릿 객체에서도 데이터 사용 | EL식 param.이름 으로 접근
     }
 
     @GetMapping("/login")
