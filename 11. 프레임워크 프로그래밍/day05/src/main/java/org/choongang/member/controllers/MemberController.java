@@ -1,14 +1,11 @@
 package org.choongang.member.controllers;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.MediaType;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Slf4j
 @Controller
@@ -16,13 +13,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MemberController {
 
     @GetMapping("/join")
-    public String join() { // 회원가입 페이지
+    public String join(Model model) { // 회원가입 페이지
+
+        RequestJoin form = new RequestJoin();
+
+        model.addAttribute("requestJoin", form); // 명칭 유지를 위해 requestJoin 빈 객체 = 요청 데이터가 없는 값을 만들어야 함 | 계속 값이 바뀌므로 @Bean 쓰면 안 됨!!
 
         return "member/join";
     }
 
     @PostMapping("/join")
-    public String join(RequestJoin form) { // 커맨드 객체
+    public String join(RequestJoin form) { // RequestJoin form : 커맨드 객체 -> 데이터 전달 역할
 
         log.info(form.toString());
 
