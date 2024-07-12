@@ -40,6 +40,7 @@ ${commonValue}
         <dd> <!-- RequestJoin 의 변수명.Address 이름 -->
             <form:input path="addr.zipCode" placeholder="우편번호" />
             <form:input path="addr.address" placeholder="주소" />
+            <form:input path="addr.addressSub" placeholder="나머지 주소" />
         </dd>
     </dl>
     <dl>
