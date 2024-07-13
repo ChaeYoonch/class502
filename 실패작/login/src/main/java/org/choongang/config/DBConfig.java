@@ -24,7 +24,7 @@ public class DBConfig {
         ds.setPassword("oracle");
         /* DB 연결 설정 E */
 
-        /* 커넥션 풀 설정 S : 연결 유효한 지 확인하는 것 */
+        /* 커넥션 풀 설정 S : 연결 유효한 지 확인 */
         ds.setInitialSize(2);
         ds.setMaxActive(10);
         ds.setTestWhileIdle(true);
