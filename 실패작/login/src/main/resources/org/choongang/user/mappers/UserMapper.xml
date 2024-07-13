@@ -14,4 +14,8 @@
     <insert id="register"> <!-- 회원 가입 -->
         INSERT INTO MEMBER (SEQ, EMAIL, PASSWORD, USER_NAME) VALUES (SEQ_MEMBER.NEXTVAL, #{email}, #{password}, #{userName})
     </insert>
+
+    <select id="check" resultMap="userMap"> <!-- 이메일로 조회 -->
+        SELECT SEQ, EMAIL, PASSWORD, USER_NAME, REG_DT FROM MEMBER WHERE EMAIL = #{email}
+    </select>
 </mapper>
