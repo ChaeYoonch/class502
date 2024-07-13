@@ -3,5 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.choongang.user.mappers.UserMapper">
-
+    <resultMap id="userMap" type="org.choongang.user.entities.User">
+        <result column="SEQ" property="seq" />
+        <result column="EMAIL" property="email" />
+        <result column="PASSWORD" property="password" />
+        <result column="USER_NAME" property="userName" />
+        <result column="REG_DT" property="regDt" />
+    </resultMap>
 </mapper>
