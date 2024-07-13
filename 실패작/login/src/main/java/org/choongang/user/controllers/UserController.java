@@ -1,5 +1,6 @@
 package org.choongang.user.controllers;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.MessageSource;
@@ -18,6 +19,7 @@ import java.util.Locale;
 public class UserController {
 
     private final MessageSource messageSource;
+    private final HttpServletRequest request;
 
     @GetMapping("/join")
     public String join(@ModelAttribute RequestJoin form) {
