@@ -4,7 +4,7 @@ import org.apache.ibatis.annotations.Select;
 import org.choongang.user.entities.User;
 
 public interface UserMapper {
-    @Select("SELECT COUNT(*) FROM MEMBER")
+    @Select("SELECT COUNT(*) FROM USERLOGIN")
     long getTotal();
 
     int register(User user); // UserMapper.xml 의 <insert id="register"> 부분 - 회원 가입
