@@ -11,5 +11,5 @@
     </root>
 
     <logger name="org.springframework.jdbc" level="TRACE" />
-    <logger name="org.choongang.member.mappers" level="DEBUG" />
+    <logger name="org.choongang.user.mappers" level="DEBUG" />
 </configuration>
