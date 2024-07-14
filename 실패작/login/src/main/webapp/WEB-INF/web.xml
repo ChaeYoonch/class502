@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                      https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class> <!-- 스프링 컨테이너 초기화시에 만들어줌-->
+        <init-param>
+            <param-name>contextClass</param-name>
+            <param-value>
+                org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+            </param-value>
+        </init-param> <!-- DispatcherServlet 에게 어떤 컨테이너를 쓸 건지 알려주는 역할 / AnnotationConfigWebApplicationContext 웹 전용 컨테이너-->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>
+                org.choongang.config.MvcConfig
+            </param-value> <!-- ComponentScan 범위 고정해놓음 -->
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/</url-pattern> <!-- / 인 모든 경로가 유입됨! -->
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>
+            org.springframework.web.filter.CharacterEncodingFilter
+        </filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern> <!-- /* => 모든 경로 -->
+    </filter-mapping>
+</web-app>
