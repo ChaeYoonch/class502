@@ -26,7 +26,7 @@ public class UserController {
 
         Locale locale = request.getLocale(); // 요청 헤더 Accept-Language
         String message = messageSource.getMessage("EMAIL", null, locale);
-        log.info(message);
+        log.info(message); // log 이용해 표현
 
         return "user/join";
     }
@@ -37,5 +37,15 @@ public class UserController {
         log.info(form.toString());
 
         return "user/join"; // 뷰 출력하는 템플릿 객체에서도 데이터 사용 | EL식 param.이름 으로 접근
+    }
+
+    @GetMapping("/login")
+    public String login(RequestLogin form) { // 로그인 페이지
+
+        if (form != null) {
+            log.info("이메일:{}, 비밀번호: {}", form.email(), form.password()); // 조회용 : 상수 형태 -> 값 변경 불가능
+        }
+
+        return "user/login";
     }
 }
