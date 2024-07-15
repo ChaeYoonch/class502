@@ -42,7 +42,7 @@ public class LoginValidator implements Validator {
             }
 
         /* 3. 조회된 회원의 비밀번호가 입력한 값과 일치하는지 검증 */
-            if (StringUtils.hasText(password) && !BCrypt.checkpw(password, member.getPassword())) { // password 값이 있을 때
+            if (member != null && StringUtils.hasText(password) && !BCrypt.checkpw(password, member.getPassword())) { // password 값이 있을 때
                 // errors.rejectValue("password", "CheckemailPassword");
                 errors.reject("Check.emailPassword");
             }
