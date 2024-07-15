@@ -39,6 +39,12 @@ public class JoinValidator implements Validator { // Validator<RequestJoin>, Req
         /* 1. 필수 항목 검증 (email, password, confirmPassword, userName, agree) : 특정 필드 한정 */
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "Required", "이메일을 입력하세요.");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required", "비밀번호를 입력하세요.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "Required", "비밀번호를 확인하세요.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userName", "Required", "회원명을 입력하세요.");
+
+        if (!agree) {
+            errors.rejectValue("agree", );
+        }
     }
 
     /*
