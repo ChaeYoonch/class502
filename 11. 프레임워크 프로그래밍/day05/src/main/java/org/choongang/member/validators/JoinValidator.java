@@ -1,6 +1,5 @@
 package org.choongang.member.validators;
 
-
 import lombok.RequiredArgsConstructor;
 import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.mappers.MemberMapper;
