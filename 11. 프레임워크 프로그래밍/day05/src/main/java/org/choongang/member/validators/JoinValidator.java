@@ -56,8 +56,10 @@ public class JoinValidator implements Validator { // Validator<RequestJoin>, Req
             errors.rejectValue("password", "Length");
         }
 
-        /* 비밀번호, 비밀번호 확인 일치 여부 (password, confirmPassword) */
-
+        /* 4. 비밀번호, 비밀번호 확인 일치 여부 (password, confirmPassword) */
+        if (StringUtils.hasText(password) && StringUtils.hasText(confirmPassword) && !password.equals(confirmPassword)) {
+            errors.rejectValue("confirmPassword","Mismatch");
+        }
     }
 
     /*
