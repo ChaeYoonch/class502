@@ -5,6 +5,7 @@ import org.choongang.member.validators.JoinValidator;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.validation.Validator;
 import org.springframework.web.servlet.config.annotation.*;
 
 @Configuration
@@ -15,6 +16,12 @@ import org.springframework.web.servlet.config.annotation.*;
 public class MvcConfig implements WebMvcConfigurer { // WebMvcConfigurer -> 설정 틀 제공함 | 인터페이스 임!!
 
     private final JoinValidator joinValidator;
+
+    // 모든 컨트롤러에 적용될 수 있는 전역 Validator
+    @Override
+    public Validator getValidator() {
+        return joinValidator; // 전역 벨리데이터
+    }
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
