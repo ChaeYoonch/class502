@@ -3,7 +3,6 @@ package org.choongang.member.controllers;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.choongang.member.services.JoinService;
-import org.choongang.member.services.LoginService;
 import org.choongang.member.validators.JoinValidator;
 import org.choongang.member.validators.LoginValidator;
 import org.springframework.stereotype.Controller;
@@ -18,7 +17,8 @@ public class MemberController {
 
     private final JoinValidator joinValidator; // 의존성은 바뀌지 않기에 final 로 작성
     private final JoinService joinService;
-    private final LoginService loginService;
+
+    private final LoginValidator loginValidator;
 
     @GetMapping("/join")
     public String  join(@ModelAttribute RequestJoin form) { // @ModelAttribute 자료형이 EL 식 속성
@@ -52,7 +52,13 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public String loginPs(@Valid RequestLogin form, Errors errors) { // 로그인 처리
+    public String loginPs(@Valid RequestLogin form, Errors errors) { // 로그인 처리 | 1차 검증
+
+        loginValidator.validate(form, errors); // 2차 검증
+
+        if (errors.hasErrors()) {
+            return "member/login"; // 에러 발생시 로그인 페이지로 이동
+        }
 
         return "redirect:/";
     }
