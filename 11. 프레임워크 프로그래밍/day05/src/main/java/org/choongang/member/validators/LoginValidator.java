@@ -37,12 +37,14 @@ public class LoginValidator implements Validator {
         if (StringUtils.hasText(email)) { // email 값이 있을 때
             Member member = mapper.get(email); // email 가져옴
             if (member == null) {
-                errors.rejectValue("email", "Check.emailPassword");
+                // errors.rejectValue("email", "Check.emailPassword");
+                errors.reject("Check.emailPassword");
             }
 
         /* 3. 조회된 회원의 비밀번호가 입력한 값과 일치하는지 검증 */
             if (StringUtils.hasText(password) && !BCrypt.checkpw(password, member.getPassword())) { // password 값이 있을 때
-                errors.rejectValue("password", "CheckemailPassword");
+                // errors.rejectValue("password", "CheckemailPassword");
+                errors.reject("Check.emailPassword");
             }
         }
     }
