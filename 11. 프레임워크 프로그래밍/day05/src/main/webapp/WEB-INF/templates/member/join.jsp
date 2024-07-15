@@ -13,7 +13,8 @@
             <spring:message code="이메일" />
         </dt>
         <dd>
-            <form:input path="email" cssClass="input-txt" cssStyle="border: 1px solid red; outline: none;" /> <%-- <input type="text" name="email" value="${requestJoin.email}"> 와 동일 --%>
+            <form:input path="email" /> <%-- <input type="text" name="email" value="${requestJoin.email}"> 와 동일 --%>
+            <form:errors path="email" />
         </dd>
     </dl>
     <dl>
@@ -22,6 +23,7 @@
         </dt>
         <dd>
             <form:password path="password" /> <%-- <input type="password" name="password"> 와 동일 --%>
+            <form:errors path="password" />
         </dd>
     </dl>
     <dl>
