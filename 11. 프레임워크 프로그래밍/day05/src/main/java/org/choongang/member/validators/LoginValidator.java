@@ -24,6 +24,7 @@ public class LoginValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) { // 여기서 검증
 
+        // Bean Validation 검증 실패 시에는 다음 검증을 진행하지 않음 !!
         if (errors.hasErrors()) {
             return; // null 방지
         }
