@@ -4,10 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.choongang.member.controllers.RequestLogin;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mappers.MemberMapper;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
-import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 @Component // 자동 스캔
@@ -31,18 +31,19 @@ public class LoginValidator implements Validator {
 
         RequestLogin form = (RequestLogin) target;
         String email = form.getEmail();
+        String password = form.getPassword(); // 사용자가 입력한 비밀번호
+
         /* 2. 이메일로 회원이 조회되는지 검증 */
-        if (StringUtils.hasText(email)) {
+        if (StringUtils.hasText(email)) { // email 값이 있을 때
             Member member = mapper.get(email); // email 가져옴
             if (member == null) {
-                errors.rejectValue("email", "Fail.login");
+                errors.rejectValue("email", "Check.emailPassword");
             }
+
         /* 3. 조회된 회원의 비밀번호가 입력한 값과 일치하는지 검증 */
+            if (StringUtils.hasText(password) && !BCrypt.checkpw(password, member.getPassword())) { // password 값이 있을 때
+                errors.rejectValue("password", "CheckemailPassword");
+            }
         }
-
-        /* 1. 필수 항목 검증 (email, password) */
-        /* ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "Required", "이메일을 입력하세요.");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required", "비밀번호를 입력하세요."); 복습해본 것! */
     }
-
 }
