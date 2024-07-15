@@ -37,7 +37,7 @@ public class JoinValidator implements Validator { // Validator<RequestJoin>, Req
 
         /* 1. 필수 항목 검증 (email, password, confirmPassword, userName, agree) : 특정 필드 한정 */
         if (!StringUtils.hasText(email)) { // (email == null | email.isBlank()) 과 동일
-            errors.rejectValue("email", "Required", "이메일을 입력하세요.");
+            errors.rejectValue("email", "Required", "이메일을 입력하세요."); // 필수 항목이 없으면 메세지 호출
         }
 
         if (!StringUtils.hasText(password)) { // rejectValue("필드명", "에러코드", "기본메세지");
