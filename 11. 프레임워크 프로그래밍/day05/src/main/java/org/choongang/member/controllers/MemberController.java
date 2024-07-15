@@ -63,6 +63,7 @@ public class MemberController {
         }
 
         // 로그인 처리
+        loginService.process();
 
         return "redirect:/";
     }
