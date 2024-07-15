@@ -3,6 +3,7 @@ package org.choongang.member.controllers;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.choongang.member.services.JoinService;
+import org.choongang.member.services.LoginService;
 import org.choongang.member.validators.JoinValidator;
 import org.choongang.member.validators.LoginValidator;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ public class MemberController {
     private final JoinService joinService;
 
     private final LoginValidator loginValidator;
+    private final LoginService loginService; // 의존성 주입
 
     @GetMapping("/join")
     public String  join(@ModelAttribute RequestJoin form) { // @ModelAttribute 자료형이 EL 식 속성
