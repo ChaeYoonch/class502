@@ -3,6 +3,7 @@ package org.choongang.member.controllers;
 import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
@@ -12,6 +13,7 @@ public class RequestJoin { // 커맨드 객체 -> @애노테이션으로 설정 
     private String email; // 이메일
 
     @NotBlank
+    @Size(min=8) // 8자리 이상 | 자리 수 설정
     private String password; // 비밀번호
 
     @NotBlank
