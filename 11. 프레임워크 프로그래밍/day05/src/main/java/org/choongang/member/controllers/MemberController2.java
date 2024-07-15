@@ -1,4 +1,4 @@
-/*package org.choongang.member.controllers;
+package org.choongang.member.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +19,7 @@ import java.util.Locale;
 @RequiredArgsConstructor
 public class MemberController2 {
 
-    private final MessageSource messageSource;
+    /*private final MessageSource messageSource;
     private final HttpServletRequest request;
 
     @ModelAttribute("commonValue")
@@ -127,4 +127,4 @@ public class MemberController2 {
 
         return mv;
     } */
-// }
+}
