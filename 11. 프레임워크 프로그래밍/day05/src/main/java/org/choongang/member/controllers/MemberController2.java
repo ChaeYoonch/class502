@@ -1,4 +1,4 @@
-package org.choongang.member.controllers;
+/*package org.choongang.member.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -127,4 +127,4 @@ public class MemberController2 {
 
         return mv;
     } */
-}
+// }
