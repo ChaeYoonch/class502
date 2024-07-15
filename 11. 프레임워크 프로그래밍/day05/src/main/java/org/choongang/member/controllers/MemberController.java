@@ -3,6 +3,7 @@ package org.choongang.member.controllers;
 import lombok.RequiredArgsConstructor;
 import org.choongang.member.validators.JoinValidator;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,8 +22,14 @@ public class MemberController {
         return "member/join";
     }
 
-    @PostMapping("/join")
-    public String joinPs(RequestJoin form) { // joinProcess | JoinValidator 의 supports() 의 커맨드 객체로 RequestJoin 이 넘어옴
+    @PostMapping("/join")               // 얘 검증하므로 JoinValidator 의 validate() 부분 ()안에 넣는 거임!
+    public String joinPs(RequestJoin form, Errors errors) { // joinPs = joinProcess | JoinValidator 의 supports() 의 커맨드 객체로 RequestJoin 이 넘어옴
+        // 회원 가입 데이터 검증
+        joinValidator.validate(form, errors);
+
+        if (errors.hasErrors()) { // reject 나 rejectValue 가 한 번이라도 호출되면 true
+            return "member/join";
+        }
 
         return "redirect:/member/login"; // 문구 형태로 입력해도 이동할 수 있음
     }
