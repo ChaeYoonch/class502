@@ -24,9 +24,9 @@ public class MemberController {
     }
 
     @PostMapping("/join")     // 얘 검증하므로 JoinValidator 의 validate() 부분 ()안에 넣는 거임!
-    public String joinPs(@Valid RequestJoin form, Errors errors) { // joinPs = joinProcess | JoinValidator 의 supports() 의 커맨드 객체로 RequestJoin 이 넘어옴 | @Valid : 얘가 검증해줌 | RequestJoin form, Errors errors 얘네 순서 바뀌면 안됨
+    public String joinPs(@Valid RequestJoin form, Errors errors) { // joinPs = joinProcess | JoinValidator 의 supports() 의 커맨드 객체로 RequestJoin 이 넘어옴 | @Valid : 얘가 검증해줌 | RequestJoin form, Errors errors 얘네 순서 바뀌면 안됨 | 중복 회원 체크, 비밀번호 체크 2개만 추가로 설정함
         // 회원 가입 데이터 검증
-        joinValidator.validate(form, errors);
+        // joinValidator.validate(form, errors); -> @Valid 로 설정하여 JoinValidator 가 검증하므로 필요 없음
 
         if (errors.hasErrors()) { // reject 나 rejectValue 가 한 번이라도 호출되면 true | 검증 실패시 과정
             return "member/join"; // 메세지 호출 시 hasErrors 로 이동
