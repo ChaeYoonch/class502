@@ -3,7 +3,9 @@ package org.choongang.member.controllers;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.choongang.member.services.JoinService;
+import org.choongang.member.services.LoginService;
 import org.choongang.member.validators.JoinValidator;
+import org.choongang.member.validators.LoginValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.WebDataBinder;
@@ -16,6 +18,7 @@ public class MemberController {
 
     private final JoinValidator joinValidator; // 의존성은 바뀌지 않기에 final 로 작성
     private final JoinService joinService;
+    private final LoginService loginService;
 
     @GetMapping("/join")
     public String  join(@ModelAttribute RequestJoin form) { // @ModelAttribute 자료형이 EL 식 속성
@@ -41,4 +44,16 @@ public class MemberController {
     public void initBinder(WebDataBinder binder) { // 위의 @Valid 부분을 얘가 정의함 | 컨트롤러 안에서 정의하는 공통 Validator | joinValidator.validate(form, errors); 가 하던 역할을 하는 거임!!
         binder.setValidator(joinValidator);
     } */
+
+    @GetMapping("/login")
+    public String login(@ModelAttribute RequestLogin form) {
+
+        return "/member/login";
+    }
+
+    @PostMapping("/login")
+    public String loginPs(@Valid RequestLogin form, Errors errors) { // 로그인 처리
+
+        return "redirect:/";
+    }
 }
