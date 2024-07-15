@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor // 의존성 주입 -> 생성자 매개변수로 주입
 public class MemberController {
 
-    private final JoinValidator joinValidator; // 의존성은 바뀌지 않기에 final 로 작성
+    // private final JoinValidator joinValidator; 의존성은 바뀌지 않기에 final 로 작성
 
     @GetMapping("/join")
     public String  join(@ModelAttribute RequestJoin form) { // @ModelAttribute 자료형이 EL 식 속성
