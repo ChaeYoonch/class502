@@ -22,12 +22,12 @@ public class MemberController {
         return "member/join";
     }
 
-    @PostMapping("/join")               // 얘 검증하므로 JoinValidator 의 validate() 부분 ()안에 넣는 거임!
+    @PostMapping("/join")     // 얘 검증하므로 JoinValidator 의 validate() 부분 ()안에 넣는 거임!
     public String joinPs(RequestJoin form, Errors errors) { // joinPs = joinProcess | JoinValidator 의 supports() 의 커맨드 객체로 RequestJoin 이 넘어옴
         // 회원 가입 데이터 검증
         joinValidator.validate(form, errors);
 
-        if (errors.hasErrors()) { // reject 나 rejectValue 가 한 번이라도 호출되면 true
+        if (errors.hasErrors()) { // reject 나 rejectValue 가 한 번이라도 호출되면 true | 검증 실패시 과정
             return "member/join";
         }
 
