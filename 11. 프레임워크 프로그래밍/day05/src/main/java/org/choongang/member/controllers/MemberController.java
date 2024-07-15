@@ -63,7 +63,8 @@ public class MemberController {
         }
 
         // 로그인 처리
-        loginService.process();
+        String email = form.getEmail();
+        loginService.process(email);
 
         return "redirect:/";
     }
