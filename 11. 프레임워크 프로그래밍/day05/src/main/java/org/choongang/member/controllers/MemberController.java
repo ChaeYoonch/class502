@@ -5,10 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.choongang.member.validators.JoinValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 @Controller // controller 로 동작
 @RequestMapping("/member") // 공통으로 매핑될 주소 | 클래스명 위에 주로 위치함
@@ -33,5 +31,10 @@ public class MemberController {
         }
 
         return "redirect:/member/login"; // 문구 형태로 입력해도 이동할 수 있음
+    }
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+
     }
 }
