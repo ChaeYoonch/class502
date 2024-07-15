@@ -23,6 +23,10 @@ public class LoginValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) { // 여기서 검증
+
+        if (errors.hasErrors()) {
+            return; // null 방지
+        }
         /**
          * 1) 필수 항목 검증 (email, password) -> 얘는 알아서 해줌 (아까 추가함)
          * 2) 이메일로 회원이 조회되는지 검증
