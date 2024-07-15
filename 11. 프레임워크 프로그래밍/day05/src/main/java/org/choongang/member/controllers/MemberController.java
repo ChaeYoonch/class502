@@ -60,6 +60,8 @@ public class MemberController {
             return "member/login"; // 에러 발생시 로그인 페이지로 이동
         }
 
+        // 로그인 처리
+
         return "redirect:/";
     }
 }
