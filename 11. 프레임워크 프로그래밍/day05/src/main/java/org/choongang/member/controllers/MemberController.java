@@ -1,7 +1,10 @@
 package org.choongang.member.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.choongang.member.validators.JoinValidator;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller // controller 로 동작
@@ -9,4 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor // 의존성 주입 -> 생성자 매개변수로 주입
 public class MemberController {
 
+    private final JoinValidator joinValidator; // 의존성은 바뀌지 않기에 final 로 작성
+
+    @GetMapping("/join")
+    public String  join() {
+
+        return "member/join";
+    }
+
+    @PostMapping("/join")
+    public String joinPs() { // joinProcess
+
+        return "redirect:/member/login"; // 문구 형태로 입력해도 이동할 수 있음
+    }
 }
