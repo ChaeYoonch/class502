@@ -5,7 +5,7 @@ import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.mappers.MemberMapper;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
-import org.springframework.validation.Validator;
+import org.springframework.validation.Validator; // 검증에 필요한 틀 제공
 
 @Component
 @RequiredArgsConstructor
@@ -14,13 +14,25 @@ public class JoinValidator implements Validator { // Validator<RequestJoin>, Req
     private final MemberMapper mapper;
 
     @Override
-    public boolean supports(Class<?> clazz) {
+    public boolean supports(Class<?> clazz) { // supports : 검증하고자 하는 커맨드 객체 한정할 때 사용
         return clazz.isAssignableFrom(RequestJoin.class); // RequestJoin 커맨드 객체만 검증하도록 제한
     }
 
     @Override
     public void validate(Object target, Errors errors) {
+        /**
+         * 1. 필수 항목 검증 (email (1), password (2), confirmPassword (3), userName (4), agree (5))
+         * 2. 이메일 중복 여부 (회원이 가입되어 있는지 체크)
+         * 3. 비밀번호 자리 수 체크 (8자리 이상)
+         * 4. 비밀번호, 비밀번호 확인 일치 여부 (password, confirmPassword)
+         */
 
+        RequestJoin form = (RequestJoin) target;
+        String email = form.getEmail(); // (1)
+        String password = form.getPassword(); // (2)
+        String confirmPassword = form.getConfirmPassword(); // (3)
+        String userName = form.getUserName(); // (4)
+        boolean result = form.isAgree(); // (5)
     }
 
     /*
