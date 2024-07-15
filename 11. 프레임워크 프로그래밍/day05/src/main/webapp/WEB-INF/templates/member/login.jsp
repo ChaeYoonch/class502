@@ -19,4 +19,13 @@
             <form:errors path="email" />
         </dd>
     </dl>
+    <dl>
+        <dt>
+            <spring:message code="비밀번호" />
+        </dt>
+        <dd>
+            <form:input path="password" />
+            <form:errors path="password" />
+        </dd>
+    </dl>
 </form:form>
