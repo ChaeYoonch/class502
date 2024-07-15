@@ -52,11 +52,18 @@ public class MemberController {
     } */
 
     @GetMapping("/login")
-    public String login(@ModelAttribute RequestLogin form, @SessionAttribute(name="member", required = false) Member member) {
-
+    public String login(@ModelAttribute RequestLogin form,
+                        @CookieValue(name = "savedEmail", required = false) String savedEmail)
+                        /* @SessionAttribute(name="member", required = false) Member member) */{
+        /*
         if (member != null) {
             log.info(member.toString());
+        } */
+        if (savedEmail != null) {
+        form.setSaveEmail(true);
+        form.setEmail(savedEmail);
         }
+
         return "/member/login";
     }
 
@@ -70,8 +77,8 @@ public class MemberController {
         }
 
         // 로그인 처리
-        String email = form.getEmail();
-        loginService.process(email);
+        // String email = form.getEmail();
+        loginService.process(form);
 
         return "redirect:/";
     }
