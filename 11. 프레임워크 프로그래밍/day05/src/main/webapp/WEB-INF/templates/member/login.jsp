@@ -31,4 +31,7 @@
     <div>
         <form:checkbox path="saveEmail" value="true" label="<spring:message code='이메일_기억하기' />" />
     </div>
+    <button type="submit">
+        <spring:message code="로그인" />
+    </button>
 </form:form>
