@@ -8,3 +8,15 @@
 <h1>
     <spring:message code="로그인" />
 </h1>
+
+<form:form method="post" action="${actionUrl}" autocomplete="off" modelAttribute="requestLogin"> <%-- 기본값이 커맨드 라는 명시 : modelAttribute="requestLogin"--%>
+    <dl>
+        <dt>
+            <spring:message code="이메일" />
+        </dt>
+        <dd>
+            <form:input path="email" />
+            <form:errors path="email" />
+        </dd>
+    </dl>
+</form:form>
