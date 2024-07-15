@@ -1,5 +1,7 @@
 package org.choongang.member.services;
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.choongang.member.controllers.RequestLogin;
@@ -13,6 +15,7 @@ public class LoginService { // 로그인 서비스
 
     private final MemberMapper mapper;
     private final HttpSession session; // 세션 가져옴 | 개인 서비스 기술 - 데이터는 서버에 있음
+    private final HttpServletResponse response; // 응답 헤더로 setCookie 로 등록
 
     public void process(String email) {
         /**
@@ -30,6 +33,16 @@ public class LoginService { // 로그인 서비스
     }
 
     public void process(RequestLogin form) {
+        process(form.getEmail());
 
+        /* 이메일 기억하기 처리 */
+        Cookie cookie = new Cookie("savedEmail", form.getEmail());
+        if (form.isSaveEmail()) { // 쿠키 등록
+            cookie.setMaxAge(60 * 60 * 24 * 7); // 7일간 쿠키 유지
+        } else { // 쿠키 제거 - 만료 시간으로 통제
+            cookie.setMaxAge(0); // 만료 시간이 지나서 제거됨
+        }
+
+        response.addCookie(cookie);
     }
 }
