@@ -2,6 +2,7 @@ package org.choongang.member.services;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.choongang.member.controllers.RequestLogin;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mappers.MemberMapper;
 import org.springframework.stereotype.Service;
@@ -26,5 +27,9 @@ public class LoginService { // 로그인 서비스
         }
 
         session.setAttribute("member", member);
+    }
+
+    public void process(RequestLogin form) {
+
     }
 }
