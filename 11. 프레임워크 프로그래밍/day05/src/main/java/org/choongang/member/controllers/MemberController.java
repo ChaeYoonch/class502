@@ -75,4 +75,10 @@ public class MemberController {
 
         return "redirect:/";
     }
+
+    /* 로그아웃 기능 */
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
+
+    }
 }
