@@ -1,5 +1,6 @@
 package org.choongang.member.controllers;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.choongang.member.validators.JoinValidator;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,7 @@ public class MemberController {
     }
 
     @PostMapping("/join")     // 얘 검증하므로 JoinValidator 의 validate() 부분 ()안에 넣는 거임!
-    public String joinPs(RequestJoin form, Errors errors) { // joinPs = joinProcess | JoinValidator 의 supports() 의 커맨드 객체로 RequestJoin 이 넘어옴
+    public String joinPs(@Valid RequestJoin form, Errors errors) { // joinPs = joinProcess | JoinValidator 의 supports() 의 커맨드 객체로 RequestJoin 이 넘어옴 | @Valid : 얘가 검증해줌 | RequestJoin form, Errors errors 얘네 순서 바뀌면 안됨
         // 회원 가입 데이터 검증
         joinValidator.validate(form, errors);
 
