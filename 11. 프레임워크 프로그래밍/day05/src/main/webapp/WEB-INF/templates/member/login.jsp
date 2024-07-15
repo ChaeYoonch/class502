@@ -25,7 +25,10 @@
         </dt>
         <dd>
             <form:input path="password" />
-            <form:errors path="password" />
+            <form:errors path="password" /> <%-- 검증 실패 시 메세지 출력됨! --%>
         </dd>
     </dl>
+    <div>
+        <form:checkbox path="saveEmail" value="true" label="<spring:message code='이메일_기억하기' />" />
+    </div>
 </form:form>
