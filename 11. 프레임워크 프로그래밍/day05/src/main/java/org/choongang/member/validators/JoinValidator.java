@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.mappers.MemberMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator; // 검증에 필요한 틀 제공
@@ -43,6 +44,11 @@ public class JoinValidator implements Validator { // Validator<RequestJoin>, Req
 
         if (!agree) {
             errors.rejectValue("agree", "Required", "회원 가입 약관에 동의하세요.");
+        }
+
+        /* 이메일 중복 여부 (회원이 가입되어 있는지 체크) */
+        if (StringUtils.hasText(email) && mapper.exists(email) != 0L) {
+            errors.rejectValue("email", "Duplicated");
         }
     }
 
