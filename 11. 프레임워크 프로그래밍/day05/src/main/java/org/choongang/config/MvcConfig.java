@@ -12,16 +12,16 @@ import org.springframework.web.servlet.config.annotation.*;
 @EnableWebMvc
 @ComponentScan("org.choongang")
 @Import({DBConfig.class, MessageConfig.class}) // MvcConfig 에 DBConfig, MessageConfig 연동
-@RequiredArgsConstructor // 의존성 추가
+//@RequiredArgsConstructor // 의존성 추가
 public class MvcConfig implements WebMvcConfigurer { // WebMvcConfigurer -> 설정 틀 제공함 | 인터페이스 임!!
 
-    private final JoinValidator joinValidator;
+    //private final JoinValidator joinValidator;
 
     // 모든 컨트롤러에 적용될 수 있는 전역 Validator
-    @Override
+    /*@Override
     public Validator getValidator() {
         return joinValidator; // 전역 벨리데이터
-    }
+    }*/
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
