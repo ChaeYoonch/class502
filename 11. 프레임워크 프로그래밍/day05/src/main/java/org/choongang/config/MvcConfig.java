@@ -1,5 +1,7 @@
 package org.choongang.config;
 
+import lombok.RequiredArgsConstructor;
+import org.choongang.member.validators.JoinValidator;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -9,7 +11,10 @@ import org.springframework.web.servlet.config.annotation.*;
 @EnableWebMvc
 @ComponentScan("org.choongang")
 @Import({DBConfig.class, MessageConfig.class}) // MvcConfig 에 DBConfig, MessageConfig 연동
+@RequiredArgsConstructor // 의존성 추가
 public class MvcConfig implements WebMvcConfigurer { // WebMvcConfigurer -> 설정 틀 제공함 | 인터페이스 임!!
+
+    private final JoinValidator joinValidator;
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
