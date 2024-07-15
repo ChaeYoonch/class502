@@ -17,7 +17,7 @@ import java.util.Locale;
 @Controller
 @RequestMapping("/member") // 클래스명 위에 쓰는 경우가 많음
 @RequiredArgsConstructor
-public class MemberController {
+public class MemberController2 {
 
     private final MessageSource messageSource;
     private final HttpServletRequest request;
