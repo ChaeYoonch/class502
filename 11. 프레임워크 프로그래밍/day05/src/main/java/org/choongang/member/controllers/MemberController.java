@@ -80,5 +80,7 @@ public class MemberController {
     @RequestMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate(); // 세션 비우기 -> 회원가입 값이 사라지므로 로그아웃이라고 볼 수 있음
+
+        return "redirect:/member/login";
     }
 }
