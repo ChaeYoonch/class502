@@ -52,7 +52,7 @@ public class MemberController {
     } */
 
     @GetMapping("/login")
-    public String login(@ModelAttribute RequestLogin form, @SessionAttribute("member") Member member) {
+    public String login(@ModelAttribute RequestLogin form, @SessionAttribute(name="member", required = false) Member member) {
 
         if (member != null) {
             log.info(member.toString());
