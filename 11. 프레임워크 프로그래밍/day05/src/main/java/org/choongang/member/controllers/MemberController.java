@@ -23,7 +23,7 @@ public class MemberController {
     private final LoginService loginService; // 의존성 주입
 
     @GetMapping("/join")
-    public String  join(@ModelAttribute RequestJoin form) { // @ModelAttribute 자료형이 EL 식 속성
+    public String  join(@ModelAttribute RequestJoin form) { // @ModelAttribute 자료형이 EL 식 속성 | @ModelAttribute : 공통 값 설정
 
         return "member/join";
     }
