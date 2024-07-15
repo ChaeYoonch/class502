@@ -1,7 +1,5 @@
 package org.choongang.member.controllers;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.choongang.member.services.JoinService;
