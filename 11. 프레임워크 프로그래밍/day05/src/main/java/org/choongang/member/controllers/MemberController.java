@@ -1,5 +1,7 @@
 package org.choongang.member.controllers;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.choongang.member.services.JoinService;
@@ -54,8 +56,8 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public String loginPs(@Valid RequestLogin form, Errors errors) { // 로그인 처리 | 1차 검증
-
+    public String loginPs(@Valid RequestLogin form, Errors errors /* HttpServletRequest request */) { // 로그인 처리 | 1차 검증
+        // HttpSession session = request.getSession(); // 불러올 때 세션 객체
         loginValidator.validate(form, errors); // 2차 검증
 
         if (errors.hasErrors()) {
