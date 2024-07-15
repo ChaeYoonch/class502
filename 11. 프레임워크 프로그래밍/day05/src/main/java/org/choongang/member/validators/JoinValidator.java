@@ -46,10 +46,17 @@ public class JoinValidator implements Validator { // Validator<RequestJoin>, Req
             errors.rejectValue("agree", "Required", "회원 가입 약관에 동의하세요.");
         }
 
-        /* 이메일 중복 여부 (회원이 가입되어 있는지 체크) */
+        /* 2. 이메일 중복 여부 (회원이 가입되어 있는지 체크) */
         if (StringUtils.hasText(email) && mapper.exists(email) != 0L) {
             errors.rejectValue("email", "Duplicated");
         }
+
+        /* 3. 비밀번호 자리 수 체크 (8자리 이상) */
+        if (StringUtils.hasText(password) && password.length() < 8) {
+            errors.rejectValue("password", "Length");
+        }
+
+        /* */
     }
 
     /*
