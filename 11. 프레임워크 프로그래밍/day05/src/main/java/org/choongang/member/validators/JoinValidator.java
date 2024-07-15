@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.mappers.MemberMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator; // 검증에 필요한 틀 제공
 
@@ -33,6 +34,15 @@ public class JoinValidator implements Validator { // Validator<RequestJoin>, Req
         String confirmPassword = form.getConfirmPassword(); // (3)
         String userName = form.getUserName(); // (4)
         boolean result = form.isAgree(); // (5)
+
+        /* 1. 필수 항목 검증 (email, password, confirmPassword, userName, agree) : 특정 필드 한정 */
+        if (!StringUtils.hasText(email)) { // (email == null | email.isBlank()) 과 동일
+            errors.rejectValue("email", "Required", "이메일을 입력하세요.");
+        }
+
+        if (!StringUtils.hasText(password)) { // rejectValue("필드명", "에러코드", "기본메세지");
+            errors.rejectValue("password", "Required", "비밀번호를 입력하세요.");
+        }
     }
 
     /*
