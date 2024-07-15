@@ -28,7 +28,7 @@ public class MemberController {
         joinValidator.validate(form, errors);
 
         if (errors.hasErrors()) { // reject 나 rejectValue 가 한 번이라도 호출되면 true | 검증 실패시 과정
-            return "member/join";
+            return "member/join"; // 메세지 호출 시 hasErrors 로 이동
         }
 
         return "redirect:/member/login"; // 문구 형태로 입력해도 이동할 수 있음
