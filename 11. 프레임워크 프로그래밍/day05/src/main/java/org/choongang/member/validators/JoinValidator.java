@@ -37,14 +37,14 @@ public class JoinValidator implements Validator { // Validator<RequestJoin>, Req
         boolean agree = form.isAgree(); // (5)
 
         /* 1. 필수 항목 검증 (email, password, confirmPassword, userName, agree) : 특정 필드 한정 */
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "Required", "이메일을 입력하세요.");
+        /*ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "Required", "이메일을 입력하세요.");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required", "비밀번호를 입력하세요.");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "Required", "비밀번호를 확인하세요.");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userName", "Required", "회원명을 입력하세요.");
 
         if (!agree) {
             errors.rejectValue("agree", "Required", "회원 가입 약관에 동의하세요.");
-        }
+        } */
 
         /* 2. 이메일 중복 여부 (회원이 가입되어 있는지 체크) */
         if (StringUtils.hasText(email) && mapper.exists(email) != 0L) {
@@ -52,15 +52,15 @@ public class JoinValidator implements Validator { // Validator<RequestJoin>, Req
         }
 
         /* 3. 비밀번호 자리 수 체크 (8자리 이상) */
-        if (StringUtils.hasText(password) && password.length() < 8) {
+        /* if (StringUtils.hasText(password) && password.length() < 8) {
             errors.rejectValue("password", "Length");
-        }
+        } */
 
         /* 4. 비밀번호, 비밀번호 확인 일치 여부 (password, confirmPassword) */
         if (StringUtils.hasText(password) && StringUtils.hasText(confirmPassword) && !password.equals(confirmPassword)) {
             errors.rejectValue("confirmPassword","Mismatch");
         }
-    }
+    } /* 1. 3. 은 API 연동 후 작성하지 않아도 됨! */
 
     /*
     @Override
