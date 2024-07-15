@@ -1,7 +1,10 @@
 package org.choongang.member.controllers;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.choongang.member.entities.Member;
 import org.choongang.member.services.JoinService;
 import org.choongang.member.services.LoginService;
 import org.choongang.member.validators.JoinValidator;
@@ -11,6 +14,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j // log.() 사용할 수 있게 추가함
 @Controller // controller 로 동작
 @RequestMapping("/member") // 공통으로 매핑될 주소 | 클래스명 위에 주로 위치함
 @RequiredArgsConstructor // 의존성 주입 -> 생성자 매개변수로 주입
@@ -48,8 +52,11 @@ public class MemberController {
     } */
 
     @GetMapping("/login")
-    public String login(@ModelAttribute RequestLogin form) {
+    public String login(@ModelAttribute RequestLogin form, @SessionAttribute("member") Member member) {
 
+        if (member != null) {
+            log.info(member.toString());
+        }
         return "/member/login";
     }
 
