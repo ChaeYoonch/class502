@@ -90,6 +90,8 @@ public class MemberController {
     @GetMapping("/list")
     public String list(@ModelAttribute MemberSearch search) { // 회원가입일로 조회
 
+        log.info(search.toString());
+
         return "member/list";
     }
 }
