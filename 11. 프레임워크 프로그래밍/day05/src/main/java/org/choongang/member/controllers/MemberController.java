@@ -106,4 +106,10 @@ public class MemberController {
 
         log.info("email : {}, email2 : {}", email, email2);
     }
+
+    @ExceptionHandler() // () 안은 클래스 class
+    public String errorHandler() {
+
+        return "error/common"; // common = common.jsp
+    }
 }
