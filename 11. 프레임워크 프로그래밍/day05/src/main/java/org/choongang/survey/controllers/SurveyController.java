@@ -20,4 +20,8 @@ public class SurveyController {
 
         return "survey/step2";
     }
+
+    public String step3() {
+
+    }
 }
