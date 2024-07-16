@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/survey")
-public class SurveyController {
+public class SurveyController { // @PostMapping("/step1,2,3") : 다음 페이지로 넘어가는 설문조사
 
     @GetMapping("/step1")
     public String step1() {
