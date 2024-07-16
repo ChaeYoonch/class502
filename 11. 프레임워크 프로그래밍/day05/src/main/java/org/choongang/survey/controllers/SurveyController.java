@@ -16,13 +16,13 @@ public class SurveyController { // @PostMapping("/step1,2,3") : 다음 페이지
     }
 
     @PostMapping("/step2")
-    public String step2() {
+    public String step2(RequestSurvey form) {
 
         return "survey/step2";
     }
 
     @PostMapping("/step3")
-    public String step3() {
+    public String step3(RequestSurvey form) {
 
         return "survey/step3";
     }
