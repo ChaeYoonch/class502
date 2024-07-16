@@ -1,5 +1,8 @@
 package org.choongang.member.controllers;
 
-public class MemberSearch {
+import lombok.Data;
+
+@Data
+public class MemberSearch { // 검색 범위
 
 }
