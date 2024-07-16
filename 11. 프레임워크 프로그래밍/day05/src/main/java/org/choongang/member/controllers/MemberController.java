@@ -108,8 +108,8 @@ public class MemberController {
     }
 
     @ExceptionHandler(BadRequestException.class) // () 안은 클래스 class
-    public String errorHandler() {
-
+    public String errorHandler(BadRequestException e) {
+        e.printStackTrace();
         return "error/common"; // common = common.jsp
     }
 }
