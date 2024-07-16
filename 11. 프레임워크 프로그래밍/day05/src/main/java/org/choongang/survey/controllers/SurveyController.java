@@ -2,6 +2,7 @@ package org.choongang.survey.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -12,5 +13,10 @@ public class SurveyController {
     public String step1() {
 
         return "survey/step1";
+    }
+
+    @PostMapping("/step2")
+    public String step2() {
+        return "survey/step2";
     }
 }
