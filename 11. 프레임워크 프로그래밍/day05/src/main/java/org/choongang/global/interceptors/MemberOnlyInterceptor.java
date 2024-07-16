@@ -22,6 +22,8 @@ public class MemberOnlyInterceptor implements HandlerInterceptor {
             return true; // 컨트롤러 빈 메서드 실행
         }
 
+        response.sendRedirect(request.getContextPath() + "/member/login");
+
         return false; // 미로그인 상태
     }
 
