@@ -90,4 +90,10 @@ public class MemberController {
 
         return "redirect:/member/login";
     }
+
+    @GetMapping("/list")
+    public String list() {
+
+        return "member/list";
+    }
 }
