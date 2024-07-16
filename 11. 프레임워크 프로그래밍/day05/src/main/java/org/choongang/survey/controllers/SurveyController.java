@@ -1,5 +1,6 @@
 package org.choongang.survey.controllers;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -33,14 +34,14 @@ public class SurveyController { // @PostMapping("/step1,2,3") : 다음 페이지
     }
 
     @PostMapping("/step3")
-    public String step3(RequestSurvey form, SessionStatus status, @SessionAttribute("requestSurvey") RequestSurvey form2, HttpSession session) { // HttpSession session : 세션 비운 다음에 확인
+    public String step3(RequestSurvey form, SessionStatus status, @SessionAttribute("requestSurvey") RequestSurvey form2, HttpServletRequest request) {
 
         log.info("form : " + form.toString());
         log.info("form2 : " + form2.toString());
 
         status.setComplete(); // 세션 비우기 - requestSurvey 세션 비우기
 
-        System.out.println("세션 비우기 후 : " + session.getAttribute("requestSurvey"));
+        System.out.println("세션 비우기 후 : " + request.getAttribute("requestSurvey"));
 
         return "survey/step3";
     }
