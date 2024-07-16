@@ -94,4 +94,9 @@ public class MemberController {
 
         return "member/list";
     }
+
+    @GetMapping("/info/{id}")
+    public String info() {
+
+    }
 }
