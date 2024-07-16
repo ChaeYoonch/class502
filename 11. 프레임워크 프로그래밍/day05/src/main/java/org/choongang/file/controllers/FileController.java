@@ -1,11 +1,11 @@
 package org.choongang.file.controllers;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+@Slf4j
 @Controller
 @RequestMapping("/file")
 public class FileController {
@@ -18,8 +18,8 @@ public class FileController {
 
     @ResponseBody
     @PostMapping("/upload")
-    public String uploadPs() {
-
-        return "file/upload";
+    public void uploadPs(@RequestPart("file") MultipartFile file) {
+        String name = file.getOriginalFilename();
+        log.info("파일 명 : {}", name);
     }
 }
