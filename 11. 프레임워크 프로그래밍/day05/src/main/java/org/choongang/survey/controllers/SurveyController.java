@@ -2,6 +2,7 @@ package org.choongang.survey.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
 @RequestMapping("/survey")
@@ -26,8 +27,8 @@ public class SurveyController { // @PostMapping("/step1,2,3") : 다음 페이지
     }
 
     @PostMapping("/step3")
-    public String step3(RequestSurvey form) {
-
+    public String step3(RequestSurvey form, SessionStatus status) {
+        status.setComplete(); // 세션 비우기 - requestSurvey 세션 비우기
         return "survey/step3";
     }
 }
