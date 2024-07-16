@@ -1,5 +1,7 @@
 package org.choongang.member.controllers;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +12,7 @@ import org.choongang.member.services.LoginService;
 import org.choongang.member.validators.JoinValidator;
 import org.choongang.member.validators.LoginValidator;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
@@ -107,9 +110,13 @@ public class MemberController {
         log.info("email : {}, email2 : {}", email, email2);
     }
 
-    @ExceptionHandler(BadRequestException.class) // () 안은 클래스 class
-    public String errorHandler(BadRequestException e) {
+    @ExceptionHandler(Exception.class) // () 안은 클래스 class | 원래 : BadRequestException.class
+    public String errorHandler(BadRequestException e, HttpServletRequest request, HttpServletResponse response, Model model) {
         e.printStackTrace();
+
         return "error/common"; // common = common.jsp
     }
+
+    /* @ExceptionHandler(RuntimeException.class) // () 안은 클래스 class
+    public String errorHandler2(){} */
 }
