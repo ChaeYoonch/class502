@@ -88,7 +88,7 @@ public class MemberController {
     }
 
     @GetMapping("/list")
-    public String list(@ModelAttribute MemberSearch search) { // 회원가입일로 조회
+    public String list(@Valid @ModelAttribute MemberSearch search, Errors errors) { // 회원가입 날짜로 조회 | @Valid : 검증이 필요한 형태야! 라는 의미
 
         log.info(search.toString());
 
