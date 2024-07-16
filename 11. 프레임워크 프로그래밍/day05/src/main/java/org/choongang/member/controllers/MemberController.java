@@ -4,14 +4,12 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.choongang.member.entities.Member;
 import org.choongang.member.services.JoinService;
 import org.choongang.member.services.LoginService;
 import org.choongang.member.validators.JoinValidator;
 import org.choongang.member.validators.LoginValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j // log.() 사용할 수 있게 추가함
@@ -45,8 +43,7 @@ public class MemberController {
 
         return "redirect:/member/login"; // 문구 형태로 입력해도 이동할 수 있음
     }
-    /*
-    @InitBinder
+    /* @InitBinder
     public void initBinder(WebDataBinder binder) { // 위의 @Valid 부분을 얘가 정의함 | 컨트롤러 안에서 정의하는 공통 Validator | joinValidator.validate(form, errors); 가 하던 역할을 하는 거임!!
         binder.setValidator(joinValidator);
     } */
@@ -76,8 +73,7 @@ public class MemberController {
             return "member/login"; // 에러 발생시 로그인 페이지로 이동
         }
 
-        // 로그인 처리
-        // String email = form.getEmail();
+        // String email = form.getEmail(); -> 로그인 처리
         loginService.process(form);
 
         return "redirect:/";
