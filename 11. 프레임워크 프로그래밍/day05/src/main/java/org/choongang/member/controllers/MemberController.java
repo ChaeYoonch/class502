@@ -96,7 +96,7 @@ public class MemberController {
     }
 
     @GetMapping("/info/{id}")
-    public String info() {
+    public String info(@PathVariable("id") String email) { // id 를 email 에 넣어줌 -> 경로 변수
 
     }
 }
