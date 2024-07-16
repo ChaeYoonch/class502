@@ -7,7 +7,7 @@ import org.springframework.web.bind.support.SessionStatus;
 @Controller
 @RequestMapping("/survey")
 @SessionAttributes("requestSurvey")
-public class SurveyController { // @PostMapping("/step1,2,3") : 다음 페이지로 넘어가는 설문조사
+public class SurveyController { // @PostMapping("/step1,2,3") : 다음 페이지로 넘어가는 설문조사 | 이런 형태를 Magic form 이라고 함
 
     @ModelAttribute
     public RequestSurvey getRequestSurvey()  {
