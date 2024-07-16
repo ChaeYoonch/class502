@@ -8,6 +8,6 @@
     <form:errors path="sDate" />
     ~
     <form:input path="eDate" />
-    <form:errors path="eDate" /> <%-- 에러 코드 미 연동시에는 기본 코드 나옴 --%>
+    <form:errors path="eData" /> <%-- 에러 코드 미 연동시에는 기본 코드 나옴 --%>
     <button type="submit">검색하기</button>
 </form:form>
