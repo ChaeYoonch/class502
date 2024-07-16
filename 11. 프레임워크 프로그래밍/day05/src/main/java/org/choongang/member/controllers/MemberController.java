@@ -96,10 +96,10 @@ public class MemberController {
 
         log.info(search.toString());
 
-        /*boolean result = false;
+        boolean result = false;
         if (!result) {
             throw new BadRequestException("예외 발생!!!");
-        }*/
+        }
         return "member/list";
     }
 
