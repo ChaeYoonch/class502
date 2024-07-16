@@ -20,7 +20,7 @@ public class CommonControllerAdvice {
         e.printStackTrace();
         log.info("advice 유입");
 
-        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR; // 500 에러 발생 | 예외가 발생하면 전부 여기로 유입됨
+        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR; // 500 에러 발생 | 예외가 발생하면 전부 여기로 유입됨 | 기본 = 500 으로 고정 / 그 외에 설정해놓은 예외는 각각에 맞는 것 뽑아서 확인
         if (e instanceof CommonException commonException) {
             // CommonException commonException = (CommonException) e;
             status = commonException.getStatus();
