@@ -7,6 +7,6 @@
 
 <form:form method="post" action="${actionUrl}" autocomplete="off" modelAttribute="requestSurvey">
     질문3 : <form:input path="q3" /> <br>
-    질문2 : <form:input path="q2" /> <br>
+    질문4 : <form:input path="q4" /> <br>
     <button type="submit">다음 설문</button>
 </form:form>
