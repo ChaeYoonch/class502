@@ -21,7 +21,9 @@ public class SurveyController {
         return "survey/step2";
     }
 
+    @PostMapping("/step3")
     public String step3() {
 
+        return "survey/step3";
     }
 }
