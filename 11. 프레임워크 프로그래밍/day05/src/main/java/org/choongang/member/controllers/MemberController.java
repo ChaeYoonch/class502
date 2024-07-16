@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.choongang.global.exceptions.BadRequestException;
 import org.choongang.member.services.JoinService;
 import org.choongang.member.services.LoginService;
 import org.choongang.member.validators.JoinValidator;
@@ -88,16 +89,20 @@ public class MemberController {
     }
 
     @GetMapping("/list")
-    public String list(@Valid @ModelAttribute MemberSearch search, Errors errors) { // 회원가입 날짜로 조회 | @Valid : 검증이 필요한 형태야! 라는 의미
+    public String list(@Valid @ModelAttribute MemberSearch search, Errors errors) { // 회원가입 날짜로 조회 | @Valid : 검증이 필요한 형태야! 라고 알려주는 애노테이션
 
         log.info(search.toString());
 
+        boolean result = false;
+        if (!result) {
+            throw new BadRequestException("예외 발생!!!");
+        }
         return "member/list";
     }
 
     @ResponseBody
-    @GetMapping("/info/{id}/{id2}")
-    public void info(@PathVariable("id") String email, @PathVariable("id2") String email2) { // id 를 email 에 넣어줌 -> 경로 변수
+    @GetMapping({"/info/{id}/{id2}", "/info/{id}"}) // required 옵션은 여러 개 있을 경우 사용
+    public void info(@PathVariable("id") String email, @PathVariable(name="id2", required = false) String email2) { // id 를 email 에 넣어줌 -> 경로 변수
 
         log.info("email : {}, email2 : {}", email, email2);
     }
