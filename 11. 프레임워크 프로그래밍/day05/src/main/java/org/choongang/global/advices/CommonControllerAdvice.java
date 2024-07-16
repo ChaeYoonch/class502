@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 @ControllerAdvice("org.choongang") // () 내부 : 적용 범위
 public class CommonControllerAdvice {
 
-    @ExceptionHandler(Exception.class) // () 안은 클래스 class | 원래 : BadRequestException.class
+    @ExceptionHandler(Exception.class) // () 안은 클래스 class | 원래 : BadRequestException.class | @ExceptionHandler(Exception.class) : 에러 페이지 출력하기 위해 사용
     public ModelAndView errorHandler(Exception e, HttpServletRequest request, HttpServletResponse response, Model model) {
         e.printStackTrace();
         log.info("advice 유입");
