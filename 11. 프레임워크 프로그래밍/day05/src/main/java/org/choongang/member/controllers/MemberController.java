@@ -92,7 +92,7 @@ public class MemberController {
     }
 
     @GetMapping("/list")
-    public String list() {
+    public String list() { // 회원가입일로 조회
 
         return "member/list";
     }
