@@ -109,13 +109,13 @@ public class MemberController {
 
         log.info("email : {}, email2 : {}", email, email2);
     }
-
+    /*
     @ExceptionHandler(Exception.class) // () 안은 클래스 class | 원래 : BadRequestException.class
     public String errorHandler(BadRequestException e, HttpServletRequest request, HttpServletResponse response, Model model) {
         e.printStackTrace();
-
+        log.info("MemberController 에서 유입");
         return "error/common"; // common = common.jsp
-    }
+    } */
 
     /* @ExceptionHandler(RuntimeException.class) // () 안은 클래스 class
     public String errorHandler2(){} */
