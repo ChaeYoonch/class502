@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Slf4j
 @Configuration
 public class DBConfig2 {
-    @Profile("dev")
+    @Profile("dev") // 개발 시 설정
     @Configuration
     @EnableTransactionManagement
     @MapperScan("org.choongang")
@@ -75,7 +75,7 @@ public class DBConfig2 {
         }
     }
 
-    @Profile("prod") // 배포 시 프로필
+    @Profile("prod") // 배포 시 설정 프로필
     @Configuration
     @EnableTransactionManagement
     @MapperScan("org.choongang")
