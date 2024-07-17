@@ -88,6 +88,6 @@ public class MvcConfig implements WebMvcConfigurer { // WebMvcConfigurer -> 설�
                                     .serializerByType(LocalDate.class, new LocalDateSerializer(formatter))
                                     .build();
         // objectMapper 에 담은 builder 값                                요기에서 가져옴
-        converters.add(0, new MappingJackson2HttpMessageConverter(objectMapper));
+        converters.add(0, new MappingJackson2HttpMessageConverter(objectMapper)); // 가장 앞에 올 수 있게 0번째
     }
 }
