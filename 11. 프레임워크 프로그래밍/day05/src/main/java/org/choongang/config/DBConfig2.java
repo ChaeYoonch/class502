@@ -19,8 +19,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Slf4j
 @Configuration
-public class DBConfig2 { // 이미 정의되어 있는 환경 변수 : spring.profiles.active
-    @Profile("dev") // 개발 시 설정
+public class DBConfig2 { // 이미 정의되어 있는 환경 변수 : spring.profiles.active -> 실행 과정 중에 Eit Configurayions 로 설정
+    @Profile("!prod") // 개발 시 설정 | "dev" = "!prod" => prod 프로파일이 아닌 경우
     @Configuration
     @EnableTransactionManagement
     @MapperScan("org.choongang")
