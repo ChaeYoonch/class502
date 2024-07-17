@@ -2,9 +2,12 @@ package org.choongang.config;
 
 import lombok.RequiredArgsConstructor;
 import org.choongang.member.validators.JoinValidator;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.validation.Validator;
 import org.springframework.web.servlet.config.annotation.*;
 
@@ -50,4 +53,12 @@ public class MvcConfig implements WebMvcConfigurer { // WebMvcConfigurer -> 설�
     public void configureViewResolvers(ViewResolverRegistry registry) {
         registry.jsp("/WEB-INF/templates/", ".jsp"); // templates 를 jsp 로 쓸 때만 .jsp 로 사용
     } // 기본 설정 2
+
+    @Bean // PropertySources : 프로퍼티 파일 설정 내용 / PlaceholderConfigurer : 설정 방식
+    public static PropertySourcesPlaceholderConfigurer propertyConfigurer() {
+        PropertySourcesPlaceholderConfigurer conf = new PropertySourcesPlaceholderConfigurer();
+        conf.setLocations(new ClassPathResource("application.properties")); // classpath : resources 임!
+
+        return conf;
+    }
 }
