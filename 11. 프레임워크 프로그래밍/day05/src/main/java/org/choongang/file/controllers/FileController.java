@@ -15,7 +15,7 @@ import java.io.IOException;
 public class FileController {
 
     @Value("${file.upload.path}")
-    private String uploadPath; // 설정 파일 설정 및 값 가져옴
+    private String uploadDir; // 설정 파일 설정 및 값 가져옴
 
     @GetMapping("/upload")
     public String upload() {
@@ -29,7 +29,8 @@ public class FileController {
         String name = file.getOriginalFilename();
         log.info("파일 명 : {}", name);
 
-        File uploadPath = new File("D:/uploads" + name);
+        File uploadPath = new File(uploadDir + name); // "D:/uploads" + name -> uploadDir + name
+
         try {
             file.transferTo(uploadPath);
         } catch (IOException e) {}
