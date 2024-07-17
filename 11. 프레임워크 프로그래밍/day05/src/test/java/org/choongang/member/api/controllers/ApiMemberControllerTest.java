@@ -1,6 +1,7 @@
 package org.choongang.member.api.controllers;
 
 import org.choongang.config.MvcConfig;
+import org.junit.jupiter.api.BeforeEach;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.test.web.servlet.MockMvc;
@@ -11,6 +12,7 @@ public class ApiMemberControllerTest {
 
     private MockMvc mockMvc;
 
+    @BeforeEach
     void init() {
 
     }
