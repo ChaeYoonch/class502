@@ -17,6 +17,6 @@ public class ApiMemberControllerTest {
 
     @BeforeEach
     void init() {
-        mockMvc = MockMvcBuilders.standaloneSetup()
+        mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 }
