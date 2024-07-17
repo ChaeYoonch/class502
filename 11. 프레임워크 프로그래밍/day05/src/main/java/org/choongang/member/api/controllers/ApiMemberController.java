@@ -6,6 +6,7 @@ import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mappers.MemberMapper;
 import org.choongang.member.services.JoinService;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -50,7 +51,13 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
                                     .build())
                 .toList();
 
-        return ResponseEntity.status(HttpStatus.OK).body(members); // List<Member> members 의 members 가져옴
+        HttpHeaders headers = new HttpHeaders(); // 헤더
+        headers.add("t1", "v1");
+        headers.add("t2", "v2");
+
+        // return ResponseEntity.status(HttpStatus.OK).body(members); // List<Member> members 의 members 가져옴
+        // return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(members);
+        return new ResponseEntity<>(members, headers, HttpStatus.OK);
     }
 
     @GetMapping(path="/test", produces = "text/html;charset=UTF-8")
