@@ -1,20 +1,17 @@
 package org.choongang.config;
 
-import lombok.RequiredArgsConstructor;
-import org.choongang.member.validators.JoinValidator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.validation.Validator;
 import org.springframework.web.servlet.config.annotation.*;
 
 @Configuration
 @EnableWebMvc
 @ComponentScan("org.choongang")
-@Import({DBConfig.class,
+@Import({DBConfig2.class,
         MessageConfig.class,
         InterceptorConfig.class,
         FileConfig.class}) // MvcConfig 에 DBConfig, MessageConfig 연동
