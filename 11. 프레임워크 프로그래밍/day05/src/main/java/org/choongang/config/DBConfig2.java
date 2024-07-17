@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Slf4j
 @Configuration
-public class DBConfig2 {
+public class DBConfig2 { // 이미 정의되어 있는 환경 변수 : spring.profiles.active
     @Profile("dev") // 개발 시 설정
     @Configuration
     @EnableTransactionManagement
