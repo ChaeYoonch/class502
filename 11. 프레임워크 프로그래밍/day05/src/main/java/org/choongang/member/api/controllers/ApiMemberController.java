@@ -17,8 +17,15 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
 
     @GetMapping("/info/{email}")
     public Member info(@PathVariable("email") String email) {
+        // Content-Type : application/json
         Member member = mapper.get(email); //         -> 요기 email 가져온 것
 
         return member;
+    }
+
+    @GetMapping("/test")
+    public String test() {
+        // Content-Type : text/plain
+        return "안녕하세요!";
     }
 }
