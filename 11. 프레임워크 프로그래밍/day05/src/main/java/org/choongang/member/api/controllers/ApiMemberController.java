@@ -24,7 +24,7 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
         return member;
     }
 
-    @GetMapping(path="/test", produces = MediaType.TEXT_PLAIN_VALUE)
+    @GetMapping(path="/test", produces = "text/html;charset=UTF-8")
     public String test() {
         // Content-Type : text/plain
         return "안녕하세요!";
