@@ -84,6 +84,8 @@ public class DBConfig2 {
 
         @Bean(destroyMethod = "close")
         public DataSource dataSource() {
+            log.info("prod 프로파일!");
+
             DataSource ds = new DataSource();
 
             /* 연결 설정 S */
