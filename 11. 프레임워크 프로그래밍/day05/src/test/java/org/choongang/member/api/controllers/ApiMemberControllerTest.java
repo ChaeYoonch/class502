@@ -8,6 +8,8 @@ import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+
 @SpringJUnitWebConfig
 @ContextConfiguration(classes = MvcConfig.class)
 public class ApiMemberControllerTest {
@@ -23,6 +25,6 @@ public class ApiMemberControllerTest {
 
     @Test
     void test1() throws Exception {
-
+        mockMvc.perform(post("/api/member"));
     }
 }
