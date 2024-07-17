@@ -10,4 +10,8 @@ import org.springframework.test.web.servlet.MockMvc;
 public class ApiMemberControllerTest {
 
     private MockMvc mockMvc;
+
+    void init() {
+
+    }
 }
