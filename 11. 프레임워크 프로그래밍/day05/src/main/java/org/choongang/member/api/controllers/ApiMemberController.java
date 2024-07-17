@@ -6,6 +6,8 @@ import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mappers.MemberMapper;
 import org.choongang.member.services.JoinService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -22,9 +24,11 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
     private final JoinService joinService;
 
     @PostMapping // POST /api/member
-    public void join(@RequestBody RequestJoin form) { // form 데이터 받아옴
+    public ResponseEntity join(@RequestBody RequestJoin form) { // form 데이터 받아옴
         // log.info(form.toString());
         joinService.process(form);
+        // 응답 코드가 201 이고, 출력 바디 없음
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @GetMapping("/info/{email}")
