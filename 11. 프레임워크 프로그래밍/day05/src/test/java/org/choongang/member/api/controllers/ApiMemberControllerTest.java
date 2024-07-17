@@ -48,6 +48,9 @@ public class ApiMemberControllerTest {
         form.setUserName("사용자99");
         form.setAgree(true);
 
+        String json = om.writeValueAsString(form); // RequestJoin form = new RequestJoin(); 요기 form 정보 연결함
+        System.out.println(json); // 위의 json 가져옴
+
         // Content-Type : application/x-www-form-urlencoded
         // 이름=값&이름=값 ...
         /* mockMvc.perform(post("/api/member")
