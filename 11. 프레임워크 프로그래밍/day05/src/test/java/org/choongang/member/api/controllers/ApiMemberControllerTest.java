@@ -1,5 +1,6 @@
 package org.choongang.member.api.controllers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.choongang.config.MvcConfig;
 import org.choongang.member.controllers.RequestJoin;
 import org.junit.jupiter.api.BeforeEach;
@@ -35,6 +36,8 @@ public class ApiMemberControllerTest {
     @Test
     void test1() throws Exception {
         // Content-Type : application/json
+
+        ObjectMapper om = new ObjectMapper();
 
         RequestJoin form = new RequestJoin();
         form.setEmail("user99@test.org");
