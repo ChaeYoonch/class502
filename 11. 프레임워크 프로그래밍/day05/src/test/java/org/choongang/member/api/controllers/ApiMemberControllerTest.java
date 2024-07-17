@@ -1,6 +1,7 @@
 package org.choongang.member.api.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.choongang.config.MvcConfig;
 import org.choongang.member.controllers.RequestJoin;
 import org.junit.jupiter.api.BeforeEach;
@@ -38,6 +39,7 @@ public class ApiMemberControllerTest {
         // Content-Type : application/json
 
         ObjectMapper om = new ObjectMapper();
+        om.registerModule(new JavaTimeModule());
 
         RequestJoin form = new RequestJoin();
         form.setEmail("user99@test.org");
