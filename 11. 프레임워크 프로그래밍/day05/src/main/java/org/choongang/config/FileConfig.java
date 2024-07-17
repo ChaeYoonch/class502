@@ -1,5 +1,5 @@
 package org.choongang.config;
 
-public class FileConfig {
+public class FileConfig { // file 관련
 
 }
