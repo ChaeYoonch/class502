@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.config.annotation.*;
 
 @Configuration
@@ -56,9 +57,16 @@ public class MvcConfig implements WebMvcConfigurer { // WebMvcConfigurer -> 설�
     public static PropertySourcesPlaceholderConfigurer propertyConfigurer() {
         String fileName = "application";
         String profile = System.getenv("spring.profiles.active");
+        fileName += StringUtils.hasText(profile) ? "-" + profile : ""; // 없을 때는 빈 값
+
+        /**
+         * 환경 변수에 따라 달리 구분 예시
+         * spring.profiles.active = dev -> application-dev
+         * spring.profiles.active = prod -> application-prod
+         */
 
         PropertySourcesPlaceholderConfigurer conf = new PropertySourcesPlaceholderConfigurer();
-        conf.setLocations(new ClassPathResource("application.properties")); // classpath : resources 임! | application.properties -> 환경 변수에 따라 달리 구분
+        conf.setLocations(new ClassPathResource(fileName + ".properties")); // classpath : resources 임! | application.properties -> 기본 설정 | fileName + ".properties" -> 환경 변수에 따라 달리 구분
 
         return conf;
     }
