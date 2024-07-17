@@ -7,10 +7,7 @@ import org.choongang.member.entities.Member;
 import org.choongang.member.mappers.MemberMapper;
 import org.choongang.member.services.JoinService;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -25,8 +22,9 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
     private final MemberMapper mapper;
     private final JoinService joinService;
 
+    @PostMapping // POST /api/member
     public void join(RequestJoin form) { // form 데이터 받아옴
-
+        log.info(form.toString());
     }
 
     @GetMapping("/info/{email}")
