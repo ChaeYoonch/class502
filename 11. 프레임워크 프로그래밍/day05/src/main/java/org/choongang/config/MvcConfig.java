@@ -11,11 +11,11 @@ import org.springframework.web.servlet.config.annotation.*;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("org.choongang")
-@Import({DBConfig.class,
+@ComponentScan("org.choongang") // 자동 스캔 대상임!!
+/*@Import({DBConfig.class,
         MessageConfig.class,
         InterceptorConfig.class,
-        FileConfig.class}) // MvcConfig 에 DBConfig, MessageConfig 연동
+        FileConfig.class})*/ // MvcConfig 에 DBConfig, MessageConfig 연동 | 스캔 범위 아닐 때, @Bean 이 만들어지지 않을 때, @Component 자동 생성 못할 때 추가
 //@RequiredArgsConstructor // 의존성 추가
 public class MvcConfig implements WebMvcConfigurer { // WebMvcConfigurer -> 설정 틀 제공함 | 인터페이스 임!!
 
