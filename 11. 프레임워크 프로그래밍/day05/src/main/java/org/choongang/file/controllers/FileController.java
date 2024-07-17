@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.IOException;
 
 @Slf4j
 @Controller
@@ -25,5 +26,8 @@ public class FileController {
         log.info("파일 명 : {}", name);
 
         File uploadPath = new File("D:/uploads" + name);
+        try {
+            file.transferTo(uploadPath);
+        } catch (IOException e) {}
     }
 }
