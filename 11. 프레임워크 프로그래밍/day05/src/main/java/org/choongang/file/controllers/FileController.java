@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+
 @Slf4j
 @Controller
 @RequestMapping("/file")
@@ -21,5 +23,7 @@ public class FileController {
     public void uploadPs(@RequestPart("file") MultipartFile file) {
         String name = file.getOriginalFilename();
         log.info("파일 명 : {}", name);
+
+        File uploadPath = new File("D:/uploads" + name);
     }
 }
