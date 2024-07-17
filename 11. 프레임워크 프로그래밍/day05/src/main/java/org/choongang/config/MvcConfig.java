@@ -84,7 +84,7 @@ public class MvcConfig implements WebMvcConfigurer { // WebMvcConfigurer -> 설�
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         ObjectMapper objectMapper = Jackson2ObjectMapperBuilder
-                                    .xml() // json() -> xml() 로 변경
+                                    .json() // json() -> xml() 로 변경 O
                                     .serializerByType(LocalDate.class, new LocalDateSerializer(formatter))
                                     .build();
         // objectMapper 에 담은 builder 값                                요기에서 가져옴
