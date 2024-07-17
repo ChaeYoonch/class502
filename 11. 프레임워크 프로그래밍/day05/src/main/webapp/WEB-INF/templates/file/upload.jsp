@@ -4,6 +4,6 @@
 
 <form:form method="post" autocomplete="off" enctype="multipart/form-data">
     제목 : <input type="text" name="subject"> <br>
-    파일 : <input type="file" name="file">
+    파일 : <input type="file" name="file"> <br>
     <button type="submit">전송하기</button>
 </form:form>
