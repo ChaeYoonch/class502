@@ -1,13 +1,21 @@
 package org.choongang.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.config.annotation.*;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Configuration
 @EnableWebMvc
@@ -69,5 +77,14 @@ public class MvcConfig implements WebMvcConfigurer { // WebMvcConfigurer -> 설�
         conf.setLocations(new ClassPathResource(fileName + ".properties")); // classpath : resources 임! | application.properties -> 기본 설정 | fileName + ".properties" -> 환경 변수에 따라 달리 구분
 
         return conf;
+    }
+
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        ObjectMapper objectMapper = Jackson2ObjectMapperBuilder
+                                    .json()
+                                    .serializerByType(LocalDate.class, new LocalDateSerializer(formatter))
+                                    .build();
     }
 }
