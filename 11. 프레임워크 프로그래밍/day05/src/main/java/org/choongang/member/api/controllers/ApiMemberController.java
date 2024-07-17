@@ -40,7 +40,7 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
     }
 
     @GetMapping("/list")
-    public List<Member> list() {
+    public ResponseEntity<List<Member>> list() {
         List<Member> members = IntStream.rangeClosed(1, 10)
                 .mapToObj(i -> Member.builder()
                                     .email("user" + i + "@test.org")
@@ -50,7 +50,7 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
                                     .build())
                 .toList();
 
-        return members;
+        return ResponseEntity.status(HttpStatus.OK).body(members); // List<Member> members 의 members 가져옴
     }
 
     @GetMapping(path="/test", produces = "text/html;charset=UTF-8")
