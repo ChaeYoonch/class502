@@ -2,6 +2,7 @@ package org.choongang.member.api.controllers;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mappers.MemberMapper;
 import org.choongang.member.services.JoinService;
@@ -23,6 +24,10 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
 
     private final MemberMapper mapper;
     private final JoinService joinService;
+
+    public void join(RequestJoin form) { // form 데이터 받아옴
+
+    }
 
     @GetMapping("/info/{email}")
     public Member info(@PathVariable("email") String email) {
