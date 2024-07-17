@@ -54,8 +54,11 @@ public class MvcConfig implements WebMvcConfigurer { // WebMvcConfigurer -> 설�
     @Bean // PropertySources : 프로퍼티 파일 설정 내용 | PlaceholderConfigurer : 설정 방식
     // 설정 파일은 한 번 정의하면 바꾸지 않기 때문에 static 으로 정의함
     public static PropertySourcesPlaceholderConfigurer propertyConfigurer() {
+        String fileName = "application";
+        String profile = System.getenv("spring.profiles.active");
+
         PropertySourcesPlaceholderConfigurer conf = new PropertySourcesPlaceholderConfigurer();
-        conf.setLocations(new ClassPathResource("application.properties")); // classpath : resources 임!
+        conf.setLocations(new ClassPathResource("application.properties")); // classpath : resources 임! | application.properties -> 환경 변수에 따라 달리 구분
 
         return conf;
     }
