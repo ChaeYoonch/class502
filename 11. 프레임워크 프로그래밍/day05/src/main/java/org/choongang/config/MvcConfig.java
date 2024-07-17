@@ -10,6 +10,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.config.annotation.*;
 
@@ -86,5 +87,7 @@ public class MvcConfig implements WebMvcConfigurer { // WebMvcConfigurer -> 설�
                                     .json()
                                     .serializerByType(LocalDate.class, new LocalDateSerializer(formatter))
                                     .build();
+        // objectMapper 에 담은 builder 값                                요기에서 가져옴
+        converters.add(0, new MappingJackson2HttpMessageConverter(objectMapper));
     }
 }
