@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mappers.MemberMapper;
+import org.choongang.member.services.JoinService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import java.util.stream.IntStream;
 public class ApiMemberController { // 응답을 JSON 형태로 하는 RestController
 
     private final MemberMapper mapper;
+    private final JoinService joinService;
 
     @GetMapping("/info/{email}")
     public Member info(@PathVariable("email") String email) {
