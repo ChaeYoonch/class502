@@ -12,9 +12,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -27,18 +26,18 @@ public class ApiMemberControllerTest {
     @Autowired
     private ApiMemberController controller;
 
-    // @Autowired
-    // private WebApplicationContext ctx;
+    //@Autowired
+    //private WebApplicationContext ctx;
 
     @BeforeEach
     void init() {
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build(); // 너무 많이 넣으면 느려지므로 1개만 넣음
-        // mockMvc = MockMvcBuilders.standaloneSetup(ctx).build();
+        //mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
     }
 
     @Test
     void test1() throws Exception {
-        // Content-Type : application/json
+        // Content-Type: application/json
 
         ObjectMapper om = new ObjectMapper();
         om.registerModule(new JavaTimeModule());
@@ -53,14 +52,17 @@ public class ApiMemberControllerTest {
         String json = om.writeValueAsString(form); // RequestJoin form = new RequestJoin(); 요기 form 정보 연결함
         mockMvc.perform(
                         post("/api/member")
-                        .contentType(MediaType.APPLICATION_JSON) // 요청 헤더 Content-Type
-                        .content(json) // 요청 바디 | String json = om.writeValueAsString(form); 의 json 가져옴
+                                .contentType(MediaType.APPLICATION_JSON) // 요청 헤더 Content-Type
+                                .content(json) // 요청 바디 | String json = om.writeValueAsString(form); 의 json 가져옴
                 ).andDo(print())
                 .andExpect(status().isCreated());
 
-        // Content-Type : application/x-www-form-urlencoded
-        // 이름=값&이름=값 ...
-        /* mockMvc.perform(post("/api/member")
+
+        // Content-Type: application/x-www-form-urlencoded
+        // 이름=값&이름=값...
+        /*
+        mockMvc.perform(
+                post("/api/member")
                 .param("email", "user99@test.org")
                 .param("password", "12345678")
                 .param("confirmPassword", "12345678")
@@ -70,6 +72,7 @@ public class ApiMemberControllerTest {
 
     @Test
     void test2() throws Exception {
-
+        mockMvc.perform(get("/api/member/list"))
+                .andDo(print());
     }
 }
