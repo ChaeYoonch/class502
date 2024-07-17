@@ -17,6 +17,6 @@ public class ApiMemberControllerTest {
 
     @BeforeEach
     void init() {
-        mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(controller).build(); // 너무 많이 넣으면 느려지므로 1개만 넣음
     }
 }
