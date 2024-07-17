@@ -1,5 +1,6 @@
 package org.choongang.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -16,6 +17,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+@Slf4j
 @Configuration
 public class DBConfig2 {
     @Profile("dev")
@@ -27,6 +29,8 @@ public class DBConfig2 {
 
         @Bean(destroyMethod = "close")
         public DataSource dataSource() {
+            log.info("dev 프로파일!");
+
             DataSource ds = new DataSource();
 
             /* 연결 설정 S */
