@@ -23,7 +23,8 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
 
     @PostMapping // POST /api/member
     public void join(@RequestBody RequestJoin form) { // form 데이터 받아옴
-        log.info(form.toString());
+        // log.info(form.toString());
+        joinService.process(form);
     }
 
     @GetMapping("/info/{email}")
