@@ -116,7 +116,7 @@ public class MemberController {
     }
 
     @ResponseBody // 일반 컨트롤러 안에서 사용할 수 있도록 하기 위해 사용
-    @GetMapping("/list")
+    @GetMapping("/list2")
     public List<Member> list() {
         List<Member> members = IntStream.rangeClosed(1, 10)
                 .mapToObj(i -> Member.builder()
