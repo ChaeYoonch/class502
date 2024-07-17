@@ -3,6 +3,7 @@ package org.choongang.member.api.controllers;
 import lombok.RequiredArgsConstructor;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mappers.MemberMapper;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,7 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
         return member;
     }
 
-    @GetMapping("/test")
+    @GetMapping(path="/test", produces = MediaType.TEXT_PLAIN_VALUE)
     public String test() {
         // Content-Type : text/plain
         return "안녕하세요!";
