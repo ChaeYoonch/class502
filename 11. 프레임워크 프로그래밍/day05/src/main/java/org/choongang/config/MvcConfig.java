@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.*;
 @Configuration
 @EnableWebMvc
 @ComponentScan("org.choongang")
-@Import({DBConfig2.class,
+@Import({DBConfig.class,
         MessageConfig.class,
         InterceptorConfig.class,
         FileConfig.class}) // MvcConfig 에 DBConfig, MessageConfig 연동
