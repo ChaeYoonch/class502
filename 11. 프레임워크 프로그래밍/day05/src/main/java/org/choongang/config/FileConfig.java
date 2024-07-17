@@ -14,6 +14,6 @@ public class FileConfig implements WebMvcConfigurer { // file 관련 | 정적 �
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         // 파일 업로드 정적 경로 설정
         registry.addResourceHandler("/uploads/**")
-                .addResourceLocations("file:///"); // 파일 경로 입력 시에는 /가 1개 제거되므로 3개 쓴 것!
+                .addResourceLocations("file:///" + uploadPath); // 파일 경로 입력 시에는 /가 1개 제거되므로 3개 쓴 것!
     }
 }
