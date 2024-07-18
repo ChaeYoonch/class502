@@ -1,8 +1,10 @@
 package tests;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.choongang.config.MvcConfig;
 import org.choongang.exam.PostData;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.web.client.RestTemplate;
@@ -13,6 +15,9 @@ import java.net.URI;
 @SpringJUnitWebConfig
 @ContextConfiguration(classes = MvcConfig.class)
 public class Ex01 {
+
+    @Autowired
+    private ObjectMapper om; // 수동 등록 빈 | 의존성 주입
 
     @Test
     void test1() {
