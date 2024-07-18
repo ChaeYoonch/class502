@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
@@ -23,13 +24,15 @@ public class Utils { // 편의 기능 모음
         // 1. FieldErrors 처리
         Map<String, List<String>> messages = errors.getFieldErrors()
                                                     .stream()
-                                                    .collect(Collectors.toMap(FieldError::getField, e -> e.getCodes()))
+                                                    .collect(Collectors.toMap(FieldError::getField, e -> e.getCodeMessage(e.getCode())));
     }
 
     public List<String > getCodeMessages(String[] codes) {
         List<String> messages = Arrays.stream(codes) // message 를 가져와 바꿔줌
-                                        .map(c -> { // 지역화 -> 언어 변동 기능
-                                            String message = messageSource.getMessage(c, null, request.getLocale());
-                                        })
+                                        .map(c -> messageSource.getMessage(c, null, request.getLocale())) // 지역화 -> 언어 변동 기능
+                                        .filter(s -> !StringUtils.isBlank(s))
+                                        .toList();
+
+        return messages;
     }
 }
