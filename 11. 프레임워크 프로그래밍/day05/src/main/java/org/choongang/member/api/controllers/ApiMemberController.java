@@ -34,6 +34,8 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
 
         if (errors.hasErrors()) {
             errors.getFieldErrors().forEach(System.out::println); // (1)
+            errors.getGlobalErrors().forEach(System.out::println); // (2)
+            // (1) & (2) 둘 모두 쓰면 errors.getAllErrors.forEach.(System.out::println); 한 것과 같음
 
             return ResponseEntity.badRequest().build(); // 검증 실패 -> 응답 코드 400
         }
