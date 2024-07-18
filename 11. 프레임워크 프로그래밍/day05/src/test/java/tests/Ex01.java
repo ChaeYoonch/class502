@@ -37,4 +37,9 @@ public class Ex01 {
         PostData data = restTemplate.getForObject("https://jsonplaceholder.typicode.com/posts/1", PostData.class);
         System.out.println(data);
     }
+
+    @Test
+    void test3() {
+
+    }
 }
