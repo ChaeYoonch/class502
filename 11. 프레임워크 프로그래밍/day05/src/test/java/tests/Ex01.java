@@ -16,16 +16,17 @@ public class Ex01 {
     @Test
     void test1() {
         URI url = UriComponentsBuilder.fromUriString("https://www.naver.com")
-                                      .path("/news/{0}")
+                                       // .path("/news/{0}")
                                       .queryParam("t1", "v1")
                                       .queryParam("t2", "v2")
-                                      .queryParam("t3", "한글")
-                                      .queryParam("t4", "aa{1}")
+                                      .queryParam("t3", "한글") // ED%95%9C%EA%B8%80
+                                      // .queryParam("t3", "ED%95%9C%EA%B8%80")
+                                      // .queryParam("t4", "aa{1}")
                                       .fragment("hash")
                                       .encode()
                                       .build("AAAA", "BBBB");
                                       // .build(true); 쿼리 스트링 중에 encoding 된 것이 있다 의 의믜
-        System.out.println(url);
+        System.out.println(url.getQuery());
     }
 
     @Test
