@@ -1,5 +1,6 @@
 package tests;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.choongang.config.MvcConfig;
 import org.choongang.exam.PostData;
@@ -11,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @SpringJUnitWebConfig
 @ContextConfiguration(classes = MvcConfig.class)
@@ -53,7 +55,9 @@ public class Ex01 {
         PostData data = om.readValue(body, PostData.class);
         System.out.println(data);
 
+        // 복합 데이터 객체 변환 - List, Set, Map ...
         String itemsBody = restTemplate.getForObject("https://jsonplaceholder.typicode.com/posts", String.class);
-        System.out.println(itemsBody);
+        // System.out.println(itemsBody);
+        List<PostData> items = om.readValue(itemsBody, new TypeReference<>(){}); // 추상 클래스 이므로 뒤에 {} 빈 상태로 추가해야 함
     }
 }
