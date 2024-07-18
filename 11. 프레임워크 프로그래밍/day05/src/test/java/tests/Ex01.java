@@ -14,6 +14,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -97,6 +99,11 @@ public class Ex01 {
     void test5() {
         RestTemplate restTemplate = new RestTemplate();
 
-
+        MultiValueMap<String, String> params = new LinkedMultiValueMap<>(); // 보낼 데이터 담는 곳
+        params.add("email", "user998@test.org");
+        params.add("password", "12345678");
+        params.add("confirmPassword", "12345678");
+        params.add("userName", "사용자998");
+        params.add("agree", "true");
     }
 }
