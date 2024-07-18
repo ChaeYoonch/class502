@@ -40,6 +40,9 @@ public class Ex01 {
 
     @Test
     void test3() {
+        RestTemplate restTemplate = new RestTemplate();
+        String body = restTemplate.getForObject("https://jsonplaceholder.typicode.com/posts/1", String.class);
+
 
     }
 }
