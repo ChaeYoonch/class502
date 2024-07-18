@@ -7,6 +7,6 @@ public class BeanConfig {
 
     @Bean // 수동 등록 빈
     public ObjectMapper objectMapper() {
-
+        ObjectMapper om = new ObjectMapper();
     }
 }
