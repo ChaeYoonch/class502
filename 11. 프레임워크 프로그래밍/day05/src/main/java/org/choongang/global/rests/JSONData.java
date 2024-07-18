@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class JSONData {
+public class JSONData { // 통일된 응답 형식 틀을 만들기 위해 작성함
     private HttpStatus status = HttpStatus.OK; // 성공하든 실패하든 동일한 형식 | 200 (조회) 이 주로 많음
     private boolean success = true; // 성공, 실패 확인 | 실제 응답은 성공 시 가 실패 시 보다 많기 때문에
     private Object message; // 실패 시 메세지
