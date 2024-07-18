@@ -24,9 +24,16 @@ public class Utils { // 편의 기능 모음
         // 1. FieldErrors 처리
         Map<String, List<String>> messages = errors.getFieldErrors()
                                                     .stream()
-                                                    .collect(Collectors.toMap(FieldError::getField, e -> e.getCodeMessage(e.getCode())));
+                                                    .collect(Collectors.toMap(FieldError::getField, e -> e.getCodeMessages(e.getCode())));
 
         // 2. GlobalErrors 처리
+        List<String> gMessages = errors.getGlobalErrors()
+                                        .stream()
+                                        .flatMap(e -> getCodeMessages(e.getCodes()).stream()).toList();
+
+        messages.put("global", gMessages);
+
+        return messages;
     }
 
     public List<String > getCodeMessages(String[] codes) {
