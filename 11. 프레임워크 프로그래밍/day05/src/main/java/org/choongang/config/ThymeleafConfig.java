@@ -24,23 +24,23 @@ public class ThymeleafConfig implements WebMvcConfigurer {
         templateResolver.setPrefix("/WEB-INF/templates2/"); // prefix
         templateResolver.setSuffix(".html"); // surffix
         templateResolver.setCacheable(false); // 캐시 설정
-        return templateResolver;
+        return templateResolver; // 위의 것 가져옴
     }
 
     @Bean
     public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
-        templateEngine.setEnableSpringELCompiler(true);
-        templateEngine.addDialect(new Java8TimeDialect());
-        templateEngine.addDialect(new LayoutDialect());
+        templateEngine.setEnableSpringELCompiler(true); // EL 식 속성 사용 가능하게 해줌
+        templateEngine.addDialect(new Java8TimeDialect()); // Dialect - 확장 기능 | Temporals 추가됨
+        templateEngine.addDialect(new LayoutDialect()); // Layout 속성 사용 가능해짐
         return templateEngine;
     }
 
     @Bean
     public ThymeleafViewResolver thymeleafViewResolver() {
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
-        resolver.setContentType("text/html");
+        resolver.setContentType("text/html"); // 미리 설정해야 되는 부분 -> 매번 설정할 필요 없음!!
         resolver.setCharacterEncoding("utf-8");
         resolver.setTemplateEngine(templateEngine());
         return resolver;
@@ -48,6 +48,6 @@ public class ThymeleafConfig implements WebMvcConfigurer {
 
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
-        registry.viewResolver(thymeleafViewResolver());
+        registry.viewResolver(thymeleafViewResolver()); // 설정을 반영 시킴
     }
 }
