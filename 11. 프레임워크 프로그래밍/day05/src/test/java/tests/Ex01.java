@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.choongang.config.MvcConfig;
 import org.choongang.exam.PostData;
 import org.choongang.member.controllers.RequestJoin;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -68,6 +69,7 @@ public class Ex01 {
     }
 
     @Test
+    @DisplayName("JSON 방식으로 POST 처리 예시")
     void test4() throws Exception {
         RestTemplate restTemplate = new RestTemplate();
         RequestJoin form = new RequestJoin();
@@ -88,5 +90,11 @@ public class Ex01 {
         String url = "http://localhost:3000/day05/api/member";
         ResponseEntity<String> response = restTemplate.postForEntity(url, request, String.class);
         System.out.println(response);
+    }
+
+    @Test
+    @DisplayName("일반 양식 형식으로 전송 - Content-Type : application/x-www-form-urlencoded")
+    void test5() {
+
     }
 }
