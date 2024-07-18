@@ -64,7 +64,7 @@ public class Ex01 {
     }
 
     @Test
-    void test4() {
+    void test4() throws Exception {
         RestTemplate restTemplate = new RestTemplate();
         RequestJoin form = new RequestJoin();
         form.setEmail("user999@test.org");
@@ -72,5 +72,8 @@ public class Ex01 {
         form.setConfirmPassword("12345678");
         form.setUserName("사용자999");
         form.setAgree(true);
+
+        String params = om.writeValueAsString(form); // 전송할 데이터 | throws Exception 사용해 오류 발생 X
+        System.out.println(params);
     }
 }
