@@ -1,5 +1,6 @@
 package org.choongang.global;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class Utils { // 편의 기능 모음
 
-    private final MessageSource messageSource;
+    private final MessageSource messageSource; // 의존성 추가
+    private final HttpServletRequest request;
 
     public Map<String, List<String>> getErrorMessage(Errors errors) {
         // 1. FieldErrors 처리
