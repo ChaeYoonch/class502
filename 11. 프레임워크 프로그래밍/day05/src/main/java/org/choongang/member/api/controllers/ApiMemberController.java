@@ -101,5 +101,10 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
         JSONData data = new JSONData();
         data.setSuccess(false);
         data.setMessage(e.getMessage()); // 에러 메세지
+        data.setStatus(status); // 위의 status 가져옴
+
+        e.printStackTrace();
+
+        return ResponseEntity.status(status).body(data); // 위의 status, data 정보 가져옴
     }
 }
