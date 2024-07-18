@@ -1,6 +1,7 @@
 package tests;
 
 import org.choongang.config.MvcConfig;
+import org.choongang.exam.PostData;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
@@ -8,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @SpringJUnitWebConfig
 @ContextConfiguration(classes = MvcConfig.class)
@@ -33,7 +35,7 @@ public class Ex01 {
     @Test
     void test2() {
         RestTemplate restTemplate = new RestTemplate();
-        String data = restTemplate.getForObject("https://jsonplaceholder.typicode.com/posts", String.class);
+        PostData data = restTemplate.getForObject("https://jsonplaceholder.typicode.com/posts", PostData.class);
         System.out.println(data);
     }
 }
