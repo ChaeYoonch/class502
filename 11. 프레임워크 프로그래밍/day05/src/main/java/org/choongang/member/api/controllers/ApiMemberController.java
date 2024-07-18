@@ -89,7 +89,7 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
     public void test2() {
         log.info("test2....");
     }
-
+    /*
     @ExceptionHandler(Exception.class)
     public ResponseEntity<JSONData> errorHandler(Exception e) {
 
@@ -106,5 +106,5 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
         e.printStackTrace();
 
         return ResponseEntity.status(status).body(data); // 위의 status, data 정보 가져옴
-    }
+    } */
 }
