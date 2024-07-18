@@ -59,5 +59,6 @@ public class Ex01 {
         String itemsBody = restTemplate.getForObject("https://jsonplaceholder.typicode.com/posts", String.class);
         // System.out.println(itemsBody);
         List<PostData> items = om.readValue(itemsBody, new TypeReference<>(){}); // 추상 클래스 이므로 뒤에 {} 빈 상태로 추가해야 함
+        items.forEach(System.out::println); // 요기 System.out.println(data); 값 연결함
     }
 }
