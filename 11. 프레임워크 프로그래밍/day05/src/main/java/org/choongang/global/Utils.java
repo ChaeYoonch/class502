@@ -22,9 +22,6 @@ public class Utils { // 편의 기능 모음
 
     public Map<String, List<String>> getErrorMessage(Errors errors) {
         // 1. FieldErrors 처리
-        ResourceBundleMessageSource ms = (ResourceBundleMessageSource) messageSource;
-        ms.setUseCodeAsDefaultMessage(false);
-
         Map<String, List<String>> messages = errors.getFieldErrors()
                                                     .stream()
                                                     .collect(Collectors.toMap(FieldError::getField, e -> getCodeMessages(e.getCodes())));
@@ -42,6 +39,9 @@ public class Utils { // 편의 기능 모음
     }
 
     public List<String > getCodeMessages(String[] codes) {
+        ResourceBundleMessageSource ms = (ResourceBundleMessageSource) messageSource; // 에러 코드 -> 메세지 변경
+        ms.setUseCodeAsDefaultMessage(false);
+
         List<String> messages = Arrays.stream(codes) // message 를 가져와 바꿔줌
                                         .map(c -> messageSource.getMessage(c, null, request.getLocale())) // 지역화 -> 언어 변동 기능
                                         .filter(s -> s != null && !s.isBlank())
