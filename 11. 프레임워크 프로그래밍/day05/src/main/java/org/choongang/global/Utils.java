@@ -30,7 +30,9 @@ public class Utils { // 편의 기능 모음
                                         .stream()
                                         .flatMap(e -> getCodeMessages(e.getCodes()).stream()).toList();
 
-        messages.put("global", gMessages);
+        if (!gMessages.isEmpty()) { // gMessages 가 있을 때만 global 나옴
+            messages.put("global", gMessages);
+        }
 
         return messages;
     }
