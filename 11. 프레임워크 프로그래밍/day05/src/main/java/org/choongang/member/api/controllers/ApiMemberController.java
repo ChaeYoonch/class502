@@ -88,4 +88,9 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
     public void test2() {
         log.info("test2....");
     }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<JSONData> errorHandler(Exception e) {
+
+    }
 }
