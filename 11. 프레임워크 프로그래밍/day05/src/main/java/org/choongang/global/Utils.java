@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class Utils { // 편의 기능 모음
 
     private final MessageSource messageSource; // 의존성 추가
-    private final HttpServletRequest request;
+    private final HttpServletRequest request; // 요청 브라우저 언어 -> 다국어 설정 등 언어 변경이 가능하도록
 
     public Map<String, List<String>> getErrorMessage(Errors errors) {
         // 1. FieldErrors 처리 : 필드별 에러 처리 O -> 배열 형태로 작성 => 이 안에서 작성하기에는 길고 아래 GlobalErrors 처리 에서도 쓰므로 아래 함수 형태로 빼서 작성함
@@ -38,8 +38,8 @@ public class Utils { // 편의 기능 모음
         return messages;
     }
 
-    // 여기에 함수로 작성
-    public List<String > getCodeMessages(String[] codes) {
+    // 여기에 함수로 작성 | 메세지 -> validations.properties 에서 가져옴 => 여러 개가 있으므로 <String> 으로 가져옴
+    public List<String> getCodeMessages(String[] codes) {
         ResourceBundleMessageSource ms = (ResourceBundleMessageSource) messageSource; // 에러 코드 -> 메세지 변경
         ms.setUseCodeAsDefaultMessage(false); // 확인할 때만 false 사용
 
