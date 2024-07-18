@@ -15,5 +15,5 @@ public class MessageConfig { // MvcConfig 에 통합
         ms.setDefaultEncoding("UTF-8");
         ms.setUseCodeAsDefaultMessage(true); // 메세지 코드가 값이 없으면 코드 그 자체로 메세지 대체함
         return ms;
-    }
+    } // 싱글톤 패턴 -> 1번 만들어진 상태로 유지됨
 }
