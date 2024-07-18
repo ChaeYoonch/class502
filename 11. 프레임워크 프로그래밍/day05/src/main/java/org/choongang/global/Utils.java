@@ -25,6 +25,8 @@ public class Utils { // 편의 기능 모음
         Map<String, List<String>> messages = errors.getFieldErrors()
                                                     .stream()
                                                     .collect(Collectors.toMap(FieldError::getField, e -> e.getCodeMessage(e.getCode())));
+
+        // 2. GlobalErrors 처리
     }
 
     public List<String > getCodeMessages(String[] codes) {
