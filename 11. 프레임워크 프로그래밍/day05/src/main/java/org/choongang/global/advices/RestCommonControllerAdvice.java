@@ -23,6 +23,7 @@ public class RestCommonControllerAdvice {
             status = commonException.getStatus();
 
             Map<String , List<String>> errorMessages = commonException.getErrorMessages();
+            if (errorMessages != null) message = errorMessages;
         }
 
         JSONData data = new JSONData();
