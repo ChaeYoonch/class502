@@ -10,5 +10,7 @@ public class BeanConfig {
     public ObjectMapper objectMapper() {
         ObjectMapper om = new ObjectMapper();
         om.registerModule(new JavaTimeModule());
+
+        return om;
     }
 }
