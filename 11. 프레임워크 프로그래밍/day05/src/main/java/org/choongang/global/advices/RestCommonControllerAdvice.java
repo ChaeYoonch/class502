@@ -19,5 +19,6 @@ public class RestCommonControllerAdvice {
         }
 
         JSONData data = new JSONData();
+        data.setSuccess(false);
     }
 }
