@@ -7,6 +7,7 @@ import org.choongang.exam.PostData;
 import org.choongang.member.controllers.RequestJoin;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
@@ -78,7 +79,9 @@ public class Ex01 {
         String params = om.writeValueAsString(form); // 전송할 데이터 | throws Exception 사용해 오류 발생 X
         // System.out.println(params);
 
-        HttpHeaders headers = new HttpHeaders();
+        HttpHeaders headers = new HttpHeaders(); // 헤더
         headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<String> request = new HttpEntity<>(params, headers); // 바디
     }
 }
