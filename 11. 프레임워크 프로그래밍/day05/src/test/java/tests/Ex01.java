@@ -110,5 +110,9 @@ public class Ex01 {
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(params, headers);
+
+        String url = "http://localhost:3000/day05/member/join";
+        ResponseEntity<String> response = restTemplate.postForEntity(url, request, String.class); // 자세한 정보
+        System.out.println(response);
     }
 }
