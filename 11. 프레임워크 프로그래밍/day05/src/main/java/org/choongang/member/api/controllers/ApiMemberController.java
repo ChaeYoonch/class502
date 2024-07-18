@@ -37,7 +37,7 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
 
         boolean result = false;
         if (!result) {
-            throw new BadRequestException("예외 테스트!"); // 기본 톰캣 오류 화면
+            throw new BadRequestException("예외 테스트!"); // 기본 톰캣 오류 화면 -> html
         }
 
         // log.info(form.toString());
