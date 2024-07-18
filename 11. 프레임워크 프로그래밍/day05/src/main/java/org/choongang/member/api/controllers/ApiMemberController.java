@@ -33,6 +33,8 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
     public ResponseEntity join(@Valid @RequestBody RequestJoin form, Errors errors) { // form 데이터 받아옴 | @Valid -> 검증 해주는 역할
 
         if (errors.hasErrors()) {
+            errors.getFieldErrors().forEach(System.out::println); // (1)
+
             return ResponseEntity.badRequest().build(); // 검증 실패 -> 응답 코드 400
         }
 
