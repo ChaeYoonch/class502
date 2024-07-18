@@ -44,7 +44,7 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
     }
 
     @GetMapping("/list")
-    public ResponseEntity<List<Member>> list() {
+    public ResponseEntity<JSONData> list() { // ResponseEntity<List<Member>> list() {}
         List<Member> members = IntStream.rangeClosed(1, 10)
                 .mapToObj(i -> Member.builder()
                                     .email("user" + i + "@test.org")
@@ -58,9 +58,10 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
         headers.add("t1", "v1");
         headers.add("t2", "v2");
 
-        // return ResponseEntity.status(HttpStatus.OK).body(members); // List<Member> members 의 members 가져옴
+        // return ResponseEntity.status(HttpStatus.OK).body(members); List<Member> members 의 members 가져옴
         // return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(members);
-        return new ResponseEntity<>(members, headers, HttpStatus.OK); // body, header, 응답 코드 순서
+        // return new ResponseEntity<>(members, headers, HttpStatus.OK); body, header, 응답 코드 순서
+        return new ResponseEntity<>(new JSONData(members), headers, HttpStatus.OK);
     }
 
     @GetMapping(path="/test", produces = "text/html;charset=UTF-8")
