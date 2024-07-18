@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -26,6 +27,9 @@ public class Utils { // 편의 기능 모음
     }
 
     public List<String > getCodeMessages(String[] codes) {
-
+        List<String> messages = Arrays.stream(codes) // message 를 가져와 바꿔줌
+                                        .map(c -> { // 지역화 -> 언어 변동 기능
+                                            String message = messageSource.getMessage(c, null, request.getLocale());
+                                        })
     }
 }
