@@ -9,6 +9,7 @@ import java.util.Map;
 @Component
 public class Utils { // 편의 기능 모음
     public Map<String, List<String>> getErrorMessage(Errors errors) {
-
+        // 1. FieldErrors 처리
+        Map<String, List<String>> messages = errors.getFieldErrors()
     }
 }
