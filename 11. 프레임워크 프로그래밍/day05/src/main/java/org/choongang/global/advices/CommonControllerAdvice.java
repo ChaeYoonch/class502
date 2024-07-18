@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 
 @Slf4j
-@ControllerAdvice("org.choongang") // () 내부 : 적용 범위
+// @ControllerAdvice("org.choongang") // () 내부 : 적용 범위
 public class CommonControllerAdvice {
 
     @ExceptionHandler(Exception.class) // () 안은 클래스 class | 원래 : BadRequestException.class | @ExceptionHandler(Exception.class) : 에러 페이지 출력하기 위해 사용
