@@ -4,6 +4,7 @@ import org.choongang.config.MvcConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
@@ -24,5 +25,11 @@ public class Ex01 {
                                       .encode()
                                       .build("AAAA", "BBBB");
         System.out.println(url);
+    }
+
+    @Test
+    void test2() {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getForObject("https://jsonplaceholder.typicode")
     }
 }
