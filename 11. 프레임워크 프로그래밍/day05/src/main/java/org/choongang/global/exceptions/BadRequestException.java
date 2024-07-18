@@ -12,5 +12,6 @@ public class BadRequestException extends CommonException { // 응답 코드 400�
 
     public BadRequestException(Map<String, List<String>> errorMessages) {
         super(null, HttpStatus.BAD_REQUEST);
+        setErrorMessages(errorMessages);
     }
 }
