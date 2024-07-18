@@ -3,6 +3,7 @@ package org.choongang.member.api.controllers;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.choongang.global.exceptions.BadRequestException;
 import org.choongang.global.rests.JSONData;
 import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.entities.Member;
@@ -32,6 +33,11 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
 
         if (errors.hasErrors()) {
             return ResponseEntity.badRequest().build(); // 검증 실패 -> 응답 코드 400
+        }
+
+        boolean result = false;
+        if (!result) {
+            throw new BadRequestException("예외 테스트!");
         }
 
         // log.info(form.toString());
