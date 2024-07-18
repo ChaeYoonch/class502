@@ -100,5 +100,6 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
 
         JSONData data = new JSONData();
         data.setSuccess(false);
+        data.setMessage(e.getMessage()); // 에러 메세지
     }
 }
