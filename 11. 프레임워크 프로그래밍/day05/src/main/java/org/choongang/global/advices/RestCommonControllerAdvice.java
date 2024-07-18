@@ -7,6 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.util.List;
+import java.util.Map;
+
 @RestControllerAdvice("org.choongang")
 public class RestCommonControllerAdvice {
 
@@ -18,6 +21,8 @@ public class RestCommonControllerAdvice {
         HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR; // 500
         if (e instanceof CommonException commonException) {
             status = commonException.getStatus();
+
+            Map<String , List<String>> errorMessages = commonException.getErrorMessages();
         }
 
         JSONData data = new JSONData();
