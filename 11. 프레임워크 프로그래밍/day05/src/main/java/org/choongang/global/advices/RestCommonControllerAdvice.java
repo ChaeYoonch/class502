@@ -17,5 +17,7 @@ public class RestCommonControllerAdvice {
         if (e instanceof CommonException commonException) {
             status = commonException.getStatus();
         }
+
+        JSONData data = new JSONData();
     }
 }
