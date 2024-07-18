@@ -2,6 +2,7 @@ package org.choongang.member.api.controllers;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.choongang.global.rests.JSONData;
 import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mappers.MemberMapper;
@@ -33,12 +34,13 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
     }
 
     @GetMapping("/info/{email}")
-    public Member info(@PathVariable("email") String email) { // public ResponseEntity<Member> info() {} 와 동일
+    public JSONData info(@PathVariable("email") String email) { // public Member info(@PathVariable("email") String email) = ResponseEntity<Member> info() {} 와 동일
         // Content-Type : application/json
         Member member = mapper.get(email); //         -> 요기 email 가져온 것
 
-        return member;
+        // return member;
         // return ResponseEntity.ok(member); -> 응답 코드 200
+        return new JSONData(member); // 형식 고정 | 위의 member 가져옴
     }
 
     @GetMapping("/list")
