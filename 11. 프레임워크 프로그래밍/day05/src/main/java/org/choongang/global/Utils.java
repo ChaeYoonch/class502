@@ -43,7 +43,13 @@ public class Utils { // 편의 기능 모음
         ms.setUseCodeAsDefaultMessage(false); // 확인할 때만 false 사용
 
         List<String> messages = Arrays.stream(codes) // message 를 가져와 바꿔줌
-                                        .map(c -> messageSource.getMessage(c, null, request.getLocale())) // 지역화 -> 언어 변동 기능
+                                        .map(c -> {
+                                            try {
+                                               return ms.getMessage(c, null, request.getLocale());
+                                            } catch (Exception e) {
+                                                return "";
+                                            }
+                                        }) // 지역화 -> 언어 변동 기능
                                         .filter(s -> s != null && !s.isBlank())
                                         .toList();
 
