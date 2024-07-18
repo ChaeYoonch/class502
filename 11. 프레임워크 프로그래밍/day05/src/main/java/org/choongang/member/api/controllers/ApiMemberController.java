@@ -1,5 +1,6 @@
 package org.choongang.member.api.controllers;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.choongang.global.rests.JSONData;
@@ -10,6 +11,7 @@ import org.choongang.member.services.JoinService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -26,7 +28,7 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
     private final JoinService joinService;
 
     @PostMapping // POST /api/member
-    public ResponseEntity join(@RequestBody RequestJoin form) { // form 데이터 받아옴
+    public ResponseEntity join(@Valid @RequestBody RequestJoin form, Errors errors) { // form 데이터 받아옴 | @Valid -> 검증 해주는 역할
         // log.info(form.toString());
         joinService.process(form);
         // 응답 코드가 201 이고, 출력 바디 없음
