@@ -27,6 +27,7 @@ public class Ex01 {
                                       .build("AAAA", "BBBB");
                                       // .build(true); 쿼리 스트링 중에 encoding 된 것이 있다 의 의믜
         System.out.println(url.getQuery());
+        System.out.println(url);
     }
 
     @Test
