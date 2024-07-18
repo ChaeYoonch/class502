@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.choongang.config.MvcConfig;
 import org.choongang.exam.PostData;
+import org.choongang.member.controllers.RequestJoin;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -64,6 +65,7 @@ public class Ex01 {
 
     @Test
     void test4() {
-
+        RestTemplate restTemplate = new RestTemplate();
+        RequestJoin form = new RequestJoin();
     }
 }
