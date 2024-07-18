@@ -56,10 +56,10 @@ public class MvcConfig implements WebMvcConfigurer { // WebMvcConfigurer -> 설�
                 .setViewName("mypage/index");
     }
 
-    @Override
+    /* @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         registry.jsp("/WEB-INF/templates/", ".jsp"); // templates 를 jsp 로 쓸 때만 .jsp 로 사용
-    } // 기본 설정 2
+    } // 기본 설정 2 */
 
     @Bean // PropertySources : 프로퍼티 파일 설정 내용 | PlaceholderConfigurer : 설정 방식
     // 설정 파일은 한 번 정의하면 바꾸지 않기 때문에 static 으로 정의함
