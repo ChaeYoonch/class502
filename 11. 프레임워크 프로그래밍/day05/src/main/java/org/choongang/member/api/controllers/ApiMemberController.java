@@ -92,5 +92,6 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
     @ExceptionHandler(Exception.class)
     public ResponseEntity<JSONData> errorHandler(Exception e) {
 
+        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR; // 응답 코드 : 500
     }
 }
