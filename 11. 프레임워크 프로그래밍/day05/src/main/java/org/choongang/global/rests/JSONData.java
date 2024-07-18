@@ -1,11 +1,13 @@
 package org.choongang.global.rests;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 
 @Data
+@NoArgsConstructor
 @RequiredArgsConstructor
 public class JSONData {
     private HttpStatus status = HttpStatus.OK; // 성공하든 실패하든 동일한 형식 | 200 (조회) 이 주로 많음
