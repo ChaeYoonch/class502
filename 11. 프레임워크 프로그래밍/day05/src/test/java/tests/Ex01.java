@@ -44,10 +44,16 @@ public class Ex01 {
     }
 
     @Test
-    void test3() {
+    void test3() throws Exception {
         RestTemplate restTemplate = new RestTemplate();
         String body = restTemplate.getForObject("https://jsonplaceholder.typicode.com/posts/1", String.class);
 
+        // System.out.println(body);
+        // 단일 객체 변환
+        PostData data = om.readValue(body, PostData.class);
+        System.out.println(data);
 
+        String itemsBody = restTemplate.getForObject("https://jsonplaceholder.typicode.com/posts", String.class);
+        System.out.println(itemsBody);
     }
 }
