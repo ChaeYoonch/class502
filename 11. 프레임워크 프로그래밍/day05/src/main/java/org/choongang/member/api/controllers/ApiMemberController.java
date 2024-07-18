@@ -57,7 +57,7 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
 
         // return ResponseEntity.status(HttpStatus.OK).body(members); // List<Member> members 의 members 가져옴
         // return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(members);
-        return new ResponseEntity<>(members, headers, HttpStatus.OK);
+        return new ResponseEntity<>(members, headers, HttpStatus.OK); // body, header, 응답 코드 순서
     }
 
     @GetMapping(path="/test", produces = "text/html;charset=UTF-8")
