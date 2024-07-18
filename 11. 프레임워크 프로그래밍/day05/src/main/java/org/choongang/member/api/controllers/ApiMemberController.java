@@ -3,6 +3,7 @@ package org.choongang.member.api.controllers;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.choongang.global.Utils;
 import org.choongang.global.exceptions.BadRequestException;
 import org.choongang.global.exceptions.CommonException;
 import org.choongang.global.rests.JSONData;
@@ -25,19 +26,20 @@ import java.util.stream.IntStream;
 @RequestMapping("/api/member")
 @RequiredArgsConstructor
 public class ApiMemberController { // 응답을 JSON 형태로 하는 RestController
-
+    // 의존성 추가
     private final MemberMapper mapper;
     private final JoinService joinService;
+    private final Utils utils;
 
     @PostMapping // POST /api/member
     public ResponseEntity join(@Valid @RequestBody RequestJoin form, Errors errors) { // form 데이터 받아옴 | @Valid -> 검증 해주는 역할
 
         if (errors.hasErrors()) {
-            errors.getFieldErrors().forEach(System.out::println); // (1)
-            errors.getGlobalErrors().forEach(System.out::println); // (2)
-            // (1) & (2) 둘 모두 쓰면 errors.getAllErrors.forEach.(System.out::println); 한 것과 같음
 
-            return ResponseEntity.badRequest().build(); // 검증 실패 -> 응답 코드 400
+            // errors.getFieldErrors().forEach(System.out::println); // (1)
+            // errors.getGlobalErrors().forEach(System.out::println); // (2)
+            // (1) & (2) 둘 모두 쓰면 errors.getAllErrors.forEach.(System.out::println); 한 것과 같음
+            // return ResponseEntity.badRequest().build(); // 검증 실패 -> 응답 코드 400
         }
 
         boolean result = false;
