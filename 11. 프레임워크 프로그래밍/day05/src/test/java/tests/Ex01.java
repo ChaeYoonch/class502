@@ -95,6 +95,8 @@ public class Ex01 {
     @Test
     @DisplayName("일반 양식 형식으로 전송 - Content-Type : application/x-www-form-urlencoded")
     void test5() {
+        RestTemplate restTemplate = new RestTemplate();
+
 
     }
 }
