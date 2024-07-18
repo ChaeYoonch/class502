@@ -67,5 +67,10 @@ public class Ex01 {
     void test4() {
         RestTemplate restTemplate = new RestTemplate();
         RequestJoin form = new RequestJoin();
+        form.setEmail("user999@test.org");
+        form.setPassword("12345678");
+        form.setConfirmPassword("12345678");
+        form.setUserName("사용자999");
+        form.setAgree(true);
     }
 }
