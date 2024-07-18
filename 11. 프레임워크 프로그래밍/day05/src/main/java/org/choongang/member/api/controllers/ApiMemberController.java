@@ -38,7 +38,7 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
         Member member = mapper.get(email); //         -> 요기 email 가져온 것
 
         return member;
-        // return ResponseEntity.ok(member);
+        // return ResponseEntity.ok(member); -> 응답 코드 200
     }
 
     @GetMapping("/list")
