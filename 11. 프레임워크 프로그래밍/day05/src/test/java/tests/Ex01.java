@@ -9,7 +9,6 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
 
 @SpringJUnitWebConfig
 @ContextConfiguration(classes = MvcConfig.class)
@@ -35,7 +34,7 @@ public class Ex01 {
     @Test
     void test2() {
         RestTemplate restTemplate = new RestTemplate();
-        PostData data = restTemplate.getForObject("https://jsonplaceholder.typicode.com/posts", PostData.class);
+        PostData data = restTemplate.getForObject("https://jsonplaceholder.typicode.com/posts/1", PostData.class);
         System.out.println(data);
     }
 }
