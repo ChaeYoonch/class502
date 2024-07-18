@@ -33,6 +33,7 @@ public class Ex01 {
     @Test
     void test2() {
         RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getForObject("https://jsonplaceholder.typicode")
+        String data = restTemplate.getForObject("https://jsonplaceholder.typicode.com/posts", String.class);
+        System.out.println(data);
     }
 }
