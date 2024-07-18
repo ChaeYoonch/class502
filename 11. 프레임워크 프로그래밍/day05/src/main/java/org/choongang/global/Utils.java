@@ -53,7 +53,7 @@ public class Utils { // 편의 기능 모음
                                         .filter(s -> s != null && !s.isBlank())
                                         .toList();
 
-        ms.setUseCodeAsDefaultMessage(true); // 위의 식이 싱글톤 이므로 쓰고 나서 원래 코드가 나올 수 있도록 다시 변경
+        ms.setUseCodeAsDefaultMessage(true); // MessageConfig 에서 가져온 식이 싱글톤 이므로 1번 설정되면 바뀌지 않기에 위에사 쓰고 나서 오류가 발생함 그러므로 원래 코드가 나올 수 있도록 다시 변경함
         return messages;
     }
 }
