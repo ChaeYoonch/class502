@@ -22,5 +22,9 @@ public class RestCommonControllerAdvice {
         data.setSuccess(false);
         data.setMessage(e.getMessage());
         data.setStatus(status);
+
+        e.printStackTrace();
+
+        return ResponseEntity.status(status).body(data);
     }
 }
