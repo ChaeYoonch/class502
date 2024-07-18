@@ -13,6 +13,8 @@ public class RestCommonControllerAdvice {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<JSONData> errorHandler(Exception e) {
 
+        Object message = e.getMessage();
+
         HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR; // 500
         if (e instanceof CommonException commonException) {
             status = commonException.getStatus();
