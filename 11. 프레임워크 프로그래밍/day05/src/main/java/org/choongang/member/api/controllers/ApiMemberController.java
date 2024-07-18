@@ -32,7 +32,7 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
     private final Utils utils;
 
     @PostMapping // POST /api/member
-    public ResponseEntity join(@Valid @RequestBody RequestJoin form, Errors errors) { // form 데이터 받아옴 | @Valid -> 검증 해주는 역할
+    public ResponseEntity join(@RequestBody @Valid RequestJoin form, Errors errors) { // form 데이터 받아옴 | @Valid -> 검증 해주는 역할
 
         if (errors.hasErrors()) {
             throw new BadRequestException(utils.getErrorMessage(errors));
