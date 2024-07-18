@@ -31,6 +31,7 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
     public ResponseEntity join(@Valid @RequestBody RequestJoin form, Errors errors) { // form 데이터 받아옴 | @Valid -> 검증 해주는 역할
         // log.info(form.toString());
         joinService.process(form);
+
         // 응답 코드가 201 이고, 출력 바디 없음
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
