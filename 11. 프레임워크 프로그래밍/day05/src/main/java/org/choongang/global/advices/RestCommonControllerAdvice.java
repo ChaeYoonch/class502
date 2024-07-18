@@ -20,5 +20,6 @@ public class RestCommonControllerAdvice {
 
         JSONData data = new JSONData();
         data.setSuccess(false);
+        data.setMessage(e.getMessage());
     }
 }
