@@ -107,5 +107,6 @@ public class Ex01 {
         params.add("agree", "true");
 
         HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
     }
 }
