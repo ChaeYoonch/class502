@@ -7,6 +7,8 @@ import org.choongang.exam.PostData;
 import org.choongang.member.controllers.RequestJoin;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.web.client.RestTemplate;
@@ -74,6 +76,9 @@ public class Ex01 {
         form.setAgree(true);
 
         String params = om.writeValueAsString(form); // 전송할 데이터 | throws Exception 사용해 오류 발생 X
-        System.out.println(params);
+        // System.out.println(params);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
     }
 }
