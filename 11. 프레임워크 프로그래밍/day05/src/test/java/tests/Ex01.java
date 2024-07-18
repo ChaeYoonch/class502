@@ -105,5 +105,7 @@ public class Ex01 {
         params.add("confirmPassword", "12345678");
         params.add("userName", "사용자998");
         params.add("agree", "true");
+
+        HttpHeaders headers = new HttpHeaders();
     }
 }
