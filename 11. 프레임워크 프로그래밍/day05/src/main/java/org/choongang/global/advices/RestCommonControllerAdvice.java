@@ -26,7 +26,7 @@ public class RestCommonControllerAdvice {
             if (errorMessages != null) message = errorMessages;
         }
 
-        JSONData data = new JSONData();
+        JSONData data = new JSONData(); // 형식을 통일성 있게 -> 구현 시 용이하게 만들기 위해 -> 예측 가능하도록 !
         data.setSuccess(false);
         data.setMessage(e.getMessage());
         data.setStatus(status);
