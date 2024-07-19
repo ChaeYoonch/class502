@@ -10,5 +10,9 @@
                 <dt>회원명</dt>
                 <dd th:text="${member.userName}"></dd> <!-- "${member.userName}" => MemberController 의 list2() 안의 member 값 -->
             </dl>
+            <dl>
+                <dt>가입일시</dt>
+                <dd th:text="${member.regDt}"></dd> <!-- "${member.regDt}" => MemberController 의 list2() 안의 member 값 -->
+            </dl>
         </body>
 </html>
