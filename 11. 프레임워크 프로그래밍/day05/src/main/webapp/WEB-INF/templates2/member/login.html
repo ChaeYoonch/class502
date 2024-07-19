@@ -1,8 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <body>
-        <form method="post" th:action="@{/member/login}" autocomplete="off">
-
+        <form method="post" th:action="@{/member/login}" autocomplete="off" th:object="${requestLogin}"> <!-- 커맨드 객체가 넘어옴 -->
+            <dl>
+                <dt th:text="#{이메일}"></dt>
+                <dd>
+                    <input type="text" name="email" th:field="*{email}">
+                </dd>
+            </dl>
+            <dl>
+                <dt th:text="#{비밀번호}"></dt>
+                <dd>
+                    <input type="text" name="password" th:field="*{password}">
+                </dd>
+            </dl>
+            <div>
+                <input type="checkbox" name="saveEmail" value="true" id="saveEmail" th:field="*{saveEmail}">
+                <label for="saveEmail" th:field="#{이메일_기억하기}"></label>
+            </div>
+            <button type="submit" th:text="#{로그인}"></button>
         </form>
     </body>
 </html>
