@@ -6,11 +6,11 @@
     </head>
     <body>
         <h1>회원가입</h1>
-        <form method="post" autocomplete="off">
+        <form method="post" autocomplete="off" th:object="${requestJoin}"> <!-- 선택 변수 식 으로 작성 -->
             <dl>
-                <dt th:text="#{이메일2}">이메일</dt> <!-- <spring:message code="이메일"/> -->
+                <dt th:text="#{이메일}">이메일</dt> <!-- <spring:message code="이메일"/> -->
                 <dd>
-                    <input type="text" name="email" th:value="${requestJoin.email}" value="user01@test.org"> <!-- 앞의 value 값을 뒤의 value 값으로 교체-->
+                    <input type="text" name="email" th:field="*{email}"> <!-- th:value="${requestJoin.email}" value="user01@test.org" 앞의 value 값을 뒤의 value 값으로 교체-->
                 </dd>
             </dl>
             <dl>
