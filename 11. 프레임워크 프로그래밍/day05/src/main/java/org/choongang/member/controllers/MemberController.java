@@ -111,6 +111,13 @@ public class MemberController {
     @GetMapping("/list")
     public String list2(Model model) { // 데이터 넘겨주기 위해 model 연결
 
+        Member member = Member.builder()
+                              .email("user01@test.org")
+                              .password("12345678")
+                              .userName("사용자01")
+                              .regDt(LocalDateTime.now())
+                              .build();
+
         return "member/list";
     }
 
