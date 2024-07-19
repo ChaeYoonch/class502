@@ -40,8 +40,8 @@ public class ThymeleafConfig implements WebMvcConfigurer { // Thymeleaf : 번역
     @Bean
     public ThymeleafViewResolver thymeleafViewResolver() {
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
-        resolver.setContentType("text/html"); // 미리 설정해야 되는 부분 -> 매번 설정할 필요 없음!!
-        resolver.setCharacterEncoding("utf-8");
+        resolver.setContentType("text/html"); // 미리 설정해야 되는 부분 -> 매번 설정할 필요 없음!! <%@ page contentType="text/html; charset=UTF-8" %> 이렇게 안 적어도 됨!!
+        resolver.setCharacterEncoding("utf-8"); // 미리 설정해야 되는 부분 -> 매번 설정할 필요 없음!!
         resolver.setTemplateEngine(templateEngine());
         return resolver;
     }
