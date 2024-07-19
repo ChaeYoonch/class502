@@ -95,7 +95,7 @@ public class MemberController {
 
         return "redirect:/member/login";
     }
-
+    /*
     @GetMapping("/list")
     public String list(@Valid @ModelAttribute MemberSearch search, Errors errors) { // 회원가입 날짜로 조회 | @Valid : 검증이 필요한 형태야! 라고 알려주는 애노테이션
 
@@ -106,7 +106,7 @@ public class MemberController {
             throw new BadRequestException("예외 발생!!!");
         }
         return "member/list";
-    }
+    } */
 
     @ResponseBody
     @GetMapping({"/info/{id}/{id2}", "/info/{id}"}) // required 옵션은 여러 개 있을 경우 사용
