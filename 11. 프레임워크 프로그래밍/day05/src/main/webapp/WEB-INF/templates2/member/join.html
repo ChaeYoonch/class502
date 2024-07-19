@@ -32,7 +32,7 @@
                 </dd>
             </dl>
             <div>
-                <input type="checkbox" name="agree" value="true" id="agree">
+                <input type="checkbox" name="agree" value="true" id="agree" th:field="*{agree}"> <!-- radio 나 checkbox 그리고 select 는 value 값 제거 X -->
                 <label for="agree">회원가입 약관에 동의합니다.</label>
             </div>
             <button type="submit">가입하기</button>
