@@ -109,7 +109,7 @@ public class MemberController {
     } */
 
     @GetMapping("/list")
-    public String list2() {
+    public String list2(Model model) { // 데이터 넘겨주기 위해 model 연결
 
         return "member/list";
     }
