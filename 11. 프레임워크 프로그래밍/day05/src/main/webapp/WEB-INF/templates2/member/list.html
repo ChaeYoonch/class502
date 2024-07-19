@@ -6,5 +6,9 @@
                 <dt>이메일</dt>
                 <dd th:text="${member.email}"></dd> <!-- "${member.email}" => MemberController 의 list2() 안의 member 값 -->
             </dl>
+            <dl>
+                <dt>회원명</dt>
+                <dd th:text="${member.userName}"></dd> <!-- "${member.userName}" => MemberController 의 list2() 안의 member 값 -->
+            </dl>
         </body>
 </html>
