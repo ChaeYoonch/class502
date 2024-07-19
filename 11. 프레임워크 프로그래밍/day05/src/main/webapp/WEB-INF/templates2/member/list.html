@@ -4,17 +4,25 @@
         <table border="1">
             <thead>
                 <tr>
+                    <th>순번</th>
                     <th>이메일</th>
                     <th>회원명</th>
                     <th>가입일시</th>
                 </tr>
             </thead>
             <tbody> <!-- 태그<> 그 자체를 반복 -->
-                <tr th:each="item : ${items}">
-                    <td th:text="${item.email}"></td>
-                    <td th:text="${item.userName}"></td>
-                    <td th:text="${item.regDt}"></td>
+                <tr th:each="item, status : ${items}" th:object="${item}">
+                    <td th:text="*{email}"></td> <!-- <td th:text="${item.email}"> -->
+                    <td th:text="*{userName}"></td> <!-- <td th:text="${item.userName}"> -->
+                    <td th:text="*{regDt}"></td> <!-- <td th:text="${item.regDt}"> -->
                 </tr>
+                <!--
+                <tr th:each="item : ${items}" th:object="${item}">
+                    <td th:text="*{email}"></td>  <td th:text="${item.email}">
+                    <td th:text="*{userName}"></td>  <td th:text="${item.userName}">
+                    <td th:text="*{regDt}"></td>  <td th:text="${item.regDt}">
+                </tr>
+                -->
             </tbody>
         </table>
     </body>
