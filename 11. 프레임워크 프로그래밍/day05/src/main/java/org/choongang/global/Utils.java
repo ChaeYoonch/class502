@@ -45,9 +45,9 @@ public class Utils { // 편의 기능 모음
         // MessageConfig 의 ms.setUseCodeAsDefaultMessage(true); // 메세지 코드가 값이 없으면 코드 그 자체로 메세지 대체함 로 작성해 놓음
 
         List<String> messages = Arrays.stream(codes) // message 를 가져와 바꿔줌
-                                        .map(c -> {
+                                        .map(c -> { // c = codes 를 약자로 사용한 것
                                             try {
-                                               return ms.getMessage(c, null, request.getLocale()); // args: Object 배열로 되어 있음 | commons.properties 의 순서대로 들어감 = {} 부분 치환
+                                               return ms.getMessage(c, null, request.getLocale()); // args: Object 배열로 되어 있음 | commons.properties 의 순서대로 들어감 = {} 부분 치환 | Locale = 지역화 정보
                                             } catch (Exception e) { // 여기로 들어온 예외는 빈 값 으로 나옴
                                                 return "";
                                             }
