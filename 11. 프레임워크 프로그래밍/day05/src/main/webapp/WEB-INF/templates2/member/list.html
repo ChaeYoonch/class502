@@ -11,7 +11,7 @@
                 </tr>
             </thead>
             <tbody> <!-- 태그<> 그 자체를 반복 -->
-            <tr th:each="item, s : ${items}" th:object="${item}">
+            <tr th:each="item, s : ${items}" th:object="${item}" class="item" th:classappend="${s.even} ? 'on':''">
                 <td>
                     순번:[[${s.count}]]
                     / 첫번째 : [[${s.first}]]
