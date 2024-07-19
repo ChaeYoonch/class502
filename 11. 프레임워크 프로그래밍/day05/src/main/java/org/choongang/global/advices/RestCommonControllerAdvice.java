@@ -14,7 +14,7 @@ import java.util.Map;
 public class RestCommonControllerAdvice {
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<JSONData> errorHandler(Exception e) {
+    public ResponseEntity<JSONData> errorHandler(Exception e) { // ResponseEntity -> 상세하게 설정
 
         Object message = e.getMessage();
 
