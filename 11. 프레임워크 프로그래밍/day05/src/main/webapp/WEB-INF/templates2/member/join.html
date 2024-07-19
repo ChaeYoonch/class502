@@ -11,29 +11,34 @@
                 <dt th:text="#{이메일}">이메일</dt> <!-- <spring:message code="이메일"/> -->
                 <dd>
                     <input type="text" name="email" th:field="*{email}"> <!-- th:value="${requestJoin.email}" value="user01@test.org" 앞의 value 값을 뒤의 value 값으로 교체 2개 쓰는 것 대신 th:field 사용 -->
+                    <div th:each="err : ${#fields.errors('email')}" th:text="${err}"></div>
                 </dd>
             </dl>
             <dl>
                 <dt>비밀번호</dt>
                 <dd>
                     <input type="password" name="password" th:field="*{password}">
+                    <div th:each="err : ${#fields.errors('password')}" th:text="${err}"></div>
                 </dd>
             </dl>
             <dl>
                 <dt>비밀번호확인</dt>
                 <dd>
                     <input type="password" name="confirmPassword" th:field="*{confirmPassword}">
+                    <div th:each="err : ${#fields.errors('confirmPassword')}" th:text="${err}"></div>
                 </dd>
             </dl>
             <dl>
                 <dt>회원명</dt>
                 <dd>
                     <input type="text" name="userName" th:field="*{userName}"> <!-- value="사용자01" -->
+                    <div th:each="err : ${#fields.errors('userName')}" th:text="${err}"></div>
                 </dd>
             </dl>
             <div>
                 <input type="checkbox" name="agree" value="true" id="agree" th:field="*{agree}"> <!-- radio 나 checkbox 그리고 select 는 value 값 제거 X -->
                 <label for="agree">회원가입 약관에 동의합니다.</label>
+                <div th:each="err : ${#fields.errors('agree')}" th:text="${err}"></div>
             </div>
             <button type="submit">가입하기</button>
         </form>
