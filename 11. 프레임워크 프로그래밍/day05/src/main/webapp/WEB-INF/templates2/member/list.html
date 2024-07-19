@@ -2,23 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <body>
         <h1>회원 정보</h1>
-        <div th:object="${member}"> <!-- 앞에 member 로 고정되어 나옴 -->
+        <th:block th:object="${member}"> <!-- 앞에 member 로 고정되어 나옴 -->
             <!-- MemberController 의 list2() 안의 member 값 -->
             <dl>
-                <dt>이메일</dt>
+                <dt th:text="#{이메일}">이메일</dt>
                 <!-- <dd th:text="${member.email}"></dd> -->
                 <dd th:text="*{email}"></dd>
             </dl>
             <dl>
-                <dt>회원명</dt>
+                <dt th:text="#{회원명}">회원명</dt>
                 <!-- <dd th:text="${member.userName}"></dd> -->
                 <dd th:text="*{userName}"></dd>
             </dl>
             <dl>
-                <dt>가입일시</dt>
+                <dt th:text="#{가입일시}">가입일시</dt>
                 <!-- <dd th:text="${member.regDt}"></dd> -->
                 <dd th:text="*{regDt}"></dd>
             </dl>
-        </div>
+
+            <a th:href="@{/member/login}" th:text="#{로그인}">로그인</a>
+            <br>
+
+            <!-- /day05/member/login?p1=user01@test.org&p2=사용자01-->
+            <a th:href="@{/member/login(p1=*{email}, p2=*{userName})}" th:text="#{로그인}"></a>
+        </th:block>
     </body>
 </html>
