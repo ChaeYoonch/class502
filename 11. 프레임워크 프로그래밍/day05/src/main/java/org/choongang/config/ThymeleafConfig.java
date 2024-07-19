@@ -14,7 +14,7 @@ import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 
 @Configuration
 @RequiredArgsConstructor
-public class ThymeleafConfig implements WebMvcConfigurer {
+public class ThymeleafConfig implements WebMvcConfigurer { // Thymeleaf : 번역 과정 <= 서버가 일을 함 = 자원 소비 O
     private final WebApplicationContext applicationContext;
 
     @Bean
