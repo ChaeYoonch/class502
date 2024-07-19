@@ -18,7 +18,7 @@ public class ThymeleafConfig implements WebMvcConfigurer {
     private final WebApplicationContext applicationContext;
 
     @Bean
-    public SpringResourceTemplateResolver templateResolver() { // TemplateResolver : template 경로에 대한 설정 | Natural Template 지향 -> 확장자 html | setPrefix & setSuffix 사이에 주소 O
+    public SpringResourceTemplateResolver templateResolver() { // TemplateResolver : template 경로에 대한 설정 | Natural Template 지향 -> 관례적으로 확장자 html | setPrefix & setSuffix 사이에 주소 O
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(applicationContext);
         templateResolver.setPrefix("/WEB-INF/templates2/"); // prefix | 템플릿 경로 설정
