@@ -35,7 +35,7 @@ public class ApiMemberController { // 응답을 JSON 형태로 하는 RestContro
     public ResponseEntity join(@RequestBody @Valid RequestJoin form, Errors errors) { // form 데이터 받아옴 | @Valid -> 검증 해주는 역할
      // RequestJoin form = 커맨드 객체 (사용자가 작성한 부분)로 Errors 는 커맨드 객체 검증 실패 시 에러 | 커맨드 객체 바로 뒤에 적어야 함
         if (errors.hasErrors()) {
-            throw new BadRequestException(utils.getErrorMessage(errors));
+            throw new BadRequestException(utils.getErrorMessage(errors)); // utils 에 별도의 편의 메세지 작성하여 연동함
             // errors.getFieldErrors().forEach(System.out::println); // (1)
             // errors.getGlobalErrors().forEach(System.out::println); // (2)
             // (1) & (2) 둘 모두 쓰면 errors.getAllErrors.forEach.(System.out::println); 한 것과 같음
