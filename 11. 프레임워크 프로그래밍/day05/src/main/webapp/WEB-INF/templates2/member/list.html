@@ -11,7 +11,9 @@
             </thead>
             <tbody> <!-- 태그<> 그 자체를 반복 -->
                 <tr th:each="item : ${items}">
-
+                    <td th:text="${item.email}"></td>
+                    <td th:text="${item.userName}"></td>
+                    <td th:text="${item.regDt}"></td>
                 </tr>
             </tbody>
         </table>
