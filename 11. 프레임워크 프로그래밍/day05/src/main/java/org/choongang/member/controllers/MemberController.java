@@ -109,8 +109,9 @@ public class MemberController {
     } */
 
     @GetMapping("/list")
-    public String list() {
+    public String list2() {
 
+        return "member/list";
     }
 
     @ResponseBody
