@@ -5,17 +5,17 @@
         <div th:object="${member}"> <!-- 앞에 member 로 고정되어 나옴 -->
             <dl>
                 <dt>이메일</dt>
-                <!-- <dd th:text="${member.email}"></dd> --> <!-- "${member.email}" => MemberController 의 list2() 안의 member 값 -->
+                <!-- <dd th:text="${member.email}"></dd> "${member.email}" => MemberController 의 list2() 안의 member 값 -->
                 <dd th:text="*{email}"></dd>
             </dl>
             <dl>
                 <dt>회원명</dt>
-                <!-- <dd th:text="${member.userName}"></dd> --> <!-- "${member.userName}" => MemberController 의 list2() 안의 member 값 -->
+                <!-- <dd th:text="${member.userName}"></dd> "${member.userName}" => MemberController 의 list2() 안의 member 값 -->
                 <dd th:text="*{userName}"></dd>
             </dl>
             <dl>
                 <dt>가입일시</dt>
-                <!-- <dd th:text="${member.regDt}"></dd> --> <!-- "${member.regDt}" => MemberController 의 list2() 안의 member 값 -->
+                <!-- <dd th:text="${member.regDt}"></dd> "${member.regDt}" => MemberController 의 list2() 안의 member 값 -->
                 <dd th:text="*{regDt}"></dd>
             </dl>
         </div>
