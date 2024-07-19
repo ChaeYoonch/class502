@@ -41,7 +41,7 @@ public class Utils { // 편의 기능 모음
     // 여기에 함수로 작성 | 메세지 -> validations.properties 에서 가져옴 => 여러 개가 있으므로 <String> 으로 가져옴 | MessageConfig 의 MessageSource 부분을 이용함
     public List<String> getCodeMessages(String[] codes) { // validations.properties 의 왼쪽의 코드가 아닌 오른쪽의 값을 가져옴
         ResourceBundleMessageSource ms = (ResourceBundleMessageSource) messageSource; // 에러 코드 -> 메세지 변경
-        ms.setUseCodeAsDefaultMessage(false); // 따로 코드 등록 X -> 코드에 해당하는 게 없는데 조회하면 예외 발생 => 등록되지 않은 메세지는 아래 try ~ catch 로 들어감 | 확인할 때만 false 사용
+        ms.setUseCodeAsDefaultMessage(false); // 코드가 있는 것만 나오고 따로 코드 등록 X -> 코드에 해당하는 게 없는데 조회하면 예외 발생 => 등록되지 않은 메세지는 아래 try ~ catch 로 들어감 | 확인할 때만 false 사용
         // MessageConfig 의 ms.setUseCodeAsDefaultMessage(true); // 메세지 코드가 값이 없으면 코드 그 자체로 메세지 대체하므로 작성해 놓음
 
         List<String> messages = Arrays.stream(codes) // message 를 가져와 바꿔줌
@@ -55,7 +55,7 @@ public class Utils { // 편의 기능 모음
                                         .filter(s -> s != null && !s.isBlank())
                                         .toList();
 
-        ms.setUseCodeAsDefaultMessage(true); // MessageConfig 에서 가져온 식이 싱글톤 이므로 1번 설정되면 바뀌지 않기에 위에서 쓰고 나서 오류가 발생함 그러므로 원래 코드가 나올 수 있도록 다시 변경함 | 즉, 쓸 때만 바꾸고 그 외는 원래대로 나오도록 함
+        ms.setUseCodeAsDefaultMessage(true); // MessageConfig 에서 가져온 식이 싱글톤 이므로 1번 설정되면 바뀌지 않기에 위에서 쓰고 나서 오류가 발생함 그러므로 원래 코드가 나올 수 있도록 다시 변경함 | 즉, 쓸 때만 바꾸고 그 외는 원래대로 나오도록 함 | 여기는 원래 값
         return messages;
     }
 }
