@@ -110,7 +110,7 @@ public class MemberController {
 
     @GetMapping("/list")
     public String list2(Model model) { // 데이터 넘겨주기 위해 model 연결
-
+        /*
         Member member = Member.builder()
                               .email("user01@test.org")
                               .password("12345678")
@@ -119,7 +119,13 @@ public class MemberController {
                               .build();
 
         model.addAttribute("member", member); // 위의 model 이라는 속성명으로 member 값 가져옴
-
+        */
+        List<Member> items = IntStream.rangeClosed(1, 10)
+                                      .mapToObj(i -> Member.builder()
+                                                            .email("user" + i + "@test.org")
+                                                            .userName("사용자" + i)
+                                                            .build())
+                                      .toList();
         return "member/list";
     }
 
