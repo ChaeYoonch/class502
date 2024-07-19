@@ -126,6 +126,9 @@ public class MemberController {
                                                             .userName("사용자" + i)
                                                             .build())
                                       .toList();
+
+        model.addAttribute("items", items);
+
         return "member/list";
     }
 
