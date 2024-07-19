@@ -3,7 +3,7 @@
     <body>
         <h1>회원 정보</h1>
         <th:block th:object="${member}"> <!-- 앞에 member 로 고정되어 나옴 -->
-            <!-- MemberController 의 list2() 안의 member 값 -->
+            <!-- MemberController 의 list2() 안의 member 값 속성명 만으로도 확인 가능 -->
             <dl>
                 <dt th:text="#{이메일}">이메일</dt>
                 <!-- <dd th:text="${member.email}"></dd> -->
