@@ -48,7 +48,7 @@ public class JoinValidator implements Validator { // Validator<RequestJoin>, Req
 
         /* 2. 이메일 중복 여부 (회원이 가입되어 있는지 체크) */
         if (StringUtils.hasText(email) && mapper.exists(email) != 0L) {
-            errors.rejectValue("email", "Duplicated");
+            errors.rejectValue("email", "Duplicated"); // 얘가 RequestJoin 의 email field 한정 값 이용
         }
 
         /* 3. 비밀번호 자리 수 체크 (8자리 이상) */
