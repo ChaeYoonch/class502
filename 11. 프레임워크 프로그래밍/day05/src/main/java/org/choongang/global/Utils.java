@@ -23,11 +23,11 @@ public class Utils { // 편의 기능 모음
     public Map<String, List<String>> getErrorMessage(Errors errors) {
         // 1. FieldErrors 처리 : 필드별 에러 처리 O -> 배열 형태로 작성 => 이 안에서 작성하기에는 길고 아래 GlobalErrors 처리 에서도 쓰므로 아래 함수 형태로 빼서 작성함
         Map<String, List<String>> messages = errors.getFieldErrors()
-                                                    .stream()
+                                                    .stream()                // 필드 명으로 에러 담음
                                                     .collect(Collectors.toMap(FieldError::getField, e -> getCodeMessages(e.getCodes())));
                                                     // getCodes : validations.properties 의 NotBlank.~ 부분을 의미함
         // 2. GlobalErrors 처리
-        List<String> gMessages = errors.getGlobalErrors()
+        List<String> gMessages = errors.getGlobalErrors()  // 글로벌로 들어오는 에러 = 글로벌 에러 로 인식
                                         .stream()
                                         .flatMap(e -> getCodeMessages(e.getCodes()).stream()).toList();
 
