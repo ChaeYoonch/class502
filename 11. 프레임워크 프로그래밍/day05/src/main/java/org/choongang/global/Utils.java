@@ -42,7 +42,7 @@ public class Utils { // 편의 기능 모음
     public List<String> getCodeMessages(String[] codes) { // validations.properties 의 왼쪽의 코드가 아닌 오른쪽의 값을 가져옴
         ResourceBundleMessageSource ms = (ResourceBundleMessageSource) messageSource; // 에러 코드 -> 메세지 변경
         ms.setUseCodeAsDefaultMessage(false); // 따로 코드 등록 X -> 코드에 해당하는 게 없는데 조회하면 예외 발생 => 등록되지 않은 메세지는 아래 try ~ catch 로 들어감 | 확인할 때만 false 사용
-        // MessageConfig 의 ms.setUseCodeAsDefaultMessage(true); // 메세지 코드가 값이 없으면 코드 그 자체로 메세지 대체함 로 작성해 놓음
+        // MessageConfig 의 ms.setUseCodeAsDefaultMessage(true); // 메세지 코드가 값이 없으면 코드 그 자체로 메세지 대체하므로 작성해 놓음
 
         List<String> messages = Arrays.stream(codes) // message 를 가져와 바꿔줌
                                         .map(c -> { // c = codes 를 약자로 사용한 것
