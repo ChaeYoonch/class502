@@ -12,6 +12,6 @@ public class BadRequestException extends CommonException { // 응답 코드 400�
 
     public BadRequestException(Map<String, List<String>> errorMessages) { // 생성자 매개 변수에 추가 -> 커맨드 객체 에서 던진 것
         super(null, HttpStatus.BAD_REQUEST);
-        setErrorMessages(errorMessages); // CommonException 에 정의된 errorMessages 연동
+        setErrorMessages(errorMessages); // CommonException 에 정의된 errorMessages 연동 -> setter 함수로 상속받은 CommonException 연결
     }
 }
