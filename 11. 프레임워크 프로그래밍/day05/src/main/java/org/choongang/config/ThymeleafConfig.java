@@ -23,7 +23,7 @@ public class ThymeleafConfig implements WebMvcConfigurer { // Thymeleaf : 번역
         templateResolver.setApplicationContext(applicationContext);
         templateResolver.setPrefix("/WEB-INF/templates2/"); // prefix | 템플릿 경로 설정
         templateResolver.setSuffix(".html"); // surffix
-        templateResolver.setCacheable(false); // 캐시 설정
+        templateResolver.setCacheable(false); // 캐시 설정 | 설정 파일에서 하고 코드에서 따로 설정하지 X
         return templateResolver; // 위의 것 가져옴
     }
 
