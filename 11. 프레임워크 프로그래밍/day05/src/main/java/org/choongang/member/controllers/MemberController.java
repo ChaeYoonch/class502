@@ -124,6 +124,7 @@ public class MemberController {
                                       .mapToObj(i -> Member.builder()
                                                             .email("user" + i + "@test.org")
                                                             .userName("사용자" + i)
+                                                            .regDt(LocalDateTime.now())
                                                             .build())
                                       .toList();
 
