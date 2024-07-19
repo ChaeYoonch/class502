@@ -43,13 +43,13 @@ public class LoginValidator implements Validator {
             Member member = mapper.get(email); // email 가져옴
             if (member == null) {
                 // errors.rejectValue("email", "Check.emailPassword");
-                errors.reject("Check.emailPassword");
+                errors.reject("Check.emailPassword"); // 얘네는 global error 로 reject = field 가 없음, 에러를 자세히 명시하지 않음
             }
 
         /* 3. 조회된 회원의 비밀번호가 입력한 값과 일치하는지 검증 */
             if (member != null && StringUtils.hasText(password) && !BCrypt.checkpw(password, member.getPassword())) { // password 값이 있을 때
                 // errors.rejectValue("password", "CheckemailPassword");
-                errors.reject("Check.emailPassword");
+                errors.reject("Check.emailPassword"); // 얘네는 global error 로 reject = field 가 없음, 에러를 자세히 명시하지 않음
             }
         }
     }
