@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
-public class RequestJoin { // 커맨드 객체 -> @애노테이션으로 설정 후 기본 검증이 처리 | 안되는 부분은 Validator 를 정의
+public class RequestJoin { // 커맨드 객체 -> @애노테이션으로 설정 후 기본 검증이 처리 | 안되는 부분은 Validator 를 정의 | 여기 있는 값은 모두 필드 에러에서 사용하는 값이다!
     @NotBlank(message = "이메일을 입력하세요.") // email filed 검증
     @Email(message = "이메일 형식이 아닙니다.") // 알아서 이메일 형식 검증을 해줌
     private String email; // 이메일 | 커맨드 객체의 name 이다!
