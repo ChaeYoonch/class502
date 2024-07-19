@@ -2,5 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
         <body>
             <h1>회원 정보</h1>
+            <dl>
+                <dt>이메일</dt>
+                <dd th:text="${member.email}"></dd> <!-- "${member.email}" => MemberController 의 list2() 안의 member 값 -->
+            </dl>
         </body>
 </html>
