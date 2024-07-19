@@ -52,10 +52,10 @@ public class Utils { // 편의 기능 모음
                                                 return "";
                                             }
                                         }) // 지역화 -> 언어 변동 기능
-                                        .filter(s -> s != null && !s.isBlank())
+                                        .filter(s -> !s.isBlank()) // 원래 : s != null && !s.isBlank()
                                         .toList();
 
-        ms.setUseCodeAsDefaultMessage(true); // MessageConfig 에서 가져온 식이 싱글톤 이므로 1번 설정되면 바뀌지 않기에 위에서 쓰고 나서 오류가 발생함 그러므로 원래 코드가 나올 수 있도록 다시 변경함 | 즉, 쓸 때만 바꾸고 그 외는 원래대로 나오도록 함 | 여기는 원래 값
+        ms.setUseCodeAsDefaultMessage(true); // MessageConfig 에서 가져온 식이 싱글톤 이므로 1번 설정되면 바뀌지 않기에 위에서 쓰고 나서 바뀐 설정 그대로 유지되기 때문에 오류가 발생하므로 원래 코드가 나올 수 있도록 다시 변경함 | 즉, 쓸 때만 바꾸고 그 외는 원래대로 나오도록 함 | 여기는 원래 값
         return messages;
     }
 }
