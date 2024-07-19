@@ -25,7 +25,7 @@
             <!-- /day05/member/login?p1=user01@test.org&p2=사용자01-->
             <a th:href="@{/member/login(p1=${member.email}, p2=${member.userName})}" th:text="#{로그인}"></a>
             <a th:href="@{/member/login(p1=*{email}, p2=*{userName})}" th:text="#{로그인}"></a>
-            <a th:href="@{/member/info/{email}/{email2}(email=*{email}, email2=*{email2})}"></a>
+            <a th:href="@{/member/info/{email}/{email2}(email=*{email}, email2=*{userName})}"></a>
         </th:block>
     </body>
 </html>
