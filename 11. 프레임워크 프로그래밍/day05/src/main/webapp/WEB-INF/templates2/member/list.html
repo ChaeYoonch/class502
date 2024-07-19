@@ -9,6 +9,11 @@
                     <th>가입일시</th>
                 </tr>
             </thead>
+            <tbody> <!-- 태그<> 그 자체를 반복 -->
+                <tr th:each="item : ${items}">
+
+                </tr>
+            </tbody>
         </table>
     </body>
 </html>
