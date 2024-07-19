@@ -33,7 +33,7 @@ public class ThymeleafConfig implements WebMvcConfigurer { // Thymeleaf : 번역
         templateEngine.setTemplateResolver(templateResolver());
         templateEngine.setEnableSpringELCompiler(true); // EL 식 속성 사용 가능하게 해줌
         templateEngine.addDialect(new Java8TimeDialect()); // Dialect - 확장 기능 | Temporals 추가됨
-        templateEngine.addDialect(new LayoutDialect()); // Layout 속성 사용 가능해짐
+        templateEngine.addDialect(new LayoutDialect()); // Dialect - 확장 기능 | Layout 속성 사용 가능해짐
         return templateEngine;
     }
 
