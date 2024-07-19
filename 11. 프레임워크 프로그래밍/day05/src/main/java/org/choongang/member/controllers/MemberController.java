@@ -108,6 +108,11 @@ public class MemberController {
         return "member/list";
     } */
 
+    @GetMapping("/list")
+    public String list() {
+
+    }
+
     @ResponseBody
     @GetMapping({"/info/{id}/{id2}", "/info/{id}"}) // required 옵션은 여러 개 있을 경우 사용
     public void info(@PathVariable("id") String email, @PathVariable(name="id2", required = false) String email2) { // id 를 email 에 넣어줌 -> 경로 변수
