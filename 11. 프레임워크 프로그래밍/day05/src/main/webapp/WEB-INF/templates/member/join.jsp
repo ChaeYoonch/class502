@@ -14,7 +14,7 @@
         </dt>
         <dd>
             <form:input path="email" /> <%-- <input type="text" name="email" value="${requestJoin.email}"> 와 동일 --%>
-            <form:errors path="email" />
+            <form:errors path="email" /> <%-- 에러 메세지 찾을 수 있도록 field error 연동 --%>
         </dd>
     </dl>
     <dl>
