@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import java.util.List;
 import java.util.Map;
 
-@Getter @Setter
+@Getter @Setter // BadRequestException 에서 setErrorMessage 썼기에 연결하기 위해 추가함
 public class CommonException extends RuntimeException { // 공통 예외 부분
 
     private HttpStatus status; // spring 에서 제공하는 Enum 클래스 (상수)
