@@ -16,11 +16,11 @@ public class RestCommonControllerAdvice {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<JSONData> errorHandler(Exception e) { // ResponseEntity -> 상세하게 설정
 
-        Object message = e.getMessage();
+        Object message = e.getMessage(); // 기본 값 = 문자열 메세지
 
-        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR; // 500
-        if (e instanceof CommonException commonException) {
-            status = commonException.getStatus();
+        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR; // 기본 에러 = 500 <- 내가 정의해 놓은 에러가 아닌 경우
+        if (e instanceof CommonException commonException) { // 내가 정의해 놓은 에러인 경우
+            status = commonException.getStatus(); // 상태 코드 정의해 놓은 것 사용
 
             Map<String , List<String>> errorMessages = commonException.getErrorMessages();
             if (errorMessages != null) message = errorMessages;
