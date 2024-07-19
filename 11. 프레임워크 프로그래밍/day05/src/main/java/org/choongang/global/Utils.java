@@ -25,7 +25,7 @@ public class Utils { // 편의 기능 모음
         Map<String, List<String>> messages = errors.getFieldErrors()
                                                     .stream()
                                                     .collect(Collectors.toMap(FieldError::getField, e -> getCodeMessages(e.getCodes())));
-
+                                                    // getCodes : validations.properties 의 NotBlank.~ 부분을 의미함
         // 2. GlobalErrors 처리
         List<String> gMessages = errors.getGlobalErrors()
                                         .stream()
