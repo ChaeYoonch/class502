@@ -118,6 +118,8 @@ public class MemberController {
                               .regDt(LocalDateTime.now())
                               .build();
 
+        model.addAttribute("member", member); // 위의 model 이라는 속성명으로 member 값 가져옴
+
         return "member/list";
     }
 
