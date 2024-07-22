@@ -3,6 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+
+        <th:block th:if="${addCss != null}">
+
+        </th:block>
+
         <script th:src="@{/js/common.js}"></script>
     </head>
     <body>
