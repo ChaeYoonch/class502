@@ -41,5 +41,11 @@
         </table>
         <h1 th:if="true">항상 노출</h1>
         <h1 th:if="false">항상 미노출</h1>
+
+        <div th:text="${#numbers.formatInteger(1000000000, 3, 'COMMA')}"></div>
+
+        <div th:each="num : ${#numbers.sequence(1, 10, 2)}">
+            <div th:text="${num}"></div>
+        </div>
     </body>
 </html>
