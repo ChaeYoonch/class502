@@ -13,9 +13,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Component
+@Component // 자동 스캔 범위
 @RequiredArgsConstructor
-public class Utils { // 편의 기능 모음
+public class Utils { // 편의 기능 모음 | 클래스명 = 빈 이름 = utils | 수동 등록 빈 = 메서드명이 빈 이름
 
     private final MessageSource messageSource; // 의존성 추가
     private final HttpServletRequest request; // 요청 브라우저 언어 -> 다국어 설정 등 언어 변경이 가능하도록 브라우저 설정 가져올 수 있게 -> Locale 설정
