@@ -4,11 +4,16 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 
+        <th:block layout:fragment="addCss"></th:block> <!-- 아래가 치환 안되도 얘는 치환 가능 -->
+
         <th:block th:if="${addCss != null}">
             <link rel="stylesheet" type="text/css" th:each="cssFile : ${addCss}" th:href="@{/css/{file}.css(file=${cssFile})}">
         </th:block>
 
         <script th:src="@{/js/common.js}"></script>
+
+        <th:block layout:fragment="addScript"></th:block> <!-- 아래가 치환 안되도 얘는 치환 가능 -->
+
         <th:block th:if="${addScript != null}">
             <script th:each="jsFile : ${addScript}" th:src="@{/js/{file}.js(file=${jsFile})}"></script>
         </th:block>
