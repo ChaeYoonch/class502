@@ -9,6 +9,9 @@
         </th:block>
 
         <script th:src="@{/js/common.js}"></script>
+        <th:block th:if="${addScript != null}">
+
+        </th:block>
     </head>
     <body>
         <header th:replace="~{outlines/header::common}"></header> <!-- 헤더 태그 교체 -->
