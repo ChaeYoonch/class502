@@ -1,0 +1,11 @@
+server:
+  port: 3000
+
+spring:
+  application:
+    name: "Day01"
+
+  # 라이브 리로드 설정
+  devtools:
+    livereload:
+      enabled: true
