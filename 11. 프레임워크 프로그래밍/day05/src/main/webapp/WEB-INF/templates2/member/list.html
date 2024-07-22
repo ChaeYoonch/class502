@@ -48,5 +48,6 @@
         <div th:each="num : ${#numbers.sequence(1, 10, 2)}">
             <div th:text="${num}"></div>
         </div>
+        <div th:text="${@utils.toUpper(email)}"></div>
     </body>
 </html>
