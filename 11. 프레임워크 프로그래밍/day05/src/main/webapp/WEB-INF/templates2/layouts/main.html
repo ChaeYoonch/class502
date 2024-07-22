@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http:www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http:www.ultraq.net.nz/thymeleaf/layout"> <!-- 내용 교체 xmlns:layout="http:www.ultraq.net.nz/thymeleaf/layout" 얘가 함 -->
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
@@ -7,6 +7,9 @@
     </head>
     <body>
         <header th:replace="~{outlines/header::common}"></header> <!-- 헤더 태그 교체 -->
+
+        <main layout:fragment="content"></main> <!-- 동일한 명칭 사용시 내용 치환 기능 -->
+
         <footer th:replace="~{outlines/footer::common}"></footer> <!-- 푸터 태그 교체 -->
     </body>
 </html>
