@@ -10,7 +10,7 @@
 
         <script th:src="@{/js/common.js}"></script>
         <th:block th:if="${addScript != null}">
-
+            <script th:each="jsFile : ${addScript}" th:src="@{/js/{file}.js(file=${jsFile})}"></script>
         </th:block>
     </head>
     <body>
