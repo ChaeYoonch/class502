@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http:www.ultraq.net.nz/thymeleaf/layout"> <!-- 내용 교체 xmlns:layout="http:www.ultraq.net.nz/thymeleaf/layout" 얘가 함 -->
     <head>
         <meta charset="UTF-8">
+        <title th:if="${pageTitle != null}" th:text="${pageTitle}"></title>
         <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 
         <th:block layout:fragment="addCss"></th:block> <!-- 아래가 치환 안되도 얘는 치환 가능 -->
