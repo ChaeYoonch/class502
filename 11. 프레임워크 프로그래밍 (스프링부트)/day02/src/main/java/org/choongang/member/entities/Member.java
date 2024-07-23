@@ -8,7 +8,9 @@ import java.time.LocalDateTime;
 @Data
 @Entity // 관리 데이터로서 확인
 // @Table(name="CH_MEMBER")
-@Table
+@Table(indexes = {
+        @Index(name = "idx_createdAt_desc", columnList = "createdAt DESC"),
+        @Index(name = "uq_email_password", columnList = "email, password", unique = true)}) // 컬럼명 = DB X -> 아래 Member에 정의된 거!
 public class Member {
     @Id
     private Long seq;
