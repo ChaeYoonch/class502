@@ -23,5 +23,8 @@ public class Ex03 {
         member.setPassword("12345678");
         member.setUserName("사용자01");
         member.setCreatedAt(LocalDateTime.now());
+
+        em.persist(member);
+        em.flush();
     }
 }
