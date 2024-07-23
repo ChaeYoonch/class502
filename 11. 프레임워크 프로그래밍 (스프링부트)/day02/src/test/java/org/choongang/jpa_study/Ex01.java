@@ -34,7 +34,12 @@ public class Ex01 {
 
         em.persist(member);
 
-        em.flush();
+        em.flush(); // 처음 추가 -> INSERT 쿼리 실행
+
+        member.setUserName("(수정)사용자01"); // 변경
+        member.setModifiedAt(LocalDateTime.now());
+
+        em.flush(); // 변경 -> UPDATE 쿼리 실행
 
         tx.commit();
     }
