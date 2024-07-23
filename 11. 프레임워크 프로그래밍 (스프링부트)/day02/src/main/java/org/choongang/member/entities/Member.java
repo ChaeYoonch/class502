@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
         @Index(name = "idx_createdAt_desc", columnList = "createdAt DESC"),
         @Index(name = "uq_email_password", columnList = "email, password", unique = true)}) */ // 컬럼명 = DB X -> 아래 Member에 정의된 거!
 public class Member {
-    @Id @GeneratedValue
+    @Id /* @GeneratedValue(strategy = GenerationType.AUTO) */ @GeneratedValue
     private Long seq;
     private String email;
     private String password;
