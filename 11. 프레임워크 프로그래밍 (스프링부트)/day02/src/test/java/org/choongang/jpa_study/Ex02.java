@@ -17,6 +17,8 @@ public class Ex02 {
 
     @BeforeEach
     void init() {
+        for (int i = 1; i <= 10; i++) {
 
+        }
     }
 }
