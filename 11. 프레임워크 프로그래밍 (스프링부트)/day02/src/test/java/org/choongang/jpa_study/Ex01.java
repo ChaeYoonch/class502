@@ -44,6 +44,10 @@ public class Ex01 {
 
         em.flush(); // 변경 -> UPDATE 쿼리 실행
 
+        em.merge(member); // 분리된 영속 상태 -> 영속 상태로 변경 => 다시 변화 감지 상태로 돌리는 것 (= select 로 비교함) | detach 후 merge -> 사이 값 확인 => 차이가 있으면 update 쿼리 실행, 차이가 없으면 쿼리 수행 X
+
+        em.flush();
+
         // em.remove(member); // 제거 상태, 제거 X, 상태만 변경!!
         // em.flush(); // DELETE 쿼리
 
