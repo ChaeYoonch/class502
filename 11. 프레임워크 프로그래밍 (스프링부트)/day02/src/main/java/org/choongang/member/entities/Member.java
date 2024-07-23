@@ -1,13 +1,15 @@
 package org.choongang.member.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
-@Entity // 관리 데이터로서 확인
 @Data
+@Entity // 관리 데이터로서 확인
 public class Member {
+    @Id
     private Long seq;
     private String email;
     private String password;
