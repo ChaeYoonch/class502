@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity // 관리 데이터로서 확인
-@Table
+@Table(name="CH_MEMBER")
 public class Member {
     @Id
     private Long seq;
