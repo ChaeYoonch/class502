@@ -1,8 +1,6 @@
 package org.choongang.jpa_study;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.*;
 import org.choongang.member.entities.Member;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,16 +14,17 @@ import java.time.LocalDateTime;
 @Transactional // 알아서 트랜잭션 처리하는 역할
 @TestPropertySource(properties = "spring.profiles.active=test") // application-test.yml 로 실행
 public class Ex01 {
+    //@Autowired
+    // private EntityManagerFactory emf;
 
-    @Autowired
-    private EntityManagerFactory emf;
+    // @Autowired
+    @PersistenceContext // 의존성 주입 -> 영속성 관리 담당이므로
+    private EntityManager em;
 
     @Test
     void test1() { // 메모리 기반 db 추가 -> 실제 db에 존재 X
-        EntityManager em = emf.createEntityManager();
-
+        // EntityManager em = emf.createEntityManager();
         // EntityTransaction tx = em.getTransaction(); // Transaction 처리 필수
-
         // tx.begin();
         Member member = new Member();
         member.setSeq(1L);
