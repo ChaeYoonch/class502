@@ -1,6 +1,6 @@
 package org.choongang.member.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.*; // 하위 애노테이션 이므로 * 로 설정하여 Id, Entity, Table 한 번에 작성
 import lombok.Data;
 
 import java.time.LocalDateTime;
