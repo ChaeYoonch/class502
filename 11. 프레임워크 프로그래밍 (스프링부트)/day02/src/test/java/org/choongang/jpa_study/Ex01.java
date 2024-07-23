@@ -23,5 +23,6 @@ public class Ex01 {
         member.setSeq(1L);
         member.setEmail("user01@test.org");
         member.setPassword("12345678");
+        member.setUserName("사용자01");
     }
 }
