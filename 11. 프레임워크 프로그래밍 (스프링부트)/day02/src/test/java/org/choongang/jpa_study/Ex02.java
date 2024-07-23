@@ -37,5 +37,6 @@ public class Ex02 {
     @Test
     void test1() {
         Member member = em.find(Member.class, 1L); // 영속성 상태의 Member 로 조회
+        System.out.println(member);
     }
 }
