@@ -22,5 +22,5 @@ public class Ex04 {
         member.setEmail("user01@test.org");
         member.setPassword("12345678");
         member.setUserName("사용자01");
-    }
+    } // 날짜 따로 입력 X -> 알아서 들어가 있을 것!
 }
