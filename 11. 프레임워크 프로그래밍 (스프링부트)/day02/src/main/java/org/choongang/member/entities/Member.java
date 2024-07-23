@@ -21,7 +21,8 @@ public class Member {
     private String password;
     private String userName;
 
-    @Lob
+    // @Lob
+    @Transient // mapping 무시 | 테이블로 만들지 X | 2차 가공해서 넣어줄 데이터
     private String introduction;
 
     @Enumerated(EnumType.STRING) // 기본값 = EnumType.ORDINAL
