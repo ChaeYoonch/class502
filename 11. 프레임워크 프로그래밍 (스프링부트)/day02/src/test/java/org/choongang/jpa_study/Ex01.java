@@ -19,7 +19,7 @@ public class Ex01 {
     private EntityManagerFactory emf;
 
     @Test
-    void test1() {
+    void test1() { // 메모리 기반 db 추가 -> 실제 db에 존재 X
         EntityManager em = emf.createEntityManager();
 
         EntityTransaction tx = em.getTransaction(); // Transaction 처리 필수
@@ -32,7 +32,7 @@ public class Ex01 {
         member.setUserName("사용자01");
         member.setCreatedAt(LocalDateTime.now());
 
-        em.persist(member);
+        em.persist(member); // 영속 상태
 
         em.flush(); // 처음 추가 -> INSERT 쿼리 실행
 
@@ -40,6 +40,9 @@ public class Ex01 {
         member.setModifiedAt(LocalDateTime.now());
 
         em.flush(); // 변경 -> UPDATE 쿼리 실행
+
+        em.remove(member); // 제거 상태, 제거 X, 상태만 변경!!
+        em.flush();
 
         tx.commit();
     }
