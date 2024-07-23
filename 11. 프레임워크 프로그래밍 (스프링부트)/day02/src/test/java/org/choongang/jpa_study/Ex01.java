@@ -1,5 +1,6 @@
 package org.choongang.jpa_study;
 
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,6 @@ public class Ex01 {
 
     @Test
     void test1() {
-
+        EntityManager em = emf.createEntityManager();
     }
 }
