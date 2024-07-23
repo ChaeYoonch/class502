@@ -2,6 +2,7 @@ package org.choongang.member.entities;
 
 import jakarta.persistence.*; // 하위 애노테이션 이므로 * 로 설정하여 Id, Entity, Table 한 번에 작성
 import lombok.Data;
+import org.choongang.member.constants.Authority;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -24,7 +25,7 @@ public class Member {
     private String introduction;
 
     @Enumerated(EnumType.STRING) // 기본값 = EnumType.ORDINAL
-    private String Authority;
+    private Authority authority;
 
     @CreationTimestamp // hibernate 에서만 가능 | 표준 X | 쿼리 시에 추가
     private LocalDateTime createdAt; // 생성 일자
