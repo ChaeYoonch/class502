@@ -6,3 +6,5 @@ spring:
   datasource: # @Bean 은 내부에서 설정해 줌
     driverClassName: oracle.jdbc.driver.OracleDriver # driver-class-name 형태도 가능 | oracle driver 설정
     url: jdbc:oracle:thin:@localhost:1521:XE # url 주소
+    username: ${db.username} # 환경 변수로 등록 -> 절대 노출 X
+    password: ${db.password} # 환경 변수로 등록 -> 절대 노출 X
