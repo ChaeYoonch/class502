@@ -20,7 +20,6 @@ spring:
     hibernate:
       ddlAuto: create # ddl-auto도 가능 | ddl = Data Definition Language | 테이블 만들지 않아도 됨 -> 정의하면 알아서 만들어줌
 
-## loger 레벨 별로 설정
 # 로거 설정
 logging:
   level: # 더 추가할 것이 있으면 level 하위로 연동 | # org: hibernate: type: trace
