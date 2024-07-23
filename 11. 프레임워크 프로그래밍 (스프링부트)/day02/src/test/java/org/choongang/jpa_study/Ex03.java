@@ -17,5 +17,8 @@ public class Ex03 {
     @Test
     void test1() {
         Member member = new Member();
+        member.setEmail("user01@test.org");
+        member.setPassword("12345678");
+        member.setUserName("사용자01");
     }
 }
