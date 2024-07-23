@@ -24,4 +24,6 @@ logging:
   level: # 더 추가할 것이 있으면 level 하위로 연동
     org:
       hibernate:
-        type: trace # 전부 trace 레벨로 로그 설정
+        type:
+          descriptor:
+            trace
