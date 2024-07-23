@@ -25,6 +25,17 @@ public class Ex03 {
         member.setCreatedAt(LocalDateTime.now());
 
         em.persist(member);
+
+        Member member2 = new Member();
+        member2.setEmail("user02@test.org");
+        member2.setPassword("12345678");
+        member2.setUserName("사용자02");
+        member2.setCreatedAt(LocalDateTime.now());
+
+        em.persist(member2);
+
         em.flush();
+
+        em.clear(); // 영속성이 모두 비워짐
     }
 }
