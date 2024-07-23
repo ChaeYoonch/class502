@@ -37,5 +37,11 @@ public class Ex03 {
         em.flush();
 
         em.clear(); // 영속성이 모두 비워짐
+
+        Member _member1 = em.find(Member.class, member.getSeq()); // 기본키 자동적으로 부여됨
+        System.out.println(_member1);
+
+        Member _member2 = em.find(Member.class, member.getSeq());
+        System.out.println(_member2);
     }
 }
