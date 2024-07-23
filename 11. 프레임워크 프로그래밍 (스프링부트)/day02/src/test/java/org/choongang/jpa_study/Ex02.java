@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.choongang.member.entities.Member;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,5 +32,10 @@ public class Ex02 {
         }
 
         em.flush(); // DB 영구 반영
+    }
+
+    @Test
+    void test1() {
+
     }
 }
