@@ -32,11 +32,19 @@ public class Ex02 {
         }
 
         em.flush(); // DB 영구 반영
+        em.flush(); // 영속 상태 엔티티 모두 비우기
     }
 
     @Test
     void test1() {
         Member member = em.find(Member.class, 1L); // 영속성 상태의 Member 로 조회
         System.out.println(member);
+
+        Member member2 = em.find(Member.class, 1L); // 영속성 상태의 Member 로 조회
+        System.out.println(member2);
+
+        System.out.println(member == member2);
+        System.out.println("member : " + System.identityHashCode(member));
+        System.out.println("member2 : " + System.identityHashCode(member2));
     }
 }
