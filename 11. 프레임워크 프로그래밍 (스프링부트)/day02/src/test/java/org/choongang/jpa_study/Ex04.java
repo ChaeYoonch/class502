@@ -25,5 +25,10 @@ public class Ex04 {
 
         em.persist(member); // 영속성 안에 집어 넣음
         em.flush();
+
+        em.clear();
+
+        member = em.find(Member.class, member.getSeq());
+        System.out.println(member);
     } // 날짜 따로 입력 X -> 알아서 들어가 있을 것!
 }
