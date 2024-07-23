@@ -1,6 +1,6 @@
 server:
   port: 3000
-  # 들여쓰기 = 하위 속성 | : 뒤에 1칸씩 띄어 써야 인식함
+  ## 들여쓰기 = 하위 속성 | : 뒤에 1칸씩 띄어 써야 인식함
 spring:
   # 데이터 베이스 설정
   datasource: # @Bean 은 내부에서 설정해 줌
@@ -8,3 +8,5 @@ spring:
     url: jdbc:oracle:thin:@localhost:1521:XE # url 주소
     username: ${db.username} # 환경 변수로 등록 -> 절대 노출 X
     password: ${db.password} # 환경 변수로 등록 -> 절대 노출 X
+  ## spring 하위 속성
+  # JPA 설정
