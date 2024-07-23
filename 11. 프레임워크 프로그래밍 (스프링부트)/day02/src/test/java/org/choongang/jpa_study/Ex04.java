@@ -17,7 +17,7 @@ public class Ex04 {
     private EntityManager em;
 
     @Test
-    void test1() {
+    void test1() throws Exception {
         Member member = new Member();
         member.setEmail("user01@test.org");
         member.setPassword("12345678");
@@ -26,6 +26,14 @@ public class Ex04 {
         em.persist(member); // 영속성 안에 집어 넣음
         em.flush();
 
+        em.clear();
+
+        member = em.find(Member.class, member.getSeq());
+        System.out.println(member);
+
+        Thread.sleep(5000);
+        member.setUserName("(수정)사용자01");
+        em.flush();
         em.clear();
 
         member = em.find(Member.class, member.getSeq());
