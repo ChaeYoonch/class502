@@ -27,6 +27,9 @@ public class Ex02 {
             member.setPassword("12345678");
             member.setUserName("사용자01" + i);
             member.setCreatedAt(LocalDateTime.now());
+            em.persist(member); // 영속 상태가 됨! | 처음 만들고 처음 생성한 객체!
         }
+
+        em.flush(); // DB 영구 반영
     }
 }
