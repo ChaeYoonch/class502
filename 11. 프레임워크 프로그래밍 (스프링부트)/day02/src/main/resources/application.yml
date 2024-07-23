@@ -21,7 +21,7 @@ spring:
 ## loger 레벨 별로 설정
 # 로거 설정
 logging:
-  level:
+  level: # 더 추가할 것이 있으면 level 하위로 연동
     org:
       hibernate:
         type: trace # 전부 trace 레벨로 로그 설정
