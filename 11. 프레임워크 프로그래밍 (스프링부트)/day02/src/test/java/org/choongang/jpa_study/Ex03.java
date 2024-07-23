@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 @SpringBootTest
 @Transactional
-@TestPropertySource()
+@TestPropertySource(locations = "classpath:application.yml") // 설정 파일 명시
 public class Ex03 {
 
     @PersistenceContext
