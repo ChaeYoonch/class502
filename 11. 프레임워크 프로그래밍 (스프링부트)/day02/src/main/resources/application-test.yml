@@ -8,7 +8,7 @@ spring:
   ## spring 하위 속성
   # JPA 설정
   jpa:
-    properties:
+    properties: # Ex01 은 인텔리제이 내의 DB 에서 사용하는 것이므로 SQL 이 달라도 알아서 해줌 -> 코드만 신경쓰자!
       hibernate:
         show_sql: true # 실행하는 SQL 을 콘솔에 출력 | JAVA 코드 -> SQL 로 변환 O
         format_sql: true # 실행되는 SQL 의 들여쓰기 및 줄 개행 -> 없으면 1줄로 나옴
