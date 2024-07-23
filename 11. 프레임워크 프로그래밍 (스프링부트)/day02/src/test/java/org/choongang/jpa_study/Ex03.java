@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
+
 @SpringBootTest
 @Transactional
 public class Ex03 {
@@ -20,5 +22,6 @@ public class Ex03 {
         member.setEmail("user01@test.org");
         member.setPassword("12345678");
         member.setUserName("사용자01");
+        member.setCreatedAt(LocalDateTime.now());
     }
 }
