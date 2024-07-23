@@ -2,10 +2,13 @@ package org.choongang.jpa_study;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import org.choongang.member.entities.Member;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
 
 @SpringBootTest
 @Transactional // 하나의 묶음으로 관리 -> 트랜잭션 처리 필수!
@@ -17,8 +20,13 @@ public class Ex02 {
 
     @BeforeEach
     void init() {
-        for (int i = 1; i <= 10; i++) {
-
+        for (long i = 1L; i <= 10L; i++) {
+            Member member = new Member();
+            member.setSeq(i);
+            member.setEmail("user01" + i + "@test.org");
+            member.setPassword("12345678");
+            member.setUserName("사용자01" + i);
+            member.setCreatedAt(LocalDateTime.now());
         }
     }
 }
