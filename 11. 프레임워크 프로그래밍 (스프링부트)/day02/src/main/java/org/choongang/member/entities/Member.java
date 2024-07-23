@@ -23,6 +23,9 @@ public class Member {
     @Lob
     private String introduction;
 
+    @Enumerated
+    private String Authority;
+
     @CreationTimestamp // hibernate 에서만 가능 | 표준 X | 쿼리 시에 추가
     private LocalDateTime createdAt; // 생성 일자
 
