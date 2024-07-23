@@ -23,7 +23,7 @@ public class Member {
     @Lob
     private String introduction;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING) // 기본값 = EnumType.ORDINAL
     private String Authority;
 
     @CreationTimestamp // hibernate 에서만 가능 | 표준 X | 쿼리 시에 추가
