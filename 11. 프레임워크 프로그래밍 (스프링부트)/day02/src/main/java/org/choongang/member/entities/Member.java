@@ -1,13 +1,13 @@
 package org.choongang.member.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
 @Entity // 관리 데이터로서 확인
+@Table
 public class Member {
     @Id
     private Long seq;
