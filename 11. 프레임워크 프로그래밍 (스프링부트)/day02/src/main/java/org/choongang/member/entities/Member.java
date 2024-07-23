@@ -17,6 +17,9 @@ public class Member {
     private String email;
     private String password;
     private String userName;
+
+    @Lob
+    private String introduction;
     private LocalDateTime createdAt; // 생성 일자
     private LocalDateTime modifiedAt; // 수정 일자
 }
