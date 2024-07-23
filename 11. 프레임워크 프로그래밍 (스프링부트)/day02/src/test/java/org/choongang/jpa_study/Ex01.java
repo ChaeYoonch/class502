@@ -37,7 +37,7 @@ public class Ex01 {
 
         em.flush(); // 처음 추가 -> INSERT 쿼리 실행
 
-        em.detach(member); // 영속 상태 분리 - 변화 감지 X | flush() 해도 날아가지 않음
+        em.detach(member); // 영속 상태 분리 - 변화 감지 X | flush() 해도 날아가지 않음 | detach 이후에 변화 감지 안하므로 아래 UPDATE & DELETE 쿼리 수행 X
 
         member.setUserName("(수정)사용자01"); // 변경
         member.setModifiedAt(LocalDateTime.now());
