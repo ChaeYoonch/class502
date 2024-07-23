@@ -37,7 +37,7 @@ public class Ex02 {
 
     @Test
     void test1() {
-        Member member = em.find(Member.class, 1L); // 영속성 상태의 Member 로 조회
+        Member member = em.find(Member.class, 1L); // 영속성 상태의 Member 로 조회 | 찾는 기준 = 기본키
         System.out.println(member);
 
         Member member2 = em.find(Member.class, 1L); // 영속성 상태의 Member 로 조회
