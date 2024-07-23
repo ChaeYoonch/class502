@@ -38,13 +38,15 @@ public class Ex01 {
 
         em.flush(); // 처음 추가 -> INSERT 쿼리 실행
 
+        em.detach(member); // 영속 상태 분리 - 변화 감지 X | flush() 해도 날아가지 않음
+
         member.setUserName("(수정)사용자01"); // 변경
         member.setModifiedAt(LocalDateTime.now());
 
         em.flush(); // 변경 -> UPDATE 쿼리 실행
 
-        em.remove(member); // 제거 상태, 제거 X, 상태만 변경!!
-        em.flush(); // DELETE 쿼리
+        // em.remove(member); // 제거 상태, 제거 X, 상태만 변경!!
+        // em.flush(); // DELETE 쿼리
 
         // tx.commit();
     }
