@@ -9,9 +9,10 @@ spring:
   # JPA 설정
   jpa:
     properties:
-      show_sql: true # 실행하는 SQL 을 콘솔에 출력 | JAVA 코드 -> SQL 로 변환 O
-      format_sql: true # 실행되는 SQL 의 들여쓰기 및 줄 개행 -> 없으면 1줄로 나옴
-      use_sql_comments: true # 주석 관련
+      hibernate:
+        show_sql: true # 실행하는 SQL 을 콘솔에 출력 | JAVA 코드 -> SQL 로 변환 O
+        format_sql: true # 실행되는 SQL 의 들여쓰기 및 줄 개행 -> 없으면 1줄로 나옴
+        use_sql_comments: true # 주석 관련
     hibernate:
       ddlAuto: create # ddl-auto도 가능 | ddl = Data Definition Language | 테이블 만들지 않아도 됨 -> 정의하면 알아서 만들어줌
 ## loger 레벨 별로 설정
