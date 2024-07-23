@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
+import java.time.LocalDateTime;
+
 @SpringBootTest
 @TestPropertySource(properties = "spring.profiles.active=test") // application-test.yml 로 실행
 public class Ex01 {
@@ -24,5 +26,10 @@ public class Ex01 {
         member.setEmail("user01@test.org");
         member.setPassword("12345678");
         member.setUserName("사용자01");
+        member.setCreatedAt(LocalDateTime.now());
+
+        em.persist(member);
+
+        em.flush();
     }
 }
