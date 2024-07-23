@@ -1,0 +1,24 @@
+spring:
+  # 데이터 베이스 설정
+  datasource: # @Bean 빈 은 내부에서 설정해 줌
+    driverClassName: oracle.jdbc.driver.OracleDriver # driver-class-name 형태도 가능 | oracle driver 설정
+    url: jdbc:oracle:thin:@localhost:1521:XE # url 주소
+    username: ${db.username} # 환경 변수로 등록 -> 절대 노출 X
+    password: ${db.password} # 환경 변수로 등록 -> 절대 노출 X
+  ## spring 하위 속성
+  # JPA 설정
+  jpa:
+    properties:
+      show_sql: true # 실행하는 SQL 을 콘솔에 출력 | JAVA 코드 -> SQL 로 변환 O
+      format_sql: true # 실행되는 SQL 의 들여쓰기 및 줄 개행 -> 없으면 1줄로 나옴
+      use_sql_comments: true # 주석 관련
+      # dialect: org.hibernate.dialect.OracleDialect 방언 (사투리) -> 옛날 버전은 필수 지금은 알아서 해줌!
+    hibernate:
+      ddlAuto: create # ddl-auto도 가능 | ddl = Data Definition Language | 테이블 만들지 않아도 됨 -> 정의하면 알아서 만들어줌
+## loger 레벨 별로 설정
+# 로거 설정
+logging:
+  level: # 더 추가할 것이 있으면 level 하위로 연동
+    org:
+      hibernate:
+        type: trace # 전부 trace 레벨로 로그 설정
