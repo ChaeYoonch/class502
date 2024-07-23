@@ -4,4 +4,5 @@ server:
 spring:
   # 데이터 베이스 설정
   datasource: # @Bean 은 내부에서 설정해 줌
-    driverClassName: # driver-class-name 형태도 가능
+    driverClassName: oracle.jdbc.driver.OracleDriver # driver-class-name 형태도 가능 | oracle driver 설정
+    url:
