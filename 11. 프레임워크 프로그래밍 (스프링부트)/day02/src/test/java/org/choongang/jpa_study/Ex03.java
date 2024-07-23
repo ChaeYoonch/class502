@@ -36,7 +36,7 @@ public class Ex03 {
 
         em.flush();
 
-        em.clear(); // 영속성이 모두 비워짐
+        em.clear(); // 영속성이 모두 비워짐 | 조회시 새로 select 쿼리 실행됨
 
         Member _member1 = em.find(Member.class, member.getSeq()); // 기본키 자동적으로 부여됨
         System.out.println(_member1);
