@@ -4,6 +4,7 @@ import org.choongang.member.constants.Authority;
 import org.choongang.member.entities.Member;
 import org.choongang.member.repositories.MemberRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
@@ -25,7 +26,13 @@ public class Ex05 { // 스프링 구현 객체로 다 만들어져 있음
                               .build();
 
         memberRepository.saveAndFlush(member); // 2개 1번에 작성
+
         /* memberRepository.save(member);
         memberRepository.flush(); // DB 에 영구 반영 */
+    }
+
+    @Test
+    void test1() {
+        Member member = memberRepository.findById();
     }
 }
