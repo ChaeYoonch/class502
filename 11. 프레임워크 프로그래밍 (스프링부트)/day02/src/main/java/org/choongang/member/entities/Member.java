@@ -16,6 +16,7 @@ public class Member extends BaseEntity { // 클래스 명이 엔티티 명과 �
     private Long seq;
     private String email;
     private String password;
+    @Column(name="name") // DB Table 에는 userName 대신 name 으로 들어가 있음
     private String userName;
 
     // @Lob
