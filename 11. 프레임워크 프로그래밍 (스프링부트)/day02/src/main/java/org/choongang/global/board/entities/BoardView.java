@@ -1,5 +1,6 @@
 package org.choongang.global.board.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
@@ -13,5 +14,6 @@ public class BoardView { // View 카운트 저장 엔티티 | 복합키
     private long seq;
 
     @Id
+    @Column(name = "_uid") // 이름 변경
     private int uid; // uid = 오라클 예약어
 } // 2개를 조합하여 복합키 생성
