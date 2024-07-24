@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Entity // 관리 데이터로서 확인
@@ -33,4 +34,7 @@ public class Member { // 클래스 명이 엔티티 명과 동일
 
     @UpdateTimestamp
     private LocalDateTime modifiedAt; // 수정 일자
+
+    @Temporal(TemporalType.DATE) // 날짜만!
+    private Date date;
 }
