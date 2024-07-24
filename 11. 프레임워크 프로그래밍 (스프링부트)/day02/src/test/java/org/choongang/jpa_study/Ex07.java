@@ -1,5 +1,6 @@
 package org.choongang.jpa_study;
 
+import com.querydsl.core.types.dsl.BooleanExpression;
 import org.choongang.member.constants.Authority;
 import org.choongang.member.entities.Member;
 import org.choongang.member.entities.QMember;
@@ -31,11 +32,15 @@ public class Ex07 {
                         .authority(i % 2 == 0 ? Authority.USER : Authority.ADMIN)
                         .build()).toList(); // 목록 형태 -> Collection 형태
 
-        memberRepository.saveAllAndFlush(members);
+        memberRepository.saveAllAndFlush(members); // (1)
     }
 
     @Test
     void test1() {
         QMember member = QMember.member; // QMember 객체 가져옴 | member -> entity 에 정의된 항목 가져올 수 있음
+        BooleanExpression c1 = member.userName.contains("용"); // (2)
+
+        List<Member> members = (List<Member>) memberRepository.findAll(c1); // (1) 의 memberRepository 가져옴 | () 안에 (2) 의 c1 연결
+        members.forEach(System.out::println);
     }
 }
