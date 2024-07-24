@@ -2,6 +2,7 @@ package org.choongang.jpa_study;
 
 import org.choongang.member.constants.Authority;
 import org.choongang.member.entities.Member;
+import org.choongang.member.entities.QMember;
 import org.choongang.member.repositories.MemberRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,7 +28,7 @@ public class Ex07 {
                         .email("user" + i + "@test.org")
                         .password("12345678")
                         .userName("사용자" + i)
-                        .authority(Authority.USER)
+                        .authority(i % 2 == 0 ? Authority.USER : Authority.ADMIN)
                         .build()).toList(); // 목록 형태 -> Collection 형태
 
         memberRepository.saveAllAndFlush(members);
@@ -35,6 +36,6 @@ public class Ex07 {
 
     @Test
     void test1() {
-        memberRepository.find
+        QMember member = QMember.member; // QMember 객체 가져옴
     }
 }
