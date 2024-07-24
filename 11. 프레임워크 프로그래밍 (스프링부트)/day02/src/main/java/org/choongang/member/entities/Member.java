@@ -14,7 +14,10 @@ import org.choongang.member.constants.Authority;
 public class Member extends BaseEntity { // 클래스 명이 엔티티 명과 동일
     @Id /* 기본키 1개 설정 필수! => 무조건 Id를 1개 넣어야 함! -> 그래야 엔티티 만들어짐 @GeneratedValue(strategy = GenerationType.AUTO) */ @GeneratedValue
     private Long seq;
+
+    @Column(unique = true)
     private String email;
+
     private String password;
     @Column(name="name") // DB Table 에는 userName 대신 name 으로 들어가 있음
     private String userName;
