@@ -4,6 +4,7 @@ import org.choongang.member.constants.Authority;
 import org.choongang.member.entities.Member;
 import org.choongang.member.repositories.MemberRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
@@ -30,5 +31,10 @@ public class Ex06 {
                         .build()).toList(); // 목록 형태 -> Collection 형태
 
         memberRepository.saveAllAndFlush(members);
+    }
+
+    @Test
+    void test1() {
+        Member member = memberRepository.findByEmail("user02@test.org");
     }
 }
