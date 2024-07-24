@@ -15,6 +15,6 @@ public interface MemberRepository extends JpaRepository<Member, Long> { // 프�
 
     List<Member> findByEmailContainingAndUserNameContainingOrderByCreatedAtDesc(String key1, String key2);
 
-    @Query
+    @Query("SELECT m FROM Member m WHERE m.email LIKE : k1 AND m.userName LIKE : k2 ORDER BY m.createdAt DESC") // SELECT 별칭 FROM 별칭 | 치환되는 부분 = k1 & k2
     List<Member> getMember(String key1, String key2);
 }
