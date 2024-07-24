@@ -4,6 +4,7 @@ import org.choongang.member.entities.Member;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -13,4 +14,7 @@ public interface MemberRepository extends JpaRepository<Member, Long> { // 프�
     Page<Member> findByEmailContaining(String keyword, Pageable pageable); // Pageable 메서드 매개변수로 정의 -> 정렬, 페이징
 
     List<Member> findByEmailContainingAndUserNameContainingOrderByCreatedAtDesc(String key1, String key2);
+
+    @Query
+    List<Member> getMember(String key1, String key2);
 }
