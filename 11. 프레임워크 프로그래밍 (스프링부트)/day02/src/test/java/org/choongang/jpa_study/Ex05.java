@@ -18,16 +18,19 @@ public class Ex05 { // 스프링 구현 객체로 다 만들어져 있음
 
     @BeforeEach
     void init() {
-        Member member = Member.builder()
-                              .email("user01@test.org")
-                              .password("12345678")
-                              .userName("사용자01")
-                              .authority(Authority.USER)
-                              .build();
+        for (int i = 1; i <= 10; i++) {
+            Member member = Member.builder()
+                    .email("user" + i + "@test.org")
+                    .password("12345678")
+                    .userName("사용자" + i)
+                    .authority(Authority.USER)
+                    .build();
 
-        memberRepository.saveAndFlush(member); // 2개 1번에 작성
-
-        member.setUserName("(수정)사용지01"); // flush() 작성하지 않아도 암묵적으로 flush가 됨
+            memberRepository.save(member); // save 하면 영속성 안에 있음
+        }
+        memberRepository.flush();
+        // memberRepository.saveAndFlush(member); // 2개 1번에 작성
+        // member.setUserName("(수정)사용자01"); // flush() 작성하지 않아도 암묵적으로 flush가 됨
 
         // memberRepository.save(member);
         // memberRepository.flush(); // DB 에 영구 반영
@@ -37,6 +40,8 @@ public class Ex05 { // 스프링 구현 객체로 다 만들어져 있음
     void test1() {
         Member member = memberRepository.findById(1L).orElse(null); // 조회 메서드 -> 기본키로 조회
         System.out.println(member);
+
+        member.setUserName("(수정)사용자01");
 
         Member member2 = memberRepository.findById(1L).orElse(null); // 조회 메서드 -> 기본키로 조회
         System.out.println(member2);
