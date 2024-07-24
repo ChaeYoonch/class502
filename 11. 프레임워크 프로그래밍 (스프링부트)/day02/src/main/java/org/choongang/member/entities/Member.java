@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Data
 @Entity // 관리 데이터로서 확인
 // @Table(name="CH_MEMBER") | 테이블 명이 클래스명과 다른 경우 -> 직접 설정
-/*@Table(indexes = {
+/*@Table(indexes = { | 제약조건 -> 인덱스 & 유니크
         @Index(name = "idx_createdAt_desc", columnList = "createdAt DESC"),
         @Index(name = "uq_email_password", columnList = "email, password", unique = true)}) */ // 컬럼명 = DB X -> 아래 Member에 정의된 거!
 public class Member { // 클래스 명이 엔티티 명과 동일
