@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity // 관리 데이터로서 확인
-// @Table(name="CH_MEMBER")
+// @Table(name="CH_MEMBER") | 테이블 명이 클래스명과 다른 경우 -> 직접 설정
 /*@Table(indexes = {
         @Index(name = "idx_createdAt_desc", columnList = "createdAt DESC"),
         @Index(name = "uq_email_password", columnList = "email, password", unique = true)}) */ // 컬럼명 = DB X -> 아래 Member에 정의된 거!
