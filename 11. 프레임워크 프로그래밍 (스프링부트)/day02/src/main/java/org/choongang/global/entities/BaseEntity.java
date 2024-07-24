@@ -1,5 +1,6 @@
 package org.choongang.global.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
@@ -16,6 +17,7 @@ import java.time.LocalDateTime;
 public abstract class BaseEntity { // 얘 자체로 객체 생성 X -> abstract class 추상 클래스로 정의
 
     @CreatedDate // hibernate 에서만 가능 | 표준 X | 쿼리 시에 추가
+    @Column(updatable = false) // 기본값 : true
     private LocalDateTime createdAt; // 생성 일자 | 처음 추가하고 수정하면 안 됨!!
 
     @LastModifiedDate
