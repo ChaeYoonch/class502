@@ -12,6 +12,6 @@ import lombok.NoArgsConstructor;
 @Embeddable
 public class BoardViewId { // BoardView 의 @Id 로 정의한 값과 동일하게 작성
     private long seq; // 매개변수
-    @Column(name = "_uid")
+    @Column(name="_uid")
     private int uid; // 매개변수
 }
