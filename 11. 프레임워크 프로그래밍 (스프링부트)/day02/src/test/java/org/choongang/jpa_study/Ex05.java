@@ -27,7 +27,7 @@ public class Ex05 { // 스프링 구현 객체로 다 만들어져 있음
 
         memberRepository.saveAndFlush(member); // 2개 1번에 작성
 
-        member.setUserName("(수정)사용지01");
+        member.setUserName("(수정)사용지01"); // flush() 작성하지 않아도 암묵적으로 flush가 됨
 
         // memberRepository.save(member);
         // memberRepository.flush(); // DB 에 영구 반영
