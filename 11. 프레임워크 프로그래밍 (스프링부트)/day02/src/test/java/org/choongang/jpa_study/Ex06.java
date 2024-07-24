@@ -62,5 +62,6 @@ public class Ex06 {
     @Test
     void test4() {
         List<Member> members = memberRepository.getMembers("%ser", "%용%");
+        members.forEach(System.out::println);
     }
 }
