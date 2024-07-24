@@ -58,6 +58,8 @@ public class Ex05 { // 스프링 구현 객체로 다 만들어져 있음
 
         member.setUserName("(수정)사용자01");
 
+        memberRepository.flush(); // update 쿼리 실행
+
         Member member2 = memberRepository.findById(1L).orElse(null); // 조회 메서드 -> 기본키로 조회
         System.out.println(member2);
     }
