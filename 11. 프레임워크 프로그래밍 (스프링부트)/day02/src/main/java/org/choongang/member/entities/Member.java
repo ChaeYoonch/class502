@@ -2,6 +2,7 @@ package org.choongang.member.entities;
 
 import jakarta.persistence.*; // 하위 애노테이션 이므로 * 로 설정하여 Id, Entity, Table 한 번에 작성
 import lombok.Data;
+import org.choongang.global.entities.BaseEntity;
 import org.choongang.member.constants.Authority;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -15,7 +16,7 @@ import java.util.Date;
 /*@Table(indexes = { | 제약조건 -> 인덱스 & 유니크
         @Index(name = "idx_createdAt_desc", columnList = "createdAt DESC"),
         @Index(name = "uq_email_password", columnList = "email, password", unique = true)}) */ // 컬럼명 = DB X -> 아래 Member에 정의된 거!
-public class Member { // 클래스 명이 엔티티 명과 동일
+public class Member extends BaseEntity { // 클래스 명이 엔티티 명과 동일
     @Id /* 기본키 1개 설정 필수! => 무조건 Id를 1개 넣어야 함! -> 그래야 엔티티 만들어짐 @GeneratedValue(strategy = GenerationType.AUTO) */ @GeneratedValue
     private Long seq;
     private String email;
