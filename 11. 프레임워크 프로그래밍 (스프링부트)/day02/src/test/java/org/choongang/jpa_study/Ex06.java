@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
 import org.springframework.test.context.TestPropertySource;
 
 import java.util.List;
@@ -43,5 +44,11 @@ public class Ex06 {
     void test2() {
         List<Member> members = memberRepository.findByEmailContainingAndUserNameContainingOrderByCreatedAtDesc("ser", "용");
         members.forEach(System.out::println);
+    }
+
+    @Test
+    void test3() {
+        Page<Member> data = memberRepository.findByEmailContaining("ser", pageable);
+
     }
 }
