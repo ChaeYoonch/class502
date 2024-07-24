@@ -1,5 +1,6 @@
 package org.choongang.jpa_study;
 
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import org.choongang.member.constants.Authority;
 import org.choongang.member.entities.Member;
@@ -46,6 +47,17 @@ public class Ex07 {
 
     @BeforeEach
     void test2() {
+        String key = "용"; // (3)
+        QMember member = QMember.member;
+        BooleanBuilder andBuilder = new BooleanBuilder();
 
+        BooleanBuilder orBuilder = new BooleanBuilder(); // 이메일 & 사용자명 or 로 연결
+        orBuilder.or(member.email.contains(key))
+                 .or(member.userName.contains(key)); // (3) 의 key 연결
+
+        andBuilder.and(orBuilder);
+
+        List<Member> members = (List<Member>) memberRepository.findAll(andBuilder); // (List<Member>) 로 형변환 하지 않으면 붉은 줄 생김
+        members.forEach(System.out::println);
     }
 }
