@@ -2,12 +2,10 @@ package org.choongang.global.board.entities;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.IdClass;
 import lombok.Data;
 
 @Data
 @Entity
-@IdClass(BoardViewId.class)
 public class BoardView { // View 카운트 저장 엔티티 | 복합키
     @EmbeddedId
     private BoardViewId id;
