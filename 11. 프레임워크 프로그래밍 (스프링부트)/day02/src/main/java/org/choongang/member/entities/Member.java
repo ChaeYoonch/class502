@@ -1,12 +1,18 @@
 package org.choongang.member.entities;
 
 import jakarta.persistence.*; // 하위 애노테이션 이므로 * 로 설정하여 Id, Entity, Table 한 번에 작성
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.choongang.global.entities.BaseEntity;
 import org.choongang.member.constants.Authority;
 
+@Builder
 @Data
 @Entity // 관리 데이터로서 확인
+@NoArgsConstructor
+@AllArgsConstructor
 // @Table(name="CH_MEMBER") | 테이블 명이 클래스명과 다른 경우 -> 직접 설정
 /*@Table(indexes = { | 제약조건 -> 인덱스 & 유니크
         @Index(name = "idx_createdAt_desc", columnList = "createdAt DESC"),
