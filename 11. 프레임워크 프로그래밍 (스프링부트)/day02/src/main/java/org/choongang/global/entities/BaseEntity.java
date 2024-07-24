@@ -21,5 +21,6 @@ public abstract class BaseEntity { // 얘 자체로 객체 생성 X -> abstract 
     private LocalDateTime createdAt; // 생성 일자 | 처음 추가하고 수정하면 안 됨!!
 
     @LastModifiedDate
+    @Column(insertable = false)
     private LocalDateTime modifiedAt; // 수정 일자 | 수정할 때만 값이 들어감
 }
