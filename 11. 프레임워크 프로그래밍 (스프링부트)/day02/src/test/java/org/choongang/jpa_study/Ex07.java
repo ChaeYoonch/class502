@@ -45,7 +45,7 @@ public class Ex07 {
         members.forEach(System.out::println);
     }
 
-    @BeforeEach
+    @Test
     void test2() {
         String key = "용"; // (3)
         QMember member = QMember.member;
@@ -59,5 +59,10 @@ public class Ex07 {
 
         List<Member> members = (List<Member>) memberRepository.findAll(andBuilder); // (List<Member>) 로 형변환 하지 않으면 붉은 줄 생김
         members.forEach(System.out::println);
+    }
+
+    @Test
+    void test3() {
+
     }
 }
