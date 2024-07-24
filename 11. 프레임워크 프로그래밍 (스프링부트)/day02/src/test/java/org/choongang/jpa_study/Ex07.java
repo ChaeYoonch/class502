@@ -36,6 +36,6 @@ public class Ex07 {
 
     @Test
     void test1() {
-        QMember member = QMember.member; // QMember 객체 가져옴
+        QMember member = QMember.member; // QMember 객체 가져옴 | member -> entity 에 정의된 항목 가져올 수 있음
     }
 }
