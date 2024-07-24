@@ -37,6 +37,6 @@ public class Ex04 {
         em.clear();
 
         member = em.find(Member.class, member.getSeq());
-        System.out.println(member);
+        System.out.printf("createdAt : %s, modifiedAt : %s", member.getCreatedAt(), member.getModifiedAt());
     } // 날짜 따로 입력 X -> 알아서 들어가 있을 것!
 }
