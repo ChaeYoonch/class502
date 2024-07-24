@@ -23,5 +23,8 @@ public class Ex05 { // 스프링 구현 객체로 다 만들어져 있음
                               .userName("사용자01")
                               .authority(Authority.USER)
                               .build();
+
+        memberRepository.save(member);
+        memberRepository.flush(); // DB 에 영구 반영
     }
 }
