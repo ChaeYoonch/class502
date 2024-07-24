@@ -50,12 +50,17 @@ public class Ex06 {
 
     @Test
     void test3() {
-        Pageable pageable = PageRequest.of(0, 3); // 0페이지 부터 3개씩 나옴
+        Pageable pageable = PageRequest.of(1, 3); // (0, 3) 0페이지 부터 3개씩 나옴
         Page<Member> data = memberRepository.findByEmailContaining("ser", pageable); // Page -> 조회한 데이터를 가져올 수 있는 메서드
 
         List<Member> items = data.getContent(); // (1) 위의 data 가져옴 | 조회된 데이터
         long total = data.getTotalElements();
         System.out.printf("총 개수 : %d%n", total); // 위의 total 가져옴
         items.forEach(System.out::println); // (1) 의 items 가져옴
+    }
+
+    @Test
+    void test4() {
+
     }
 }
