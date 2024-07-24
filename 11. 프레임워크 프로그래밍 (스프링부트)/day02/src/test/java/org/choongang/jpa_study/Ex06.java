@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.TestPropertySource;
 
 import java.util.List;
@@ -48,6 +50,7 @@ public class Ex06 {
 
     @Test
     void test3() {
+        Pageable pageable = PageRequest.of(0, 3); // 0페이지 부터 3개씩 나옴
         Page<Member> data = memberRepository.findByEmailContaining("ser", pageable);
 
     }
