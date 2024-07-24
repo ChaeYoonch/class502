@@ -1,5 +1,6 @@
 package org.choongang.jpa_study;
 
+import org.choongang.member.repositories.MemberRepository;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
@@ -7,4 +8,5 @@ import org.springframework.test.context.TestPropertySource;
 @TestPropertySource(properties = "spring.profiles.active=test")
 public class Ex05 {
 
+    private MemberRepository memberRepository;
 }
