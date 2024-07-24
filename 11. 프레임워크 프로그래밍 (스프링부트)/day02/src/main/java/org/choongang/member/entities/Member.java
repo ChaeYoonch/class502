@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
         @Index(name = "idx_createdAt_desc", columnList = "createdAt DESC"),
         @Index(name = "uq_email_password", columnList = "email, password", unique = true)}) */ // 컬럼명 = DB X -> 아래 Member에 정의된 거!
 public class Member { // 클래스 명이 엔티티 명과 동일
-    @Id /* @GeneratedValue(strategy = GenerationType.AUTO) */ @GeneratedValue
+    @Id /* 기본키 1개 설정 필수! => 무조건 Id를 1개 넣어야 함! -> 그래야 엔티티 만들어짐 @GeneratedValue(strategy = GenerationType.AUTO) */ @GeneratedValue
     private Long seq;
     private String email;
     private String password;
