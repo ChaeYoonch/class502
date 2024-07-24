@@ -1,5 +1,7 @@
 package org.choongang.jpa_study;
 
+import org.choongang.member.constants.Authority;
+import org.choongang.member.entities.Member;
 import org.choongang.member.repositories.MemberRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,11 @@ public class Ex05 { // 스프링 구현 객체로 다 만들어져 있음
 
     @BeforeEach
     void init() {
-
+        Member member = Member.builder()
+                              .email("user01@test.org")
+                              .password("12345678")
+                              .userName("사용자01")
+                              .authority(Authority.USER)
+                              .build();
     }
 }
