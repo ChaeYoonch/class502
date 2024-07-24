@@ -28,12 +28,7 @@ public class Member { // 클래스 명이 엔티티 명과 동일
 
     @Enumerated(EnumType.STRING) // 기본값 = EnumType.ORDINAL 이기 때문에 STRING 으로 설정 (의도치 않게 값이 변경되지 않도록 / 문자, 열 그대로 나타냄)
     private Authority authority;
-
-    @CreationTimestamp // hibernate 에서만 가능 | 표준 X | 쿼리 시에 추가
-    private LocalDateTime createdAt; // 생성 일자
-
-    @UpdateTimestamp
-    private LocalDateTime modifiedAt; // 수정 일자
+    // 여기 있던 2개 BaseEntity 로 이동 -> 상속으로 연동
 
     /* @Temporal(TemporalType.DATE) // 날짜만!
     private Date date; */
