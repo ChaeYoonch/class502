@@ -33,6 +33,7 @@ public class Ex05 { // 스프링 구현 객체로 다 만들어져 있음
 
     @Test
     void test1() {
-        Member member = memberRepository.findById();
+        Member member = memberRepository.findById(1L).orElse(null); // 조회 메서드 -> 기본키로 조회
+        System.out.println(member);
     }
 }
