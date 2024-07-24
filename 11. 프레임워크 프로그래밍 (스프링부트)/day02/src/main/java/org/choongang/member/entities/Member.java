@@ -4,11 +4,6 @@ import jakarta.persistence.*; // 하위 애노테이션 이므로 * 로 설정�
 import lombok.Data;
 import org.choongang.global.entities.BaseEntity;
 import org.choongang.member.constants.Authority;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
-import java.time.LocalDateTime;
-import java.util.Date;
 
 @Data
 @Entity // 관리 데이터로서 확인
