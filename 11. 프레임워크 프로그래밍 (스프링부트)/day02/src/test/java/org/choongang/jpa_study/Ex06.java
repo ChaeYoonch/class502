@@ -42,5 +42,6 @@ public class Ex06 {
     @Test
     void test2() {
         List<Member> members = memberRepository.findByEmailContainingAndUserNameContainingOrderByCreatedAtDesc("ser", "용");
+        members.forEach(System.out::println);
     }
 }
