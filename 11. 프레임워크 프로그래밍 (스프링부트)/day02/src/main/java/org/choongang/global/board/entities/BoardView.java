@@ -13,5 +13,5 @@ public class BoardView { // View 카운트 저장 엔티티 | 복합키
     private long seq;
 
     @Id
-    private int uid; // 2개를 조합하여 복합키 생성
-}
+    private int uid; // uid = 오라클 예약어
+} // 2개를 조합하여 복합키 생성
