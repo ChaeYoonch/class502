@@ -64,6 +64,7 @@ public class Ex05 { // 스프링 구현 객체로 다 만들어져 있음
 
     @Test
     void test2() {
-
+        List<Member> members = memberRepository.findAll();
+        members.forEach(System.out::println);
     }
 }
