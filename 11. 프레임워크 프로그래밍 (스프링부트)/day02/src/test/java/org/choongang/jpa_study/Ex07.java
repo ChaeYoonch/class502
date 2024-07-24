@@ -63,6 +63,9 @@ public class Ex07 {
 
     @Test
     void test3() {
+        QMember member = QMember.member;
+        BooleanExpression c1 = member.email.concat(member.userName).contains("용");
 
+        List<Member> members = (List<Member>) memberRepository.findAll(c1); // (List<Member>) 로 형변환 하지 않으면 붉은 줄 생김
     }
 }
