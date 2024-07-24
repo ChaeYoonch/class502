@@ -43,4 +43,9 @@ public class Ex07 {
         List<Member> members = (List<Member>) memberRepository.findAll(c1); // (1) 의 memberRepository 가져옴 | () 안에 (2) 의 c1 연결
         members.forEach(System.out::println);
     }
+
+    @BeforeEach
+    void test2() {
+
+    }
 }
