@@ -1,12 +1,15 @@
 package org.choongang.member.entities;
 
-import jakarta.persistence.*; // 하위 애노테이션 이므로 * 로 설정하여 Id, Entity, Table 한 번에 작성
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.choongang.global.board.entities.BoardData;
 import org.choongang.global.entities.BaseEntity;
 import org.choongang.member.constants.Authority;
+
+import java.util.List;
 
 @Builder
 @Data
@@ -41,4 +44,7 @@ public class Member extends BaseEntity { // 클래스 명이 엔티티 명과 �
 
     /* @Temporal(TemporalType.DATE) // 날짜만!
     private Date date; */
+
+    @OneToMany // One = 지금 클래스 - Member | Many = BoardData
+    private List<BoardData> items;
 }
