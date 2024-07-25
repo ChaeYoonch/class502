@@ -2,7 +2,6 @@ package org.choongang.jpa_study;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.Transactional;
 import org.choongang.global.board.entities.BoardData;
 import org.choongang.global.board.entities.HashTag;
 import org.choongang.global.board.repositories.BoardDataRepository;
@@ -11,11 +10,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.IntStream;
 
 @SpringBootTest
+@ActiveProfiles("test")
 @Transactional
 public class Ex11 {
 
