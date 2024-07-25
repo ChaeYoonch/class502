@@ -4,10 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @Builder
@@ -20,6 +17,7 @@ public class MemberProfile { // 기본키는 필수 !!
     private String profileImages;
     private String status;
 
+    @ToString.Exclude
     @OneToOne(mappedBy = "profile") // mappedBy -> 관계의 주인 명시함
     private Member member;
 }
