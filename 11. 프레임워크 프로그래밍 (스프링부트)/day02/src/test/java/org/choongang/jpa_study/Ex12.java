@@ -64,4 +64,9 @@ public class Ex12 {
             System.out.printf("email=%s, userName=%s%n", email, userName);
         }
     }
+
+    @Test
+    void test2() {
+        List<BoardData> items = boardDataRepository.getAllList();
+    }
 }
