@@ -85,8 +85,8 @@ public class Ex12 {
     void test4() {
         QBoardData boardData = QBoardData.boardData;
 
-        JPAQueryFactory factory = new JPAQueryFactory(em); // em = (**) 연동함
-        JPAQuery<BoardData> query = factory.selectFrom(boardData)
+        // JPAQueryFactory factory = new JPAQueryFactory(em); // em = (**) 연동함
+        JPAQuery<BoardData> query = queryFactory.selectFrom(boardData) // JPAQuery<BoardData> query = factory
                                            .leftJoin(boardData.member)
                                            .fetchJoin();
 
