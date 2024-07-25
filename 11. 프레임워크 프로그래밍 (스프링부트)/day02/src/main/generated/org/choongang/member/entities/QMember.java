@@ -63,5 +63,4 @@ public class QMember extends EntityPathBase<Member> {
         super(type, metadata, inits);
         this.profile = inits.isInitialized("profile") ? new QMemberProfile(forProperty("profile")) : null;
     }
-
 }
