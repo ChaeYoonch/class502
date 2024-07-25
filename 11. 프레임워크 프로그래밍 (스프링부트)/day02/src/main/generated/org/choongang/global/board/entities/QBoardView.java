@@ -43,5 +43,4 @@ public class QBoardView extends EntityPathBase<BoardView> {
         super(type, metadata, inits);
         this.id = inits.isInitialized("id") ? new QBoardViewId(forProperty("id")) : null;
     }
-
 }
