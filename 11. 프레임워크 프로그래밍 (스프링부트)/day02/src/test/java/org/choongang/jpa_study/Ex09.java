@@ -2,6 +2,7 @@ package org.choongang.jpa_study;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import org.choongang.global.board.entities.BoardData;
 import org.choongang.global.board.repositories.BoardDataRepository;
 import org.choongang.member.constants.Authority;
 import org.choongang.member.entities.Member;
@@ -11,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.IntStream;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -36,5 +40,12 @@ public class Ex09 {
                 .build(); // 자동 추가되므로 날짜 & seq 시퀀스 번호 생성 X
 
         memberRepository.saveAndFlush(member);
+
+        List<BoardData> items = IntStream.rangeClosed(1, 10) // 게시글 10개
+                                         .mapToObj(i -> BoardData.builder()
+                                                                 .subject("제목" + i)
+                                                                 .content("내용" + i)
+                                                                 .member(member)
+                                                                 .build()).toList();
     }
 }
