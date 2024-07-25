@@ -74,4 +74,9 @@ public class Ex12 {
     void test3() {
         List<BoardData> items = boardDataRepository.findBySubjectContaining("제목");
     }
+
+    @Test
+    void test4() {
+
+    }
 }
