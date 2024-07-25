@@ -1,10 +1,10 @@
 package org.choongang.jpa_study;
 
+import com.querydsl.core.Tuple;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Tuple;
 import org.choongang.board.entities.BoardData;
 import org.choongang.board.entities.QBoardData;
 import org.choongang.board.repositories.BoardDataRepository;
