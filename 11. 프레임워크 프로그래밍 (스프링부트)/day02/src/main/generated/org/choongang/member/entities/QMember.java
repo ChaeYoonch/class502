@@ -61,6 +61,6 @@ public class QMember extends EntityPathBase<Member> {
 
     public QMember(Class<? extends Member> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.profile = inits.isInitialized("profile") ? new QMemberProfile(forProperty("profile")) : null;
+        this.profile = inits.isInitialized("profile") ? new QMemberProfile(forProperty("profile"), inits.get("profile")) : null;
     }
 }
