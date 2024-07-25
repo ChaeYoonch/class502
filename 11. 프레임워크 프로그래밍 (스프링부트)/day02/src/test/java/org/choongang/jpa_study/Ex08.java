@@ -41,5 +41,6 @@ public class Ex08 {
     @Test
     void test1() {
         Member member = memberRepository.findById(1L).orElse(null);
+        System.out.println(member);
     }
 }
