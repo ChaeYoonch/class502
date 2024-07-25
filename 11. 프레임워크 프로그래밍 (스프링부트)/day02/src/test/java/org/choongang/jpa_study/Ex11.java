@@ -7,6 +7,7 @@ import org.choongang.global.board.entities.HashTag;
 import org.choongang.global.board.repositories.BoardDataRepository;
 import org.choongang.global.board.repositories.HashTagRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -41,5 +42,10 @@ public class Ex11 {
                                          .build()).toList();
 
         boardDataRepository.saveAllAndFlush(items);
+    }
+
+    @Test
+    void test1() {
+
     }
 }
