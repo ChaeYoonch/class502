@@ -55,4 +55,11 @@ public class Ex10 {
         MemberProfile profile = member.getProfile();
         System.out.println(profile);
     }
+
+    @Test
+    void test2() { // 양방향 조회 시 -> 순환 참조 반복 발생 -> 참조를 끊어줘야 함
+        MemberProfile profile = profileRepository.findById(1L).orElse(null);
+        Member member = profile.getMember();
+        System.out.println(member);
+    }
 }
