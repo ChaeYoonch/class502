@@ -7,6 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.choongang.global.entities.BaseEntity;
 import org.choongang.member.entities.Member;
+
+import java.util.List;
+
 // Spring Data code
 @Data
 @Builder
@@ -25,4 +28,7 @@ public class BoardData extends BaseEntity { // ORM : 객체 지향적 언어 사
 
     @Lob // CLOB 으로 생성됨
     private String content;
+
+    @ManyToMany
+    private List<HashTag> tags;
 }
