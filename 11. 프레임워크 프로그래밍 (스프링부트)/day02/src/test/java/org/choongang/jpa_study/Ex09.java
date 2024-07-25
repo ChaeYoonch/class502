@@ -56,7 +56,8 @@ public class Ex09 {
     @Test
     void test1() {
         BoardData item = boardDataRepository.findById(1L).orElse(null); // 조회
-
-        System.out.println(item); // 출력
+        // System.out.println(item); // 출력
+        Member member = item.getMember(); // 게시글을 작성한 회원
+        System.out.println(member); // 위의 member 연결
     }
 }
