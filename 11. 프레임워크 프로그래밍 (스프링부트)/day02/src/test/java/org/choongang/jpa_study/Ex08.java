@@ -33,9 +33,10 @@ public class Ex08 {
                               .email("user01@test.org")
                               .password("12345678")
                               .userName("사용자01")
-                              .authority(Authority.USER)
+                              .authority(Authority.USER) // 짝수 = 유저, 홀수 = 어드민 나오게 할거임
                               .build(); // 자동 추가되므로 날짜 & seq 시퀀스 번호 생성 X
-        memberRepository.saveAllAndFlush(member);
+
+        memberRepository.saveAndFlush(member);
 
         em.clear();
     }
