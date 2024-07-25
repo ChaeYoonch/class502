@@ -1,6 +1,6 @@
-package org.choongang.global.board.repositories;
+package org.choongang.board.repositories;
 
-import org.choongang.global.board.entities.BoardData;
+import org.choongang.board.entities.BoardData;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
