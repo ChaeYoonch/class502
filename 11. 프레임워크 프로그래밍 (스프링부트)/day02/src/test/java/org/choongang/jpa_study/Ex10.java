@@ -2,8 +2,11 @@ package org.choongang.jpa_study;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import org.choongang.member.constants.Authority;
+import org.choongang.member.entities.Member;
 import org.choongang.member.repositories.MemberProfileRepository;
 import org.choongang.member.repositories.MemberRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -22,4 +25,16 @@ public class Ex10 {
 
     @PersistenceContext // 영속성
     private EntityManager em;
+
+    @BeforeEach
+    void init() {
+        Member member = Member.builder()
+                .email("user01@test.org")
+                .password("12345678")
+                .userName("사용자01")
+                .authority(Authority.USER) // 짝수 = USER, 홀수 = ADMIN 나오게 할거임
+                .build(); // 자동 추가되므로 날짜 & seq 시퀀스 번호 생성 X
+
+        memberRepository.saveAndFlush(member);
+    }
 }
