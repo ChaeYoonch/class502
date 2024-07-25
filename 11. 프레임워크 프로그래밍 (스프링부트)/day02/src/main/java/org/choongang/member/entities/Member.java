@@ -45,6 +45,6 @@ public class Member extends BaseEntity { // 클래스 명이 엔티티 명과 �
     /* @Temporal(TemporalType.DATE) // 날짜만!
     private Date date; */
 
-    @OneToMany // One = 지금 클래스 - Member | Many = BoardData
+    @OneToMany(mappedBy = "member") // One = 지금 클래스 - Member | Many = BoardData | "member" = BoardData 의 Member member 의 member 부분
     private List<BoardData> items;
 }
