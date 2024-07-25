@@ -17,7 +17,7 @@ public class MemberProfile { // 기본키는 필수 !!
     private String profileImages;
     private String status;
 
-    @ToString.Exclude
+    @ToString.Exclude // 순환 참조 끊음
     @OneToOne(mappedBy = "profile") // mappedBy -> 관계의 주인 명시함
     private Member member;
 }
