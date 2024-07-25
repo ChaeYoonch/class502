@@ -2,10 +2,10 @@ package org.choongang.jpa_study;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import org.choongang.global.board.entities.BoardData;
-import org.choongang.global.board.entities.HashTag;
-import org.choongang.global.board.repositories.BoardDataRepository;
-import org.choongang.global.board.repositories.HashTagRepository;
+import org.choongang.board.entities.BoardData;
+import org.choongang.board.entities.HashTag;
+import org.choongang.board.repositories.BoardDataRepository;
+import org.choongang.board.repositories.HashTagRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
