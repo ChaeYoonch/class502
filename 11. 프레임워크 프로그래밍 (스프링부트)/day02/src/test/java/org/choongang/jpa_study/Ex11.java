@@ -2,6 +2,7 @@ package org.choongang.jpa_study;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import org.choongang.global.board.entities.BoardData;
 import org.choongang.global.board.entities.HashTag;
 import org.choongang.global.board.repositories.BoardDataRepository;
 import org.choongang.global.board.repositories.HashTagRepository;
@@ -31,5 +32,12 @@ public class Ex11 {
                                       .mapToObj(i -> HashTag.builder().tag("태그" + i).build()).toList();
 
         hashTagRepository.saveAllAndFlush(tags);
+
+        List<BoardData> items = IntStream.rangeClosed(1, 5) // 5개 게시글 생성
+                                         .mapToObj(i -> BoardData.builder()
+                                         .subject("제목" + i)
+                                         .content("내용" + i)
+                                         .tags(tags)
+                                         .build()).toList();
     }
 }
