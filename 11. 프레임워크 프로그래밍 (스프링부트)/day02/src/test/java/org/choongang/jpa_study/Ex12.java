@@ -98,6 +98,17 @@ public class Ex12 {
     @Test
     void test5() {
         QBoardData boardData = QBoardData.boardData;
-        JPAQuery<Tuple> query = queryFactory.select()
+        JPAQuery<Tuple> query = queryFactory.select(boardData.subject, boardData.content).from(boardData); // 1개 이면 자료형 사용 O | 데이터가 2개 이상 이면 <Tuple> 사용
+        List<Tuple> items = query.fetch();
+        for (Tuple item : items) {
+            String subject = item.get(boardData.subject);
+            String content = item.get(boardData.content);
+            System.out.printf("subject=%s, content=%s%n", subject, content);
+        }
+    }
+
+    @Test
+    void test6() {
+
     }
 }
