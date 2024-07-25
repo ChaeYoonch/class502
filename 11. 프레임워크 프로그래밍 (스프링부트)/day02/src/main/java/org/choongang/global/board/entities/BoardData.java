@@ -13,7 +13,7 @@ import org.choongang.global.entities.BaseEntity;
 @Builder
 @Entity
 @NoArgsConstructor @AllArgsConstructor
-public class BoardData extends BaseEntity { // ORM : 객체 지향적 언어 사용 가능!
+public class BoardData extends BaseEntity { // ORM : 객체 지향적 언어 사용 가능! + 알아서 코딩 가능
     @Id @GeneratedValue
     private Long seq;
 }
