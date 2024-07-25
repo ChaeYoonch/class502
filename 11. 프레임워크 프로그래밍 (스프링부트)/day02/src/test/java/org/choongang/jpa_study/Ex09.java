@@ -47,5 +47,7 @@ public class Ex09 {
                                                                  .content("내용" + i)
                                                                  .member(member)
                                                                  .build()).toList();
+
+        boardDataRepository.saveAllAndFlush(items);
     }
 }
