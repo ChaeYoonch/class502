@@ -4,6 +4,7 @@ import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Tuple;
 import org.choongang.board.entities.BoardData;
 import org.choongang.board.entities.QBoardData;
 import org.choongang.board.repositories.BoardDataRepository;
@@ -87,10 +88,16 @@ public class Ex12 {
 
         // JPAQueryFactory factory = new JPAQueryFactory(em); // em = (**) 연동함
         JPAQuery<BoardData> query = queryFactory.selectFrom(boardData) // JPAQuery<BoardData> query = factory
-                                           .leftJoin(boardData.member)
-                                           .fetchJoin();
+                                                .leftJoin(boardData.member)
+                                                .fetchJoin();
 
         List<BoardData> items = query.fetch();
         //items.forEach(System.out::println);
+    }
+
+    @Test
+    void test5() {
+        QBoardData boardData = QBoardData.boardData;
+        JPAQuery<Tuple> query = queryFactory.select()
     }
 }
