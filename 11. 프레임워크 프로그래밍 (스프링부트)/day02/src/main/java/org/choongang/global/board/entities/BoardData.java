@@ -16,7 +16,7 @@ public class BoardData extends BaseEntity { // ORM : 객체 지향적 언어 사
     @Id @GeneratedValue
     private Long seq;
 
-    @ManyToOne // One 쪽이 Member
+    @ManyToOne // One 쪽이 Member | 외래키가 자동으로 member_seq 로 만들어짐
     private Member member;
 
     @Column(nullable = false) // 기본값 255
