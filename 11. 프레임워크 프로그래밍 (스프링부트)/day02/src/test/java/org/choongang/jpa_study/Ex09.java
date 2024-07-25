@@ -65,6 +65,6 @@ public class Ex09 {
     void test2() {
         Member member = memberRepository.findById(1L).orElse(null);
         List<BoardData> items = member.getItems();
-        items.forEach(System.out::println);
+        items.forEach(System.out::println); // items 가 Member.java 의 BoardData 정보 호출 -> toString() 호출 ... -> 순환 참조 문제 발생 O
     }
 }
