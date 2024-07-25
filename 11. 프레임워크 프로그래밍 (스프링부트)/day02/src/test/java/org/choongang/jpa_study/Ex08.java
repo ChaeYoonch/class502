@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
+import java.util.List;
+
 @SpringBootTest
 @ActiveProfiles("test") // 테스트별로 위에 @Test 붙이지 않아도 됨
 @Transactional
@@ -41,6 +43,9 @@ public class Ex08 {
     @Test
     void test1() {
         Member member = memberRepository.findById(1L).orElse(null);
-        System.out.println(member);
+        // System.out.println(member);
+        member.setUserName("테스트!!!");
+
+        List<Member> members = memberRepository.findAll();
     }
 }
