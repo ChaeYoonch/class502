@@ -56,5 +56,12 @@ public class Ex12 {
     @Test
     void test1() {
         List<BoardData> items = boardDataRepository.findAll(); // 게시글 10개 전체 조회
+
+        for (BoardData item : items) { // 회원 별 쿼리 수행
+            Member member = item.getMember();
+            String email = member.getEmail();
+            String userName = member.getUserName();
+            System.out.printf("email=%s, userName=%s%n", email, userName);
+        }
     }
 }
