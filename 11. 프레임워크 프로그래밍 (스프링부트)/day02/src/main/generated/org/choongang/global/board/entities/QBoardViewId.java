@@ -33,5 +33,4 @@ public class QBoardViewId extends BeanPath<BoardViewId> {
     public QBoardViewId(PathMetadata metadata) {
         super(BoardViewId.class, metadata);
     }
-
 }
