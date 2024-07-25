@@ -2,6 +2,7 @@ package org.choongang.jpa_study;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 import org.choongang.global.board.entities.BoardData;
 import org.choongang.global.board.entities.HashTag;
 import org.choongang.global.board.repositories.BoardDataRepository;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 @SpringBootTest
-// @Transactional
+@Transactional
 public class Ex11 {
 
     @Autowired
@@ -49,5 +50,12 @@ public class Ex11 {
         BoardData item = boardDataRepository.findById(1L).orElse(null);
         List<HashTag> tags = item.getTags();
         tags.forEach(System.out::println); // 출력
+    }
+
+    @Test
+    void test2() {
+        HashTag tag = hashTagRepository.findById("태그2").orElse(null);
+        List<BoardData> items = tag.getItems();
+        items.forEach(System.out::println);
     }
 }
