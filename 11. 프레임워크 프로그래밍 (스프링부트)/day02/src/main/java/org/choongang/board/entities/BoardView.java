@@ -1,4 +1,4 @@
-package org.choongang.global.board.entities;
+package org.choongang.board.entities;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
