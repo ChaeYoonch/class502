@@ -13,6 +13,6 @@ public interface BoardDataRepository extends JpaRepository<BoardData, Long>, Que
     @Query("SELECT b FROM BoardData b LEFT JOIN FETCH b.member")
     List<BoardData> getAllList();
 
-    @EntityGraph
+    @EntityGraph(attributePaths = "member")
     List<BoardData> findBySubjectContaining(String key);
 }
