@@ -34,7 +34,7 @@ public class Ex10 {
                                              .profileImages("이미지")
                                              .status("상태")
                                              .build();
-        profileRepository.saveAllAndFlush(profile);
+        profileRepository.saveAndFlush(profile);
 
         Member member = Member.builder()
                               .email("user01@test.org")
@@ -52,5 +52,7 @@ public class Ex10 {
     @Test
     void test1() {
         Member member = memberRepository.findById(1L).orElse(null);
+        MemberProfile profile = member.getProfile();
+        System.out.println(profile);
     }
 }
