@@ -42,6 +42,7 @@ public class Member extends BaseEntity { // 클래스 명이 엔티티 명과 �
     /* @Temporal(TemporalType.DATE) // 날짜만!
     private Date date; */
 
+    @ToString.Exclude // 순환 참조 끊음
     @OneToOne
     @JoinColumn(name = "profile_seq") // (name = "profileSeq") 와 동일
     private MemberProfile profile; // profile 이 외래키
