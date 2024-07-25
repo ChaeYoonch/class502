@@ -60,4 +60,11 @@ public class Ex09 {
         Member member = item.getMember(); // 게시글을 작성한 회원
         System.out.println(member); // 위의 member 연결
     }
+
+    @Test
+    void test2() {
+        Member member = memberRepository.findById(1L).orElse(null);
+        List<BoardData> items = member.getItems();
+        items.forEach(System.out::println);
+    }
 }
