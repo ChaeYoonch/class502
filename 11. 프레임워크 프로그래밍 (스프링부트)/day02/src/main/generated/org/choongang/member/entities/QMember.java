@@ -30,7 +30,7 @@ public class QMember extends EntityPathBase<Member> {
 
     public final StringPath email = createString("email");
 
-    public final ListPath<org.choongang.global.board.entities.BoardData, org.choongang.global.board.entities.QBoardData> items = this.<org.choongang.global.board.entities.BoardData, org.choongang.global.board.entities.QBoardData>createList("items", org.choongang.global.board.entities.BoardData.class, org.choongang.global.board.entities.QBoardData.class, PathInits.DIRECT2);
+    public final ListPath<org.choongang.board.entities.BoardData, org.choongang.board.entities.QBoardData> items = this.<org.choongang.board.entities.BoardData, org.choongang.board.entities.QBoardData>createList("items", org.choongang.board.entities.BoardData.class, org.choongang.board.entities.QBoardData.class, PathInits.DIRECT2);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modifiedAt = _super.modifiedAt;
