@@ -18,6 +18,6 @@ public class HashTag {
     @Id
     private String tag;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "tags") // 관계의 주인 설정
     private List<BoardData> items;
 }
