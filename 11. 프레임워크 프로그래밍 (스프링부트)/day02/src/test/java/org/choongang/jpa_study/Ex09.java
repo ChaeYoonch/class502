@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.choongang.global.board.repositories.BoardDataRepository;
 import org.choongang.member.repositories.MemberRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -22,4 +23,9 @@ public class Ex09 {
 
     @PersistenceContext // 영속성
     private EntityManager em;
+
+    @BeforeEach
+    void init() {
+
+    }
 }
