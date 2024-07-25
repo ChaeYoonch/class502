@@ -1,10 +1,12 @@
 package org.choongang.jpa_study;
 
+import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import org.choongang.global.board.entities.BoardData;
-import org.choongang.global.board.repositories.BoardDataRepository;
+import org.choongang.board.entities.BoardData;
+import org.choongang.board.entities.QBoardData;
+import org.choongang.board.repositories.BoardDataRepository;
 import org.choongang.member.constants.Authority;
 import org.choongang.member.entities.Member;
 import org.choongang.member.repositories.MemberRepository;
@@ -78,6 +80,11 @@ public class Ex12 {
 
     @Test
     void test4() {
+        QBoardData boardData = QBoardData.boardData;
+
         JPAQueryFactory factory = new JPAQueryFactory(em); // em = (**) 연동함
+        JPAQuery<BoardData> query = factory.selectFrom(boardData)
+                                           .leftJoin(boardData.member)
+                                           .fetchJoin();
     }
 }
