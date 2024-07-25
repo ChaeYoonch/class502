@@ -47,5 +47,6 @@ public class Ex08 {
         member.setUserName("테스트!!!");
 
         List<Member> members = memberRepository.findAll();
+        members.forEach(System.out::println);
     }
 }
