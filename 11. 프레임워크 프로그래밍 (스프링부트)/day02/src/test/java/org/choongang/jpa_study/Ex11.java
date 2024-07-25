@@ -28,16 +28,18 @@ public class Ex11 {
 
     @BeforeEach
     void init() {
-        List<HashTag> tags = IntStream.rangeClosed(1, 5) // 5개 태그 생성
+        List<HashTag> tags = IntStream.rangeClosed(1, 5) // 5개 태그 추가
                                       .mapToObj(i -> HashTag.builder().tag("태그" + i).build()).toList();
 
         hashTagRepository.saveAllAndFlush(tags);
 
-        List<BoardData> items = IntStream.rangeClosed(1, 5) // 5개 게시글 생성
+        List<BoardData> items = IntStream.rangeClosed(1, 5) // 5개 게시글 추가
                                          .mapToObj(i -> BoardData.builder()
                                          .subject("제목" + i)
                                          .content("내용" + i)
                                          .tags(tags)
                                          .build()).toList();
+
+        boardDataRepository.saveAllAndFlush(items);
     }
 }
