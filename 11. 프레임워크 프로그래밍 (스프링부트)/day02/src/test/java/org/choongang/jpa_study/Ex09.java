@@ -49,5 +49,6 @@ public class Ex09 {
                                                                  .build()).toList();
 
         boardDataRepository.saveAllAndFlush(items);
+        em.clear(); // 이거 있어야만 쿼리 수행 확인 가능함!
     }
 }
