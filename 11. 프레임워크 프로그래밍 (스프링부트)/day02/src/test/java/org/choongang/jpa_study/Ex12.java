@@ -31,6 +31,9 @@ public class Ex12 {
     @Autowired
     private BoardDataRepository boardDataRepository;
 
+    @Autowired
+    private JPAQueryFactory queryFactory;
+
     @PersistenceContext // 영속성
     private EntityManager em; // (**)
 
