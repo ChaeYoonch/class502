@@ -86,5 +86,8 @@ public class Ex12 {
         JPAQuery<BoardData> query = factory.selectFrom(boardData)
                                            .leftJoin(boardData.member)
                                            .fetchJoin();
+
+        List<BoardData> items = query.fetch();
+        //items.forEach(System.out::println);
     }
 }
