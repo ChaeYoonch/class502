@@ -1,4 +1,4 @@
-package org.choongang.global.board.entities;
+package org.choongang.board.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
