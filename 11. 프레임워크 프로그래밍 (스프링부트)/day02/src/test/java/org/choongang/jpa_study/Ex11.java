@@ -1,5 +1,7 @@
 package org.choongang.jpa_study;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.choongang.global.board.repositories.BoardDataRepository;
 import org.choongang.global.board.repositories.HashTagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,4 +16,7 @@ public class Ex11 {
 
     @Autowired
     private HashTagRepository hashTagRepository;
+
+    @PersistenceContext
+    private EntityManager em;
 }
