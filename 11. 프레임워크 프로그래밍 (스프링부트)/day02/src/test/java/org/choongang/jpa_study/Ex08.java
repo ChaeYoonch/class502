@@ -48,5 +48,10 @@ public class Ex08 {
 
         List<Member> members = memberRepository.findAll();
         members.forEach(System.out::println);
+
+        em.clear();
+
+        List<Member> members2 = memberRepository.findAll();
+        members.forEach(System.out::println);
     }
 }
