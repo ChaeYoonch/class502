@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.choongang.global.board.repositories.BoardDataRepository;
 import org.choongang.global.board.repositories.HashTagRepository;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -19,4 +20,9 @@ public class Ex11 {
 
     @PersistenceContext
     private EntityManager em;
+
+    @Test
+    void test1() {
+
+    }
 }
