@@ -1,5 +1,6 @@
 package org.choongang.jpa_study;
 
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.choongang.global.board.entities.BoardData;
@@ -29,7 +30,7 @@ public class Ex12 {
     private BoardDataRepository boardDataRepository;
 
     @PersistenceContext // 영속성
-    private EntityManager em;
+    private EntityManager em; // (**)
 
     @BeforeEach
     void init() {
@@ -77,6 +78,6 @@ public class Ex12 {
 
     @Test
     void test4() {
-
+        JPAQueryFactory factory = new JPAQueryFactory(em); // em = (**) 연동함
     }
 }
