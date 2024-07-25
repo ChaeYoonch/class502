@@ -50,4 +50,5 @@ public class QMember extends EntityPathBase<Member> {
     public QMember(PathMetadata metadata) {
         super(Member.class, metadata);
     }
+
 }
