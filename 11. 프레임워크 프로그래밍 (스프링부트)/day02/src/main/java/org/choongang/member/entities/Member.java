@@ -43,7 +43,7 @@ public class Member extends BaseEntity { // 클래스 명이 엔티티 명과 �
     private Date date; */
 
     @OneToOne
-    @JoinColumn(name = "profile_seq")
+    @JoinColumn(name = "profile_seq") // (name = "profileSeq") 와 동일
     private MemberProfile profile;
 
     @ToString.Exclude // ToString() 추가 배제 -> lombok 이 getter 메서드로 실행되므로 무한 반복 발생 -> 순환 참조 끊어주는 역할
