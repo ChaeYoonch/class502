@@ -46,6 +46,8 @@ public class Ex11 {
 
     @Test
     void test1() {
-
+        BoardData item = boardDataRepository.findById(1L).orElse(null);
+        List<HashTag> tags = item.getTags();
+        tags.forEach(System.out::println); // 출력
     }
 }
