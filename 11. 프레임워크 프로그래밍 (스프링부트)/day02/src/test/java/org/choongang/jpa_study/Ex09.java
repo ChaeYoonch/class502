@@ -55,6 +55,8 @@ public class Ex09 {
 
     @Test
     void test1() {
-        BoardData item = boardDataRepository.findById(1L).orElse(null);
+        BoardData item = boardDataRepository.findById(1L).orElse(null); // 조회
+
+        System.out.println(item); // 출력
     }
 }
