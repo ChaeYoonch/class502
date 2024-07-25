@@ -1,6 +1,7 @@
 package org.choongang.global.board.repositories;
 
 import org.choongang.global.board.entities.BoardData;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
@@ -11,4 +12,7 @@ public interface BoardDataRepository extends JpaRepository<BoardData, Long>, Que
 
     @Query("SELECT b FROM BoardData b LEFT JOIN FETCH b.member")
     List<BoardData> getAllList();
+
+    @EntityGraph
+    List<BoardData> findBySubjectContaining(String key);
 }
