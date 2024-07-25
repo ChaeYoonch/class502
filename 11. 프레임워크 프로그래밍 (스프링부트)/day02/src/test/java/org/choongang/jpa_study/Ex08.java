@@ -1,6 +1,7 @@
 package org.choongang.jpa_study;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.FlushModeType;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.choongang.member.repositories.MemberRepository;
@@ -21,6 +22,6 @@ public class Ex08 {
 
     @BeforeEach
     void init() {
-
+        em.setFlushMode(FlushModeType.AUTO); // 바뀐 값으로 유지됨
     }
 }
