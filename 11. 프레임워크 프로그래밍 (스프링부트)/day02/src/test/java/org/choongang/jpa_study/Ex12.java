@@ -117,6 +117,11 @@ public class Ex12 {
 
     @Test
     void test7() {
+        QBoardData boardData = QBoardData.boardData;
 
+        JPAQuery<BoardData> query = queryFactory.selectFrom(boardData)
+                                                   .leftJoin(boardData.member)
+                                                   .fetchJoin()
+                                                   .where();
     }
 }
