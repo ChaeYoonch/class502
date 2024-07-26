@@ -65,8 +65,8 @@ public class Ex13 {
         Member member = memberRepository.findById(1L).orElse(null); // 1L : 1번째 게시글
 
         List<BoardData> items = member.getItems();
-        items.remove(0); // 0 번째 있는 값 제거
-        items.remove(1); // 1 번째 있는 값 제거
+        items.remove(0); // 0 번째 있는 값 제거 => 메모리만 제거, 엔티티는 제거 X (엔티티 = 영속성 컨텍스트 내부에 있음)
+        items.remove(1); // 1 번째 있는 값 제거 => 메모리만 제거, 엔티티는 제거 X (엔티티 = 영속성 컨텍스트 내부에 있음)
 
         memberRepository.flush();
     }
