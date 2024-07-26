@@ -124,10 +124,12 @@ public class Ex12 {
         andBuilder.and(boardData.subject.contains("제목"))
                   .and(boardData.member.email.eq("user01@test.org"));
 
+        BooleanBuilder orBuilder = new BooleanBuilder();
+
         JPAQuery<BoardData> query = queryFactory.selectFrom(boardData)
                                                    .leftJoin(boardData.member)
                                                    .fetchJoin()
-                                                   .where(boardData.seq.in(2L, 3L, 4L)); // 반환값 = BooleanExpression -> 상위가 Predicate
+                                                   .where(boardData.seq.in(2L, 3L, 4L)); // 반환값 = BooleanExpression -> 상위가 Predicate | 2L, 3L, 4L = 게시글 2, 3, 4
 
         List<BoardData> items = query.fetch(); // 위의 fetch 값 연결
         items.forEach(System.out::println);
