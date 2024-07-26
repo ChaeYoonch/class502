@@ -122,6 +122,8 @@ public class Ex12 {
         JPAQuery<BoardData> query = queryFactory.selectFrom(boardData)
                                                    .leftJoin(boardData.member)
                                                    .fetchJoin()
-                                                   .where();
+                                                   .where(boardData.seq.in(2L, 3L, 4L)); // 반환값 = BooleanExpression -> 상위가 Predicate
+
+        List<BoardData> items = query.fetch(); // 위의 fetch 값 연결
     }
 }
