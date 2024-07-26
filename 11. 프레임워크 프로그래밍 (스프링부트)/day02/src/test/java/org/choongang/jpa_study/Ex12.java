@@ -1,5 +1,6 @@
 package org.choongang.jpa_study;
 
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.Tuple;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -118,6 +119,10 @@ public class Ex12 {
     @Test
     void test7() {
         QBoardData boardData = QBoardData.boardData;
+
+        BooleanBuilder andBuilder = new BooleanBuilder();
+        andBuilder.and(boardData.subject.contains("제목"))
+                  .and(boardData.member.email.eq("user01@test.org"));
 
         JPAQuery<BoardData> query = queryFactory.selectFrom(boardData)
                                                    .leftJoin(boardData.member)
