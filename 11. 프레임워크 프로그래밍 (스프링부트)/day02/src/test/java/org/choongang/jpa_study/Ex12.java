@@ -135,6 +135,7 @@ public class Ex12 {
                                                    .leftJoin(boardData.member)
                                                    .fetchJoin()
                                                    .where(andBuilder)
+                                                   .offset(3) // 조회 시작 레코드 3번째 행부터 조회 시작
                                                    .limit(3); // 레코드 3개로 한정 - 개수 제한
                                                    //.where(boardData.seq.in(2L, 3L, 4L)); // 반환값 = BooleanExpression -> 상위가 Predicate | 2L, 3L, 4L = 게시글 2, 3, 4
 
