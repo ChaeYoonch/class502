@@ -120,11 +120,16 @@ public class Ex12 {
     void test7() {
         QBoardData boardData = QBoardData.boardData;
 
-        BooleanBuilder andBuilder = new BooleanBuilder();
+        BooleanBuilder andBuilder = new BooleanBuilder(); // and 조건
         andBuilder.and(boardData.subject.contains("제목"))
                   .and(boardData.member.email.eq("user01@test.org"));
 
-        BooleanBuilder orBuilder = new BooleanBuilder();
+        BooleanBuilder orBuilder = new BooleanBuilder(); // or 조건
+        orBuilder.or(boardData.seq.eq(2L))
+                 .or(boardData.seq.eq(3L))
+                 .or(boardData.seq.eq(4L));
+
+        andBuilder.and(orBuilder);
 
         JPAQuery<BoardData> query = queryFactory.selectFrom(boardData)
                                                    .leftJoin(boardData.member)
