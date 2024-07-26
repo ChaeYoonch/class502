@@ -114,4 +114,9 @@ public class Ex12 {
         long sum = query.fetchOne(); // fetchFirst() : 여러 개 중 한개 -> 여러 개 있어도 상관 없음 | fetchOne() : 한 개만 가져오고 한 개만 있어야 함
         System.out.println(sum);
     }
+
+    @Test
+    void test7() {
+
+    }
 }
