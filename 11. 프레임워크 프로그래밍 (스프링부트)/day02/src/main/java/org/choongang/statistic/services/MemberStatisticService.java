@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemberStatisticService {
 
-    @Scheduled
+    @Scheduled(fixedRate = 5000) // 5초 간격
     public void makeData() {
         log.info("실행!!!");
     }
