@@ -47,6 +47,6 @@ public class Member extends BaseEntity { // 클래스 명이 엔티티 명과 �
     private MemberProfile profile; // profile 이 외래키
 
     @ToString.Exclude // ToString() 추가 배제 -> lombok 이 getter 메서드로 실행되므로 무한 반복 발생 -> 순환 참조 끊어주는 역할
-    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE) // One = 지금 클래스 - Member | Many = BoardData | "member" = BoardData 의 Member member 의 member 부분
+    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE) // One = 지금 클래스 - Member | Many = BoardData | "member" = BoardData 의 Member member 의 member 부분 | 제약 조건 CASCADE ON DELETE 가 아님!!
     private List<BoardData> items;
 }
