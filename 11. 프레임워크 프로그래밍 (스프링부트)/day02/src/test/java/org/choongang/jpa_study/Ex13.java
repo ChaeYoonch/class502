@@ -59,4 +59,15 @@ public class Ex13 {
 
         memberRepository.flush();
     }
+
+    @Test
+    void test2() { // Member 의 {cascade = CascadeType.PERSIST}, orphanRemoval = true 부분 test
+        Member member = memberRepository.findById(1L).orElse(null); // 1L : 1번째 게시글
+
+        List<BoardData> items = member.getItems();
+        items.remove(0); // 0 번째 있는 값 제거
+        items.remove(1); // 1 번째 있는 값 제거
+
+        memberRepository.flush();
+    }
 }
