@@ -8,6 +8,7 @@ import org.choongang.member.constants.Authority;
 import org.choongang.member.entities.Member;
 import org.choongang.member.repositories.MemberRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -49,5 +50,10 @@ public class Ex13 {
 
         boardDataRepository.saveAllAndFlush(items);
         em.clear(); // 이거 있어야만 쿼리 수행 확인 가능함!
+    }
+
+    @Test
+    void test1() {
+        Member member = memberRepository.findById(1L).orElse(null); // 1L : 1번째 게시글
     }
 }
