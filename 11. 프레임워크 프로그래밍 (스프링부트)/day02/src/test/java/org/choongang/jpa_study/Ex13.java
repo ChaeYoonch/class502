@@ -53,7 +53,7 @@ public class Ex13 {
     }
 
     @Test
-    void test1() {
+    void test1() { // Member 의 cascade = CascadeType.REMOVE 부분 test
         Member member = memberRepository.findById(1L).orElse(null); // 1L : 1번째 게시글
     }
 }
