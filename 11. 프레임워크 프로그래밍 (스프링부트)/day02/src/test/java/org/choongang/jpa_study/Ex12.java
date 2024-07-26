@@ -110,6 +110,6 @@ public class Ex12 {
     @Test
     void test6() {
         QBoardData boardData = QBoardData.boardData;
-        JPAQuery<Long> query = queryFactory.select(boardData.seq.sum()).from(boardData);
+        JPAQuery<Long> query = queryFactory.select(boardData.seq.sum()).from(boardData);  // sum : 통계 관련 함수
     }
 }
