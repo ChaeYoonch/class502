@@ -1,6 +1,5 @@
 package org.choongang.jpa_study;
 
-import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.choongang.board.entities.BoardData;
@@ -26,9 +25,6 @@ public class Ex13 {
 
     @Autowired
     private BoardDataRepository boardDataRepository;
-
-    @Autowired
-    private JPAQueryFactory queryFactory;
 
     @PersistenceContext // 영속성
     private EntityManager em; // (**)
