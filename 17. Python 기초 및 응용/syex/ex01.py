@@ -1,3 +1,7 @@
 import sys
 
-print(sys.argv)
+args = sys.argv[1:]
+
+for arg in args:
+
+    print(arg.upper(), end=' ')
