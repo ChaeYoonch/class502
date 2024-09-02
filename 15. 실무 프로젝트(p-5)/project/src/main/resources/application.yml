@@ -10,3 +10,7 @@ springdoc:
   swagger-ui:
     operations-sorter: alpha
     tags-sorter: alpha
+    path: /apidocs.html
+    disable-swagger-default-url: true
+  paths-to-match: # 특정 url 로 가는 url 만 연결 가능
+    - /api/** # /api/ 뒤의 모든 경로 -> 자동 문서로 만들어주는 범위로 설정
