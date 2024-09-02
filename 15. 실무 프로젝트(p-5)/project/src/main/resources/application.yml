@@ -1,3 +1,12 @@
 server:
   port: 3000
 
+springdoc:
+  version: '1.0.0'
+  api-docs:
+    path: /api-docs
+  default-consumes-media-type: application/json # 요청 헤더 의 content-type
+  default-produces-media-type: application/json # 응답 헤더 의 content-type
+  swagger-ui:
+    operations-sorter: alpha
+    tags-sorter: alpha
