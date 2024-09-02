@@ -1,5 +1,7 @@
 package org.choongang.member.controllers;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.choongang.member.entities.Member;
 import org.springframework.http.HttpStatus;
@@ -13,6 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/member")
 public class MemberController {
+
+    @Operation(summary = "회원 가입", description = "회원 가입에 대한 자세한 설명")
+
+    @ApiResponse
 
     @PostMapping
     public ResponseEntity<Member> join(@RequestBody RequestJoin form) {
