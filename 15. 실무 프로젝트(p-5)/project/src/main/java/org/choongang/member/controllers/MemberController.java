@@ -16,6 +16,6 @@ public class MemberController {
 
     @PostMapping
     public ResponseEntity<Member> join(@RequestBody RequestJoin form) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(new Member());
+        return ResponseEntity.status(HttpStatus.CREATED).body(new Member()); // 요청 데이터, 응답 데이터 자동 추가됨
     }
 }
