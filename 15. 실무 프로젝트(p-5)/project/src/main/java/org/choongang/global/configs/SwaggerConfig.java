@@ -7,7 +7,7 @@ import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@OpenAPIDefinition(info=@Info(title = "API 명세", description = "설명", contact = @Contact(name = "Yonggyo, Lee", email="yonggyo00@kakao.com"), version = "v1"))
+@OpenAPIDefinition(info=@Info(title="API 명세", description = "설명....", contact = @Contact(name="Yonggyo, Lee", email="yonggyo00@kakao.com"), version="v1"))
 @Configuration
 public class SwaggerConfig {
 
